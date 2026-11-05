@@ -120,6 +120,8 @@ class Bias:
 
 
 def detect(c1: Bar, c2: Bar, bias: int, chop: Chop, config: Config) -> Setup | None:
+    if not config.bias_enabled:
+        bias = 0
     if c1.end != c2.start or c1.contract != c2.contract or c1.minutes != c2.minutes:
         return None
     session = session_at(c2.end, config)

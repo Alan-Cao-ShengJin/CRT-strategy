@@ -13,6 +13,8 @@ class Config:
     symbols: list[str] = field(default_factory=lambda: ["MNQ", "MES", "MGC"])
     timeframes: list[int] = field(default_factory=lambda: [15, 30, 60])
     entry_mode: str = "rebreak"
+    bar_model: str = "high_first"
+    bias_enabled: bool = True
     reward_risk: float = 1.5
     entry_offset_ticks: int = 1
     limit_offset_ticks: int = 2
@@ -59,6 +61,8 @@ class Config:
             raise ValueError("timeframes must be a unique subset of 15, 30, 60")
         if self.entry_mode not in ("direct", "rebreak", "auto") or self.neutral_policy not in ("skip", "first"):
             raise ValueError("Invalid entry mode or neutral policy")
+        if self.bar_model not in ("legacy", "high_first", "low_first"):
+            raise ValueError("bar_model must be legacy, high_first or low_first")
         for name in ("reward_risk", "initial_equity", "risk_per_trade", "risk_fraction", "max_open_risk", "max_daily_loss", "max_drawdown", "max_feed_age_seconds", "max_tick_gap_seconds"):
             v = getattr(self, name)
             if isinstance(v, bool) or not isinstance(v, (float, int)) or not isfinite(v) or v <= 0:

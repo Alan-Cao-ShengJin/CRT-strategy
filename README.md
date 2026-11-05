@@ -4,6 +4,8 @@ Source repository: [Alan-Cao-ShengJin/CRT-strategy](https://github.com/Alan-Cao-
 
 A standalone Python implementation derived from both transcripts in this directory. It discovers Massive futures contracts, downloads historical data, backtests a shared MNQ/MES/MGC account, compares fixed entry rules, and runs persistent simulated accounts from REST bars or WebSocket trades.
 
+The initial profitability report has been superseded after an execution audit found omitted entry-minute targets and rebreak cancellations using later bar extremes. The updated research compares explicit high-first and low-first OHLC paths. See [ANNUAL_BACKTEST.md](ANNUAL_BACKTEST.md) for the wider study and its limitations.
+
 **This is a research and paper-trading system. Massive supplies market data, not brokerage execution. The project does not submit real-money orders.** The transcript's hourly bias and price-action judgments require approximations; the included implementation and initial backtests do not substantiate its advertised win rate.
 
 ## Start here
@@ -39,7 +41,18 @@ Start-Process .\runs\validation\report.html
 
 Downloads use inclusive/exclusive **UTC calendar dates**. Backtest `--start` and `--end` use **CME trading dates**, with the evening session assigned to the following day. Earlier bars warm up indicators. Forward windows retain the same strategy parameters and reset account capital independently; there is no automatic search for profitable settings. These are fixed-window evaluations, not an independently established out-of-sample investment result.
 
-Each report directory contains `report.html`, `summary.json` with the exact configuration, `trades.csv`, `equity.csv`, and `events.jsonl`. `runs/validation` contains the initial full-period evaluation; see [VALIDATION.md](VALIDATION.md).
+Each report directory contains `report.html`, `summary.json` with the exact configuration, `trades.csv`, `equity.csv`, and `events.jsonl`. `bar_model` defaults to `high_first`; repeat with `--bar-model low_first`. These are assumptions about intrabar ordering. The old `legacy` model is solely for reproducing archived results.
+
+To reproduce the annual transcript audit:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[research,test]"
+.\.venv\Scripts\python.exe -m research.download_annual
+.\.venv\Scripts\python.exe -m research.annual_study
+Start-Process .\runs\annual_audit\report.html
+```
+
+The download uses a fixed dated-contract roll calendar and can take several minutes under a five-call-per-minute API limit. `research/protocol.json` declares all cases before execution; `research/results/annual_summary.json` stores all outcomes, chronology splits, monthly figures, input hashes and uncertainty estimates. Full price data and per-case trade reports remain local.
 
 ## Your current Massive access
 
@@ -55,7 +68,7 @@ On 5 November 2026, authenticated futures REST requests succeeded for all three 
 .\.venv\Scripts\python.exe -m crt paper --contracts MNQZ6 MESZ6 MGCZ6 --transport websocket --feed realtime --journal runs/paper_ticks.sqlite --output runs/paper_ticks
 ```
 
-REST mode polls completed minutes and uses bar execution assumptions. It can backfill missed minutes on restart. WebSocket mode observes actual trade sequencing and can resolve rebreaks within the same minute. Neither mode models order-book queue priority, partial fills, or bid/ask execution. There is no automatic upgrade or purchase.
+REST mode polls completed minutes and uses the configured assumed OHLC path. It can backfill missed minutes on restart. WebSocket mode observes actual trade sequencing and can resolve rebreaks within the same minute. Neither mode models order-book queue priority, partial fills, or bid/ask execution. There is no automatic upgrade or purchase.
 
 REST requests share a local rate limiter across processes, spaced 13 seconds apart by default, with HTTP 429 retries. Initialization can take a few minutes. Set the nonsecret environment variable `MASSIVE_REQUEST_INTERVAL_SECONDS` only if your actual plan permits a different rate. With limited request capacity, run one data workflow at a time.
 

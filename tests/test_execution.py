@@ -10,7 +10,7 @@ AT = timestamp("2026-11-03T14:30:00Z")
 
 
 def cfg(**kwargs):
-    return Config(chop_enabled=False, neutral_policy="first", slippage_ticks=0, **kwargs)
+    return Config(chop_enabled=False, neutral_policy="first", slippage_ticks=0, bar_model="legacy", **kwargs)
 
 
 def setup(symbol="MNQ", side=1, mode="direct", at=AT):

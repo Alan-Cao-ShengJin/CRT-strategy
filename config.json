@@ -10,6 +10,8 @@
     60
   ],
   "entry_mode": "rebreak",
+  "bar_model": "high_first",
+  "bias_enabled": true,
   "reward_risk": 1.5,
   "entry_offset_ticks": 1,
   "limit_offset_ticks": 2,

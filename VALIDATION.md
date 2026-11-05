@@ -1,5 +1,7 @@
 # Initial validation
 
+**Superseded as profitability evidence.** A subsequent execution audit found that the legacy model omitted entry-minute targets and could cancel valid rebreak winners using a later high/low. The results below remain an archive of what that implementation produced; they do not establish the strategy's true profitability. The corrected study compares both explicit minute-bar paths and is documented in `ANNUAL_BACKTEST.md`.
+
 Evaluation performed on 5 November 2026. These are recorded research results, not performance targets.
 
 - Inputs: 45,420 MNQZ6 minute bars, 45,420 MESZ6 bars, and 45,419 MGCZ6 bars downloaded from Massive, starting 21 September 2026 UTC.

@@ -15,6 +15,11 @@ def write_report(engine, output, metadata=None):
     summary = engine.summary()
     document = {"summary": summary, "config": engine.config.to_dict(), "metadata": metadata or {},
                 "open_positions": {s: {"entry": p.entry, "stop": p.stop, "target": p.setup.target, "qty": p.qty} for s, p in engine.positions.items()}}
+    execution_note = ("Legacy execution deliberately penalizes entry bars and can suppress valid rebreak winners; use only to reproduce old results."
+                      if engine.config.bar_model == "legacy" else
+                      f"Minute execution assumes {'open → high → low → close' if engine.config.bar_model == 'high_first' else 'open → low → high → close'}. Compare both paths; neither is observed tick data or a rigorous bound.")
+    if (metadata or {}).get("execution") == "tick" or ("feed" in (metadata or {}) and (metadata or {}).get("transport") != "rest"):
+        execution_note = "Execution followed supplied trade ticks in their observed order; trade prints do not model bid/ask spreads or queue priority."
     (output / "summary.json").write_text(json.dumps(document, indent=2, allow_nan=False), encoding="utf-8")
     with (output / "trades.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=[f.name for f in fields(Trade)])
@@ -50,7 +55,7 @@ h1{{font-size:clamp(26px,4vw,44px);margin-bottom:8px}}p{{max-width:90ch;color:#a
 .card{{padding:18px;background:#1b2637;border:1px solid #304058;border-radius:9px;min-width:0}}span,strong{{display:block}}span{{color:#aebbd0;font-size:12px;text-transform:uppercase}}strong{{font-size:24px;margin-top:8px;overflow-wrap:anywhere}}strong.text{{font-size:18px}}
 .scroll{{overflow:auto}}table{{border-collapse:collapse;white-space:nowrap;width:100%}}td,th{{padding:12px;text-align:left;border-bottom:1px solid #304058}}svg{{width:100%;height:220px;background:#1b2637;border-radius:9px}}pre{{white-space:pre-wrap;overflow-wrap:anywhere;color:#aebbd0}}
 </style><h1>CRT / Futures</h1><p>MNQ · MES · MGC | Research and simulated execution</p>
-<p>Results include configured commissions and slippage. Bar rebreaks require separate minutes. Ambiguous entry bars favor stops and defer targets. These are execution assumptions, not a proven lower bound on results. No broker orders were sent.</p>
+<p>Results include configured commissions and slippage. {html.escape(execution_note)} No broker orders were sent.</p>
 <div class="cards">{cards}</div><h2>Marked equity</h2><p>Range: ${low:,.2f} – ${high:,.2f}. X axis follows observed samples; overnight gaps are compressed.</p>
 <svg viewBox="0 0 1000 200" role="img" aria-label="Marked account equity over observed samples"><polyline points="{points}" fill="none" stroke="#65d8cb" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
 <h2>Trade journal</h2><div class="scroll"><table><thead><tr><th>Symbol</th><th>Contract</th><th>Side</th><th>Entry UTC</th><th>Entry</th><th>Exit</th><th>Qty</th><th>Net USD</th><th>Exit reason</th></tr></thead><tbody>{rows}</tbody></table></div>

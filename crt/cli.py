@@ -38,6 +38,7 @@ def parser():
     backtest.add_argument("--data", nargs="+", required=True)
     backtest.add_argument("--config")
     backtest.add_argument("--schedule-file")
+    backtest.add_argument("--bar-model", choices=["legacy", "high_first", "low_first"])
     backtest.add_argument("--output", default="runs/backtest")
     backtest.add_argument("--start", help="First trading date, YYYY-MM-DD; earlier bars warm up indicators")
     backtest.add_argument("--end", help="Exclusive trading date, YYYY-MM-DD")
@@ -128,6 +129,8 @@ def main(argv=None):
             config = Config.load(args.config)
             if args.schedule_file:
                 config.schedule_file = args.schedule_file
+            if args.bar_model:
+                config.bar_model = args.bar_model
             if args.start:
                 date.fromisoformat(args.start)
             if args.end:
@@ -147,7 +150,8 @@ def main(argv=None):
                 if not bars:
                     raise ValueError("Input contains no bars")
                 engine = run_backtest(config, bars, args.start, args.end)
-                metadata = {"execution": "conservative_minute", "coverage": coverage(bars), "start": args.start, "end": args.end}
+                metadata = {"execution": "minute_" + config.bar_model, "coverage": coverage(bars), "start": args.start, "end": args.end,
+                            "warning": "OHLC paths are assumptions, not observed tick sequences. Compare both high_first and low_first."}
             print(json.dumps(write_report(engine, args.output, metadata), indent=2))
             print(f"Report: {Path(args.output).resolve() / 'report.html'}")
         elif args.command == "compare":

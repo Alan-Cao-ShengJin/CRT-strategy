@@ -184,6 +184,8 @@ class Engine:
         completed = {tf: result for tf, agg in st.aggregators.items() if (result := agg.push(bar)) is not None}
         if 60 in completed:
             st.bias.push(completed[60])
+        if not completed:
+            return
         chop = chop_metrics(list(st.minutes), c)
         candidates = []
         for tf, result in completed.items():
@@ -229,6 +231,66 @@ class Engine:
         self.curve.append({"time": (at + MINUTE).isoformat(), "equity": self.equity})
 
     def _bar_execution(self, b):
+        if self.config.bar_model != "legacy":
+            return self._path_execution(b)
+        return self._legacy_bar_execution(b)
+
+    def _path_execution(self, b):
+        """Explicit hypothetical OHLC ordering, NOT reconstructed trade ticks.
+
+        Visit order levels along each monotone leg. No later bar extreme is
+        consulted before an earlier entry, pullback, stop or target event.
+        """
+        if b.symbol not in self.positions and self.states[b.symbol].pending is None:
+            return
+        points = ([b.open, b.high, b.low, b.close] if self.config.bar_model == "high_first"
+                  else [b.open, b.low, b.high, b.close])
+        self._path_price(b.symbol, points[0], b.start)
+        for start, end in zip(points, points[1:]):
+            current = start
+            for _ in range(16):
+                if abs(end-current) < 1e-9:
+                    break
+                levels = [end]
+                if (position := self.positions.get(b.symbol)) is not None:
+                    levels += [position.stop, position.setup.target]
+                elif (setup := self.states[b.symbol].pending) is not None:
+                    levels += [setup.target]
+                    if setup.mode == "rebreak" and setup.phase == "broken":
+                        levels.append(setup.trigger - setup.side * self.config.pullback_ticks * INSTRUMENTS[b.symbol].tick)
+                    elif setup.activated:
+                        levels.append(setup.trigger + setup.side * self.config.limit_offset_ticks * INSTRUMENTS[b.symbol].tick)
+                    else:
+                        levels.append(setup.trigger)
+                if end > current:
+                    following = min(x for x in levels if current + 1e-8 < x <= end + 1e-8)
+                else:
+                    following = max(x for x in levels if end - 1e-8 <= x < current - 1e-8)
+                self._path_price(b.symbol, round(following, 8), b.start)
+                current = following
+            else:
+                raise RuntimeError("Intrabar event processing did not converge")
+
+    def _path_price(self, symbol, price, at):
+        self.marks[symbol] = price
+        self._risk_check(at)
+        if (p := self.positions.get(symbol)) is not None:
+            if self.halt_reason or self.feed_halted or self._must_flatten(p, at):
+                self._exit(symbol, price, at, self.halt_reason or ("feed_halt" if self.feed_halted else "daily_flatten"), market=True)
+            elif p.setup.side * (price-p.stop) <= 1e-8:
+                self._exit(symbol, price, at, "stop", market=True)
+            elif p.setup.side * (price-p.setup.target) >= -1e-8:
+                self._exit(symbol, p.setup.target, at, "target")
+        elif (s := self.states[symbol].pending) is not None and at >= s.created:
+            if s.side * (price-s.target) >= -1e-8:
+                self.states[symbol].pending = None
+                self.log("cancelled", at, symbol=symbol, reason="target_already_reached")
+            else:
+                self._price_entry(s, symbol, price, at)
+        self._risk_check(at)
+
+    def _legacy_bar_execution(self, b):
+        """Historical implementation retained solely to reproduce old reports."""
         symbol, at = b.symbol, b.start
         if symbol in self.positions:
             p = self.positions[symbol]
@@ -335,7 +397,9 @@ class Engine:
             self.curve.append({"time": at.isoformat(), "equity": self.equity})
 
     def _tick_entry(self, s, tick):
-        symbol, price, at = tick.symbol, tick.price, tick.time
+        self._price_entry(s, tick.symbol, tick.price, tick.time)
+
+    def _price_entry(self, s, symbol, price, at):
         d = s.side * (price - s.trigger)
         ready = s.mode == "direct" or s.phase == "armed"
         if s.mode == "rebreak" and s.phase == "waiting" and d >= -1e-8:
