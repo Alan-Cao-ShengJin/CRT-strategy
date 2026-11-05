@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "controls": [
+    {
+      "path": "high_first",
+      "trades": 165,
+      "daily_marks": 134,
+      "reference_sha256": "4d3c22b0fa0ac17075d4445cb1a5fa500ca06437e75d6e8604a939d8efb5e8b2"
+    },
+    {
+      "path": "low_first",
+      "trades": 165,
+      "daily_marks": 134,
+      "reference_sha256": "e2b144ea4a389ca2075eecb2a282835c738c0afd04fa4efa50e15a3c00ce2631"
+    }
+  ],
+  "runtime_source_sha256": {
+    "C:\\Users\\Alan Cao\\Desktop\\CRT\\research\\universe65_fast.py": "2b2f2d931cf72dd11539b996f1f55d95448a6d0069757c1bb9b491857f00ce6d"
+  },
+  "base_source_sha256": {
+    "crt\\__init__.py": "0f56fb1da2ba6a07fbb670d0432c413c7833f5fc81362afac941a4bf1a315e7c",
+    "crt\\__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "crt\\calendar.py": "1e3e460a28a78eabdfc4eaa6acdd2d1448860cae5f5b2db5dc679983b6424ef1",
+    "crt\\cli.py": "65d551020c0181eeb643175e93f9c33578756f0829465de60fa9579ca2bdba91",
+    "crt\\config.py": "45400df0ac7750d67dd4bc87a885eb725c67fed604fe803e572b20fae48ba7bf",
+    "crt\\data.py": "8c6ec862e80889395ff41f3e99f97dd5ca85e8e89f0aff9bc71fa4a185c93b1d",
+    "crt\\engine.py": "475485dc64828c60ecaa91d484e67f4a4be87a14041f6d7f0428f62b830d547d",
+    "crt\\journal.py": "2ebeb0fa3e2d897e84dfdfefc4623f980c9d465c762be0d889b4dbf04f14172e",
+    "crt\\massive.py": "a13b23225975763b9e17e1f881fb27206227d2949c31df9449b7dc6fd5d86ce1",
+    "crt\\models.py": "104bac74fe1bf313074974da9513b57e3c63f369c64f8855eaeed34deb4c7390",
+    "crt\\paper.py": "70569700e62fb2ab0197f7aa02bc713d8b0f342138042e72ba8443ecee3509a5",
+    "crt\\report.py": "62e1d8e7bd89c70ea118c95619cfea709dff2838632b9a5c64df9d287e674ea8",
+    "crt\\strategy.py": "23f57b6897625cef699a606e7759eac03abd1aaf2503ac5b15f8479327eb4507",
+    "crt\\validation.py": "dc3ac0b4ed936806abd4bc8ae9ef44bd4238f51227d6b588d2619574b7bc7981",
+    "research\\choch.py": "9718b26dcff8340c88c5b0f52bf59224f6e619ec44d7bea28939ef62f38addd5",
+    "research\\choch_study.py": "289c249c9b4aa78189c6caf269136d73a034f1ab4f64e743f596054e259f00e1",
+    "research\\risk_sizing_study.py": "63b170c3b5fe76cbbe7676a83b516e9fa2a93e66b06c50b524e6be6a2747a7ed",
+    "research\\expanded_markets.py": "406a585b93e916fb1eb2266acea343d0197671c06df4b8245542b3a8e5ea4274",
+    "research\\breadth_study.py": "466e49fe998c3fcf9413ed5fede4fc270ee3d38c1e24c0fca90f7414293d1f85",
+    "research\\portfolio_study.py": "015fa7a98e920cfdb7cfe3564b89061f43603c827e873ebc3555c58b1717c0cb",
+    "research\\pool_markets.py": "08e95a45a5dc1a7c88c0639f6ee782bbb66d482745f07fa8e90ec3cfe060a340",
+    "research\\pool_select.py": "09fac16b712e26fd957c1af9a30d3c43b3739659f702bf4def6a23e9131db20f",
+    "research\\pool_screen.py": "329424476171c5389233e1bf631464454597051b65eddc89eb3ab5e911965bd2",
+    "research\\pool_portfolio.py": "a5a550107ee5ccb53b9f06d76cd96dcdf0643da4bc12d55cdc6512801baedafa",
+    "research\\universe65_protocol.json": "2888c7bbb0b91bd027d7cac1646c0fc891557575b91ee7f9f03cea6b5d44573c",
+    "C:\\Users\\Alan Cao\\Desktop\\CRT\\research\\universe65.py": "6d3b779170c36761ebb500c397cea4a39f77ef3aa8e6dba353eb4d1c11b2d369",
+    "research\\pool_protocol.json": "3a6123d8d4fe23e54e6d04f52def6136dee2463a6dc71db715f295f4030ca62c",
+    "research\\portfolio_protocol.json": "f5aaf08788607f8284598fedddde8ec61d79791a4d68063796eefcd7f85b30d8",
+    "research\\choch_breadth_protocol.json": "c7037b899879838088d77e1e473b0d0cb47a91dfa2512246fee93911910fe187"
+  }
+}

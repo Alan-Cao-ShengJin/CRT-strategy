@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "purpose": "Increase possible markets, not risk, and measure opportunity count versus net portfolio returns.",
+  "added_symbols": ["GOOGL", "AVGO", "NFLX", "ORCL", "CRM", "PLTR", "COIN", "UBER", "GS", "MS", "BAC", "C", "WMT", "COST", "HD", "LLY", "ABBV", "JNJ", "CAT", "DE", "GE", "BA", "INTC", "MU", "XLK", "XLI", "XLY", "XLP", "XLU", "XLV", "XLB", "XLRE", "TLT", "HYG", "EEM", "GDX"],
+  "new_exposure_buckets": {
+    "GOOGL":"technology", "AVGO":"technology", "NFLX":"communication_services", "ORCL":"technology", "CRM":"technology", "PLTR":"technology", "COIN":"crypto", "UBER":"consumer",
+    "GS":"financials", "MS":"financials", "BAC":"financials", "C":"financials", "WMT":"consumer_staples", "COST":"consumer_staples", "HD":"consumer", "LLY":"healthcare", "ABBV":"healthcare", "JNJ":"healthcare",
+    "CAT":"industrials", "DE":"industrials", "GE":"industrials", "BA":"industrials", "INTC":"technology", "MU":"technology", "XLK":"technology", "XLI":"industrials", "XLY":"consumer", "XLP":"consumer_staples", "XLU":"utilities", "XLV":"healthcare", "XLB":"materials", "XLRE":"real_estate", "TLT":"treasuries", "HYG":"credit", "EEM":"international_equities", "GDX":"gold_equities"
+  },
+  "training_start":"2025-11-03",
+  "selection_cutoff_exclusive":"2026-05-01",
+  "test_end_exclusive":"2026-11-05",
+  "initial_equity":50000,
+  "paths":["high_first","low_first"],
+  "portfolio_cases":["all29","all65","eligible65","top5_65"],
+  "rate_policy": {
+    "history_probe":"2023-11-07",
+    "verified_paid_stock_interval_seconds":1,
+    "fallback_interval_seconds":13,
+    "source":"https://massive.com/pricing?product=stocks",
+    "note":"Read-only stock history beyond the Basic two-year window supports paid-stock-tier access; official paid stocks plans allow unlimited calls. Keep a paced stock-only client and fall back on HTTP429. No plan changes, and futures/crypto defaults stay unchanged."
+  },
+  "notes":[
+    "All 65 candidate instruments use original 5m confirmed-retest / 2R rules. Original sessions, two entries per asset/day, stops, costs and capital/risk controls stay fixed. No frequency-study wider hours or repeated entries.",
+    "Training screening uses the unchanged pool_protocol.json thresholds, completed pre-May trades, higher-cost stress and three early time blocks. top5_65 retains the existing maximum-five / one-per-exposure-bucket rule. eligible65 enables every training-eligible asset to test more possible markets; it does not rank using later returns.",
+    "all29 and all65 enable their entire predefined universes regardless of training results. Trade allocation remains alphabetical at a shared minute open, with 1% entry risk, 2% aggregate open risk, two concurrent positions, one equity-index future, 3% daily loss budget and capital reservations unchanged.",
+    "Use fresh $50k accounts on May-November and the same observed MNQ market-date clock. Reuse the 29 unchanged candidate journals and prior same-date all17, selected29 and MCL benchmarks with explicit provenance. Only the 36 additional candidates and eight new portfolio simulations require new replay.",
+    "Names are predefined surviving instruments, not a historical index universe, random sample, or proof of asset independence. Stock/ETF shorts and settled cash/broker buying power remain unmodeled. Intraminute paths are hypothetical and margin proxies are static.",
+    "Publish all candidates, unavailable data, training eligibility, all portfolio cases and fixed-fill stress. No new risk increase, target optimization, entry filter, rule search or live orders. This is another retrospective experiment on already inspected dates; increasing the search space also increases selection bias."
+  ]
+}
