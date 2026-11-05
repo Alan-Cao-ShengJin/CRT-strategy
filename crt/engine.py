@@ -258,6 +258,7 @@ class Engine:
                 levels = [end]
                 if (position := self.positions.get(b.symbol)) is not None:
                     levels += [position.stop, position.setup.target]
+                    levels += self._additional_position_levels(position)
                 elif (setup := self.states[b.symbol].pending) is not None:
                     levels += [setup.target]
                     if setup.mode == "rebreak" and setup.phase == "broken":
@@ -274,6 +275,10 @@ class Engine:
                 current = following
             else:
                 raise RuntimeError("Intrabar event processing did not converge")
+
+    def _additional_position_levels(self, position):
+        """Optional account risk barriers, visited before later OHLC extremes."""
+        return []
 
     def _path_price(self, symbol, price, at):
         self.marks[symbol] = price
