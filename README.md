@@ -60,6 +60,8 @@ The [1% and 2% equity-risk comparison](RISK_SIZING.md) reruns those cases with c
 
 [Topstep evaluation timing](TOPSTEP_EVALUATION.md) simulates MNQ rebreak at up to 1% nominal equity risk in a standard $150K Combine using the current rule snapshot, including intraday loss-floor touches, end-of-day trailing, consistency, contract caps and earlier closing. Twelve monthly starting dates per OHLC path include failures and missing-data censoring. Reproduce with `.\.venv\Scripts\python.exe -m research.topstep_evaluation`.
 
+[CHoCH research](CHOCH_RESEARCH.md) tests confirmed counter-trend swing breaks with next-open and confirmed-retest entries on MNQ, MES and MGC. All 48 declared cases and six matched CRT baselines are retained, including timeframe/target sensitivity, costs, pivot-confirmation timestamps and missing-data exit assumptions. Reproduce with `.\.venv\Scripts\python.exe -m research.choch_study` and the merge command in the report. The CHoCH implementation is a research engine.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.

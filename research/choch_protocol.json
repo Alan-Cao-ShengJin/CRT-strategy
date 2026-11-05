@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "declared_before_results": true,
+  "start_trading_date": "2025-11-03",
+  "end_exclusive_trading_date": "2026-11-05",
+  "chronological_split": "2026-07-01",
+  "symbols": ["MNQ", "MES", "MGC"],
+  "primary_timeframe": 5,
+  "primary_reward_risk": 2.0,
+  "timeframes": [5, 15],
+  "reward_risks": [2.0, 1.5],
+  "entry_modes": ["next_open", "retest_close"],
+  "paths": ["high_first", "low_first"],
+  "pivot_left": 2,
+  "pivot_right": 2,
+  "retest_expiry_bars": 3,
+  "initial_equity": 50000,
+  "risk_fraction": 0.01,
+  "max_contracts": 150,
+  "commission_per_side": 0.85,
+  "slippage_ticks": 1,
+  "cost_stress_commission_per_side": 1.5,
+  "sources": {
+    "concept": "https://www.luxalgo.com/library/concept/change-of-character/",
+    "pivot_confirmation": "https://www.tradingview.com/pine-script-docs/faq/techniques/"
+  },
+  "rules": [
+    "Only complete consecutive timeframe candles; reset structure on a missing timeframe bucket or dated-contract transition.",
+    "Strict five-candle swing: center high exceeds both left and right pairs, or center low is below both pairs. It is known only at the second right candle's close. Ignore centers that qualify as both high and low.",
+    "An established uptrend requires the latest two confirmed highs and latest two confirmed lows both higher; downtrend requires both lower. Mixed structure has no signal.",
+    "Bearish CHoCH: previous close at/above the latest confirmed swing low, then a close at least one tick below it in an established uptrend. Bullish is the mirror above a confirmed swing high in a downtrend. Consume each broken pivot once.",
+    "Stop is one tick beyond the most adverse observed extreme since the latest opposite swing: highest high since the last swing high for a short; lowest low since the last swing low for a long. It is frozen at CHoCH confirmation.",
+    "Next-open entry uses the first minute open immediately following the confirmed break, plus adverse slippage. A missing immediate next minute cancels the order.",
+    "Retest-close entry: within the next three complete timeframe candles, price touches the broken level and closes at least one tick back on the breakout side; enter the immediately following minute open. Stop touch invalidates the waiting setup before entry.",
+    "Target is entry plus/minus the fixed reward/risk times structural stop distance, rounded outward to the next tick. Gaps through the frozen stop reject entry.",
+    "First eligible CHoCH per instrument/session reserves that session, even if retest later expires. Maximum two daily entries and one position per independent instrument account. No opposite-signal exit or position reversal.",
+    "Same NY 09:30-12:00 and 20:00-22:00 entry sessions as CRT; normal daily flatten at 16:55 NY and five minutes before exchange closes. No economic-news filter or discretionary order-block/FVG/sweep overlay.",
+    "Each instrument/case has a fresh $50k account. Risk up to 1% of current equity including modeled round-trip fees and adverse stop slippage; whole contracts and a 150-micro research cap. No broker margin or market-impact model; this is not a prop-firm eligibility study.",
+    "Compare a fresh matched mechanical CRT rebreak baseline with the same sizing, cap, costs and price-path assumptions. Baseline CRT combines its original 15/30/60-minute signals.",
+    "High-first/low-first minute paths are assumptions, not ticks, probability intervals or guaranteed best/worst outcomes. Missing old-contract exits use explicitly flagged last-mark rollover bookkeeping with adverse slippage.",
+    "All cases and sensitivities are reported. No profit-based parameter selection. The previously inspected year and chronological split are retrospective, not pristine out-of-sample validation."
+  ]
+}
