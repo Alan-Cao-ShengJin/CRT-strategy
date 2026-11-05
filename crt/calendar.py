@@ -33,13 +33,13 @@ def load_blackouts(config: Config) -> list[Blackout]:
     return output
 
 
-def load_sessions(path):
+def load_sessions(path, symbols=None):
     """Pair Massive open/close events, deduplicating repeated exchange records."""
     if not path:
         return {}
     result = {}
     events = json.loads(Path(path).read_text())
-    for symbol in ("MNQ", "MES", "MGC"):
+    for symbol in (symbols if symbols is not None else ("MNQ", "MES", "MGC")):
         unique = sorted({(r["timestamp"], r["event"]) for r in events if r.get("product_code") == symbol and r.get("event") in ("open", "close", "halt", "resume")})
         intervals, opened = [], None
         for at, kind in unique:

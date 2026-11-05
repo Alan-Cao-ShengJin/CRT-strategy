@@ -62,6 +62,8 @@ The [1% and 2% equity-risk comparison](RISK_SIZING.md) reruns those cases with c
 
 [CHoCH research](CHOCH_RESEARCH.md) tests confirmed counter-trend swing breaks with next-open and confirmed-retest entries on MNQ, MES and MGC. All 48 declared cases and six matched CRT baselines are retained, including timeframe/target sensitivity, costs, pivot-confirmation timestamps and missing-data exit assumptions. Reproduce with `.\.venv\Scripts\python.exe -m research.choch_study` and the merge command in the report. The CHoCH implementation is a research engine.
 
+[Expanded CHoCH research](CHOCH_BREADTH.md) covers 17 markets (eight micro futures, BTC/USD spot and eight single stocks), eight timeframes and 544 declared simulations. Only five of 75 sufficiently sampled primary retest combinations passed the historical consistency screen; another 61 had insufficient trades. The report includes every outcome, costs, cash-asset notional limits and an audited compressed trade journal. Install `.[research,test]`, then run `research.download_breadth`, `research.run_breadth --workers 4`, `research.breadth_report` and `research.breadth_audit` with `python -m`. These additional markets are isolated research definitions.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.

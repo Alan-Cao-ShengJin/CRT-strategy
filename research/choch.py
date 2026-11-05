@@ -36,8 +36,8 @@ class Structure:
         self.highs, self.lows = deque(maxlen=2), deque(maxlen=2)
         self.consumed = set()
 
-    def push(self, bar):
-        if self.bars and (bar.start != self.bars[-1].end or bar.contract != self.bars[-1].contract):
+    def push(self, bar, *, bridge_gap=False):
+        if self.bars and ((bar.start != self.bars[-1].end and not bridge_gap) or bar.contract != self.bars[-1].contract):
             self.__init__(self.timeframe, self.wing)
         i = len(self.bars)
         self.bars.append(bar)
