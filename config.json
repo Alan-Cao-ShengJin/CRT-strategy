@@ -1,0 +1,64 @@
+{
+  "symbols": [
+    "MNQ",
+    "MES",
+    "MGC"
+  ],
+  "timeframes": [
+    15,
+    30,
+    60
+  ],
+  "entry_mode": "rebreak",
+  "reward_risk": 1.5,
+  "entry_offset_ticks": 1,
+  "limit_offset_ticks": 2,
+  "pullback_ticks": 1,
+  "min_target_ticks": 8,
+  "min_stop_ticks": 4,
+  "initial_equity": 50000.0,
+  "risk_per_trade": 100.0,
+  "risk_fraction": 0.005,
+  "max_contracts": 10,
+  "max_positions": 2,
+  "max_equity_positions": 1,
+  "max_open_risk": 200.0,
+  "max_daily_loss": 300.0,
+  "max_drawdown": 2000.0,
+  "max_trades_per_day": 2,
+  "max_consecutive_losses": 2,
+  "commission_per_side": {
+    "MNQ": 0.85,
+    "MES": 0.85,
+    "MGC": 0.85
+  },
+  "slippage_ticks": 1,
+  "sessions": {
+    "new_york": [
+      "09:30",
+      "12:00"
+    ],
+    "asia": [
+      "20:00",
+      "22:00"
+    ]
+  },
+  "flatten_time": "16:55",
+  "neutral_policy": "skip",
+  "bias_lookback": 24,
+  "bias_ttl_hours": 8,
+  "bias_rejection_fraction": 0.5,
+  "chop_lookback": 20,
+  "chop_enabled": true,
+  "chop_wick_fraction": 0.72,
+  "chop_flip_fraction": 0.7,
+  "chop_efficiency": 0.18,
+  "auto_rebreak_wick_fraction": 0.5,
+  "skip_mondays": false,
+  "news_before_minutes": 5,
+  "news_after_minutes": 10,
+  "blackout_file": "",
+  "schedule_file": "",
+  "max_feed_age_seconds": 30.0,
+  "max_tick_gap_seconds": 120.0
+}
