@@ -56,6 +56,8 @@ The download uses a fixed dated-contract roll calendar and can take several minu
 
 The [1% and 2% equity-risk comparison](RISK_SIZING.md) reruns those cases with compounding and whole-contract sizing. Reproduce it with `.\.venv\Scripts\python.exe -m research.risk_sizing_study`. It removes the old dollar and contract caps and does not enforce broker margin or liquidity limits; contract-end data-gap assumptions are disclosed in the results.
 
+[MNQ filter research](FILTER_RESEARCH.md) compares direct and rebreak entries and screens ten predefined single filters on the earlier period before fully resimulating the shortlist. Reproduce it with `.\.venv\Scripts\python.exe -m research.filter_study`. The later-period check is retrospective because that year was inspected previously; no shortlisted filter improved later win rate under both bar paths, and no new filter was enabled in the paper configuration.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.

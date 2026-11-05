@@ -192,7 +192,7 @@ class Engine:
             previous = st.previous.get(tf)
             if previous and tf in c.timeframes:
                 setup = detect(previous, result, st.bias.get(bar.end), chop, c)
-                if setup:
+                if setup and self._accept_setup(setup, previous, result, chop):
                     candidates.append(setup)
             st.previous[tf] = result
         if st.pending or bar.symbol in self.positions or self.halt_reason or self.feed_halted:
@@ -203,6 +203,10 @@ class Engine:
                 st.selected.add(setup.session)
                 self.log("setup", bar.end, **{k: v for k, v in asdict(setup).items() if k not in ("created", "expires")})
                 break
+
+    def _accept_setup(self, setup, c1, c2, chop):
+        """Causal extension point; production defaults accept every detected setup."""
+        return True
 
     def on_bar_batch(self, bars: list[Bar], *, learn_only=False):
         """Historical minute execution. Same-timestamp bars share one account mark."""

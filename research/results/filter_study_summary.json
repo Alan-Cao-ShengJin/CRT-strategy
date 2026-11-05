@@ -1,0 +1,1210 @@
+{
+  "protocol": {
+    "symbol": "MNQ",
+    "start": "2025-11-03",
+    "selection_end_exclusive": "2026-07-01",
+    "validation_end_exclusive": "2026-11-05",
+    "risk_fraction": 0.01,
+    "entry_modes": [
+      "direct",
+      "rebreak"
+    ],
+    "paths": [
+      "high_first",
+      "low_first"
+    ],
+    "minimum_training_subset_trades_each_path": 40,
+    "shortlist_per_entry_mode": 2,
+    "selection_score": "Minimum training-subset Wilson 95% win-rate lower endpoint across both bar paths; tie by sample size then name.",
+    "screening": "Only earlier-period baseline trades are screened. Shortlisted rules are then fully resimulated, permitting the next qualified setup after a rejection. Screening subsets are not executable-policy backtests.",
+    "candidates": {
+      "ny_only": "Setup completes in New York entry session, 09:30-12:00 Eastern.",
+      "ny_first_hour_setups": "Setup completes between 09:30 inclusive and 10:30 exclusive Eastern; original C3/session entry expiry remains.",
+      "fifteen_minute_only": "Setup timeframe equals 15 minutes.",
+      "directional_c2_body": "C2 closes above its open for longs, below its open for shorts.",
+      "strong_rejection": "C2 closes at least 65% of its own range away from its swept-side extreme.",
+      "meaningful_sweep": "C2 excursion beyond C1 is at least 10% of C1 range.",
+      "efficient_price_action": "Prior 20 completed minute closes have directional efficiency at least 0.30.",
+      "minimum_reward_12_points": "Planned distance from entry trigger to C1 target is at least 12 MNQ points.",
+      "hourly_bias_aligned": "The existing causal hourly-bias proxy agrees with setup direction.",
+      "skip_mondays": "Setup's New York calendar weekday is not Monday."
+    },
+    "caveats": [
+      "All thresholds and selection rules are fixed before this filter study, not optimized individually.",
+      "This year has already been inspected in earlier work. Later-period validation is retrospective, not pristine or prospective out-of-sample evidence.",
+      "Only single filters are considered. No combinations, weekday search or threshold grid.",
+      "No later-period outcome is used to choose the shortlist or substitute another filter.",
+      "Fees, slippage, whole-contract compounding and rollover data-mark assumptions match the 1% sizing study.",
+      "Broker margin, quantity limits and liquidity remain unmodeled. High/low paths are hypotheses, not observed ticks."
+    ]
+  },
+  "protocol_sha256": "ed327a8c6189e6f32cea94585214d853c836b6d5ff29661ccc99c516e3bbd1d3",
+  "screening": [
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "ny_only",
+      "trades": 124,
+      "wins": 62,
+      "win_rate": 0.5,
+      "net_pnl": 3093.9999999999995,
+      "net_r_per_trade": 0.05118783628988551,
+      "profit_factor": 1.1247319110509086,
+      "return_pct": 6.187999999999999,
+      "starting_equity": 50000,
+      "wilson_lower": 0.41332731782637955
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "ny_first_hour_setups",
+      "trades": 107,
+      "wins": 53,
+      "win_rate": 0.4953271028037383,
+      "net_pnl": 2613.799999999999,
+      "net_r_per_trade": 0.0456650524105488,
+      "profit_factor": 1.1217601132912216,
+      "return_pct": 5.227599999999997,
+      "starting_equity": 50000,
+      "wilson_lower": 0.402410704021837
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "fifteen_minute_only",
+      "trades": 141,
+      "wins": 60,
+      "win_rate": 0.425531914893617,
+      "net_pnl": -6086.700000000002,
+      "net_r_per_trade": -0.1069463773385766,
+      "profit_factor": 0.8182846804674022,
+      "return_pct": -12.173400000000004,
+      "starting_equity": 50000,
+      "wilson_lower": 0.34696329964055894
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "directional_c2_body",
+      "trades": 138,
+      "wins": 68,
+      "win_rate": 0.4927536231884058,
+      "net_pnl": 4019.900000000002,
+      "net_r_per_trade": 0.07242241720184117,
+      "profit_factor": 1.1414486532134631,
+      "return_pct": 8.039800000000003,
+      "starting_equity": 50000,
+      "wilson_lower": 0.41067407358413544
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "strong_rejection",
+      "trades": 142,
+      "wins": 70,
+      "win_rate": 0.49295774647887325,
+      "net_pnl": 2682.999999999999,
+      "net_r_per_trade": 0.04596440124725426,
+      "profit_factor": 1.0912911073682785,
+      "return_pct": 5.365999999999998,
+      "starting_equity": 50000,
+      "wilson_lower": 0.412003118411846
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "meaningful_sweep",
+      "trades": 155,
+      "wins": 75,
+      "win_rate": 0.4838709677419355,
+      "net_pnl": 1300.8999999999987,
+      "net_r_per_trade": 0.015962183375330483,
+      "profit_factor": 1.039537908858267,
+      "return_pct": 2.6017999999999977,
+      "starting_equity": 50000,
+      "wilson_lower": 0.40654412065283446
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "efficient_price_action",
+      "trades": 30,
+      "wins": 21,
+      "win_rate": 0.7,
+      "net_pnl": 6650.0999999999985,
+      "net_r_per_trade": 0.5286943578811774,
+      "profit_factor": 2.9413516274996354,
+      "return_pct": 13.300199999999998,
+      "starting_equity": 50000,
+      "wilson_lower": 0.5212421254128504
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "minimum_reward_12_points",
+      "trades": 132,
+      "wins": 49,
+      "win_rate": 0.3712121212121212,
+      "net_pnl": -7844.100000000006,
+      "net_r_per_trade": -0.1391057076809013,
+      "profit_factor": 0.7712810314965683,
+      "return_pct": -15.68820000000001,
+      "starting_equity": 50000,
+      "wilson_lower": 0.29352781522860627
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "hourly_bias_aligned",
+      "trades": 64,
+      "wins": 30,
+      "win_rate": 0.46875,
+      "net_pnl": 21.900000000000887,
+      "net_r_per_trade": -0.0034550670082148724,
+      "profit_factor": 1.0015463044030843,
+      "return_pct": 0.043800000000001775,
+      "starting_equity": 50000,
+      "wilson_lower": 0.35175987425176036
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "skip_mondays",
+      "trades": 178,
+      "wins": 83,
+      "win_rate": 0.46629213483146065,
+      "net_pnl": -952.9999999999998,
+      "net_r_per_trade": -0.01111837208812475,
+      "profit_factor": 0.9757126291779763,
+      "return_pct": -1.9059999999999997,
+      "starting_equity": 50000,
+      "wilson_lower": 0.39449330228698065
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "ny_only",
+      "trades": 124,
+      "wins": 67,
+      "win_rate": 0.5403225806451613,
+      "net_pnl": 8395.099999999997,
+      "net_r_per_trade": 0.14752378085624984,
+      "profit_factor": 1.3324252299626598,
+      "return_pct": 16.790199999999995,
+      "starting_equity": 50000,
+      "wilson_lower": 0.45271206827491345
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "ny_first_hour_setups",
+      "trades": 107,
+      "wins": 58,
+      "win_rate": 0.5420560747663551,
+      "net_pnl": 7890.9,
+      "net_r_per_trade": 0.15730670779586825,
+      "profit_factor": 1.36429066063432,
+      "return_pct": 15.781799999999999,
+      "starting_equity": 50000,
+      "wilson_lower": 0.44783465926189614
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "fifteen_minute_only",
+      "trades": 141,
+      "wins": 64,
+      "win_rate": 0.45390070921985815,
+      "net_pnl": -2794.5000000000027,
+      "net_r_per_trade": -0.045377472901627906,
+      "profit_factor": 0.9207323991603794,
+      "return_pct": -5.589000000000006,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3740333550932513
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "directional_c2_body",
+      "trades": 138,
+      "wins": 74,
+      "win_rate": 0.5362318840579711,
+      "net_pnl": 10363.899999999994,
+      "net_r_per_trade": 0.16887905899327865,
+      "profit_factor": 1.359826403957991,
+      "return_pct": 20.727799999999988,
+      "starting_equity": 50000,
+      "wilson_lower": 0.45317687042898064
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "strong_rejection",
+      "trades": 142,
+      "wins": 76,
+      "win_rate": 0.5352112676056338,
+      "net_pnl": 8820.599999999997,
+      "net_r_per_trade": 0.1394353660074393,
+      "profit_factor": 1.2965086963244845,
+      "return_pct": 17.641199999999994,
+      "starting_equity": 50000,
+      "wilson_lower": 0.4533320029803008
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "meaningful_sweep",
+      "trades": 155,
+      "wins": 82,
+      "win_rate": 0.5290322580645161,
+      "net_pnl": 8555.199999999995,
+      "net_r_per_trade": 0.1181225746691694,
+      "profit_factor": 1.2560379244503774,
+      "return_pct": 17.110399999999988,
+      "starting_equity": 50000,
+      "wilson_lower": 0.4507017449620739
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "efficient_price_action",
+      "trades": 30,
+      "wins": 22,
+      "win_rate": 0.7333333333333333,
+      "net_pnl": 8281.9,
+      "net_r_per_trade": 0.6046791568350839,
+      "profit_factor": 3.4619203329369794,
+      "return_pct": 16.563799999999997,
+      "starting_equity": 50000,
+      "wilson_lower": 0.555520383048111
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "minimum_reward_12_points",
+      "trades": 132,
+      "wins": 57,
+      "win_rate": 0.4318181818181818,
+      "net_pnl": 172.9999999999967,
+      "net_r_per_trade": 0.005716443836979358,
+      "profit_factor": 1.005046056200816,
+      "return_pct": 0.3459999999999934,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3504276166583297
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "hourly_bias_aligned",
+      "trades": 64,
+      "wins": 31,
+      "win_rate": 0.484375,
+      "net_pnl": 944.1999999999995,
+      "net_r_per_trade": 0.026192120440675704,
+      "profit_factor": 1.0633631739299665,
+      "return_pct": 1.8883999999999992,
+      "starting_equity": 50000,
+      "wilson_lower": 0.36633551665432634
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "skip_mondays",
+      "trades": 178,
+      "wins": 91,
+      "win_rate": 0.5112359550561798,
+      "net_pnl": 7091.899999999999,
+      "net_r_per_trade": 0.09030269155903611,
+      "profit_factor": 1.1791707299819612,
+      "return_pct": 14.183799999999996,
+      "starting_equity": 50000,
+      "wilson_lower": 0.4383437979723605
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "ny_only",
+      "trades": 67,
+      "wins": 31,
+      "win_rate": 0.4626865671641791,
+      "net_pnl": 1241.6000000000004,
+      "net_r_per_trade": 0.037014720291061634,
+      "profit_factor": 1.0854790295486463,
+      "return_pct": 2.4832000000000005,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3485844371949035
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "ny_first_hour_setups",
+      "trades": 52,
+      "wins": 22,
+      "win_rate": 0.4230769230769231,
+      "net_pnl": 20.600000000000023,
+      "net_r_per_trade": -0.013014648377554514,
+      "profit_factor": 1.0017174967901152,
+      "return_pct": 0.04120000000000005,
+      "starting_equity": 50000,
+      "wilson_lower": 0.29868052083500907
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "fifteen_minute_only",
+      "trades": 82,
+      "wins": 31,
+      "win_rate": 0.3780487804878049,
+      "net_pnl": -4955.2,
+      "net_r_per_trade": -0.15317202427349924,
+      "profit_factor": 0.7648945508030269,
+      "return_pct": -9.9104,
+      "starting_equity": 50000,
+      "wilson_lower": 0.280783715928119
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "directional_c2_body",
+      "trades": 85,
+      "wins": 39,
+      "win_rate": 0.4588235294117647,
+      "net_pnl": 485.4000000000011,
+      "net_r_per_trade": 0.02148977220143726,
+      "profit_factor": 1.0253825156614411,
+      "return_pct": 0.9708000000000022,
+      "starting_equity": 50000,
+      "wilson_lower": 0.35697131819019406
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "strong_rejection",
+      "trades": 84,
+      "wins": 36,
+      "win_rate": 0.42857142857142855,
+      "net_pnl": -1954.5999999999995,
+      "net_r_per_trade": -0.050194180693477045,
+      "profit_factor": 0.9029353779839207,
+      "return_pct": -3.909199999999999,
+      "starting_equity": 50000,
+      "wilson_lower": 0.32815977437358773
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "meaningful_sweep",
+      "trades": 83,
+      "wins": 36,
+      "win_rate": 0.43373493975903615,
+      "net_pnl": -1389.0999999999972,
+      "net_r_per_trade": -0.052009413136987113,
+      "profit_factor": 0.9292351424874428,
+      "return_pct": -2.7781999999999942,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3323916544628671
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "efficient_price_action",
+      "trades": 16,
+      "wins": 11,
+      "win_rate": 0.6875,
+      "net_pnl": 3589.900000000001,
+      "net_r_per_trade": 0.540792188548234,
+      "profit_factor": 2.7014550452628097,
+      "return_pct": 7.179800000000001,
+      "starting_equity": 50000,
+      "wilson_lower": 0.44404355834740666
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "minimum_reward_12_points",
+      "trades": 99,
+      "wins": 41,
+      "win_rate": 0.41414141414141414,
+      "net_pnl": -2031.5999999999976,
+      "net_r_per_trade": -0.04488601956667617,
+      "profit_factor": 0.9155705718809608,
+      "return_pct": -4.063199999999996,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3220949941765154
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "hourly_bias_aligned",
+      "trades": 40,
+      "wins": 19,
+      "win_rate": 0.475,
+      "net_pnl": 1035.4999999999998,
+      "net_r_per_trade": 0.04776837365027402,
+      "profit_factor": 1.116556544838532,
+      "return_pct": 2.0709999999999997,
+      "starting_equity": 50000,
+      "wilson_lower": 0.32935470112678905
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "skip_mondays",
+      "trades": 107,
+      "wins": 46,
+      "win_rate": 0.42990654205607476,
+      "net_pnl": -2086.199999999997,
+      "net_r_per_trade": -0.03862892864753446,
+      "profit_factor": 0.9188571072959367,
+      "return_pct": -4.172399999999994,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3401406874570182
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "ny_only",
+      "trades": 68,
+      "wins": 32,
+      "win_rate": 0.47058823529411764,
+      "net_pnl": 1400.900000000001,
+      "net_r_per_trade": 0.055417116912314976,
+      "profit_factor": 1.0936912715769478,
+      "return_pct": 2.801800000000002,
+      "starting_equity": 50000,
+      "wilson_lower": 0.35673106421198947
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "ny_first_hour_setups",
+      "trades": 53,
+      "wins": 23,
+      "win_rate": 0.4339622641509434,
+      "net_pnl": 190.70000000000005,
+      "net_r_per_trade": 0.011893344219523051,
+      "profit_factor": 1.0153851118587183,
+      "return_pct": 0.3814000000000001,
+      "starting_equity": 50000,
+      "wilson_lower": 0.30950396559750293
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "fifteen_minute_only",
+      "trades": 81,
+      "wins": 28,
+      "win_rate": 0.345679012345679,
+      "net_pnl": -7499.800000000004,
+      "net_r_per_trade": -0.21292750252186435,
+      "profit_factor": 0.6647324940991345,
+      "return_pct": -14.999600000000008,
+      "starting_equity": 50000,
+      "wilson_lower": 0.2512264953159043
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "directional_c2_body",
+      "trades": 88,
+      "wins": 40,
+      "win_rate": 0.45454545454545453,
+      "net_pnl": 336.50000000000165,
+      "net_r_per_trade": 0.03066085270810664,
+      "profit_factor": 1.0165542551569087,
+      "return_pct": 0.6730000000000033,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3545940374421491
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "strong_rejection",
+      "trades": 87,
+      "wins": 38,
+      "win_rate": 0.4367816091954023,
+      "net_pnl": -1267.5000000000005,
+      "net_r_per_trade": -0.01333949764883958,
+      "profit_factor": 0.9393961127447464,
+      "return_pct": -2.5350000000000006,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3374254578815761
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "meaningful_sweep",
+      "trades": 86,
+      "wins": 38,
+      "win_rate": 0.4418604651162791,
+      "net_pnl": -640.7000000000021,
+      "net_r_per_trade": -0.013539518653205183,
+      "profit_factor": 0.9686005253665804,
+      "return_pct": -1.2814000000000043,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3416273835893346
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "efficient_price_action",
+      "trades": 18,
+      "wins": 13,
+      "win_rate": 0.7222222222222222,
+      "net_pnl": 4868.8,
+      "net_r_per_trade": 0.6464514492752883,
+      "profit_factor": 3.296495448327909,
+      "return_pct": 9.7376,
+      "starting_equity": 50000,
+      "wilson_lower": 0.4912734343970254
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "minimum_reward_12_points",
+      "trades": 103,
+      "wins": 44,
+      "win_rate": 0.42718446601941745,
+      "net_pnl": -986.2000000000003,
+      "net_r_per_trade": -0.010459687182726121,
+      "profit_factor": 0.9602543848336342,
+      "return_pct": -1.9724000000000006,
+      "starting_equity": 50000,
+      "wilson_lower": 0.3359680595227062
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "hourly_bias_aligned",
+      "trades": 37,
+      "wins": 16,
+      "win_rate": 0.43243243243243246,
+      "net_pnl": -691.1999999999998,
+      "net_r_per_trade": -0.03986682075768726,
+      "profit_factor": 0.9238187609527064,
+      "return_pct": -1.3823999999999996,
+      "starting_equity": 50000,
+      "wilson_lower": 0.2867171927715731
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "skip_mondays",
+      "trades": 108,
+      "wins": 46,
+      "win_rate": 0.42592592592592593,
+      "net_pnl": -2257.9,
+      "net_r_per_trade": -0.033432150749604476,
+      "profit_factor": 0.9146777411650897,
+      "return_pct": -4.5158000000000005,
+      "starting_equity": 50000,
+      "wilson_lower": 0.33679220437956364
+    }
+  ],
+  "selection": {
+    "direct": [
+      {
+        "filter": "ny_only",
+        "score": 0.41332731782637955,
+        "minimum_training_trades": 124
+      },
+      {
+        "filter": "strong_rejection",
+        "score": 0.412003118411846,
+        "minimum_training_trades": 142
+      }
+    ],
+    "rebreak": [
+      {
+        "filter": "directional_c2_body",
+        "score": 0.3545940374421491,
+        "minimum_training_trades": 85
+      },
+      {
+        "filter": "ny_only",
+        "score": 0.3485844371949035,
+        "minimum_training_trades": 67
+      }
+    ]
+  },
+  "results": [
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "baseline",
+      "full_period": {
+        "trades": 347,
+        "wins": 160,
+        "win_rate": 0.4610951008645533,
+        "net_pnl": -3457.3000000000075,
+        "net_r_per_trade": -0.01978634403222878,
+        "profit_factor": 0.956765050884508,
+        "return_pct": -6.914600000000015,
+        "starting_equity": 50000,
+        "wilson_lower": 0.4093585762786821
+      },
+      "training_resimulation": {
+        "trades": 220,
+        "wins": 99,
+        "win_rate": 0.45,
+        "net_pnl": -4727.200000000007,
+        "net_r_per_trade": -0.049233371471855955,
+        "profit_factor": 0.9059076433121022,
+        "return_pct": -9.454400000000014,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3856797699680785
+      },
+      "later_validation": {
+        "trades": 127,
+        "wins": 61,
+        "win_rate": 0.48031496062992124,
+        "net_pnl": 1269.9000000000024,
+        "net_r_per_trade": 0.031224254682086013,
+        "profit_factor": 1.0427210399187228,
+        "return_pct": 2.8049954939831476,
+        "starting_equity": 45272.799999999996,
+        "wilson_lower": 0.3952840957619168
+      },
+      "max_drawdown_pct": 22.266400000000097,
+      "max_contracts": 186,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\direct_baseline_high_first\\report.html"
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "baseline",
+      "full_period": {
+        "trades": 347,
+        "wins": 178,
+        "win_rate": 0.5129682997118156,
+        "net_pnl": 18515.9,
+        "net_r_per_trade": 0.09820786416458359,
+        "profit_factor": 1.2184542707710238,
+        "return_pct": 37.031800000000004,
+        "starting_equity": 50000,
+        "wilson_lower": 0.46052432796977866
+      },
+      "training_resimulation": {
+        "trades": 220,
+        "wins": 109,
+        "win_rate": 0.4954545454545455,
+        "net_pnl": 5299.200000000001,
+        "net_r_per_trade": 0.05426005803401253,
+        "profit_factor": 1.1043749556831877,
+        "return_pct": 10.598400000000002,
+        "starting_equity": 50000,
+        "wilson_lower": 0.4300342275045704
+      },
+      "later_validation": {
+        "trades": 127,
+        "wins": 69,
+        "win_rate": 0.5433070866141733,
+        "net_pnl": 13216.700000000003,
+        "net_r_per_trade": 0.17433792202856493,
+        "profit_factor": 1.3888648607298475,
+        "return_pct": 23.900345755453973,
+        "starting_equity": 55299.2,
+        "wilson_lower": 0.4566748194719849
+      },
+      "max_drawdown_pct": 11.38360000000002,
+      "max_contracts": 218,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 107.6
+        }
+      ],
+      "report": "runs\\filter_study\\direct_baseline_low_first\\report.html"
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "baseline",
+      "full_period": {
+        "trades": 211,
+        "wins": 104,
+        "win_rate": 0.4928909952606635,
+        "net_pnl": 10574.300000000005,
+        "net_r_per_trade": 0.0992536621219554,
+        "profit_factor": 1.2247737234345561,
+        "return_pct": 21.14860000000001,
+        "starting_equity": 50000,
+        "wilson_lower": 0.42616587208629125
+      },
+      "training_resimulation": {
+        "trades": 131,
+        "wins": 57,
+        "win_rate": 0.4351145038167939,
+        "net_pnl": -2243.1999999999985,
+        "net_r_per_trade": -0.035009548630992655,
+        "profit_factor": 0.9281069422054425,
+        "return_pct": -4.486399999999997,
+        "starting_equity": 50000,
+        "wilson_lower": 0.35326323088385986
+      },
+      "later_validation": {
+        "trades": 80,
+        "wins": 47,
+        "win_rate": 0.5875,
+        "net_pnl": 12817.500000000005,
+        "net_r_per_trade": 0.31910966972990784,
+        "profit_factor": 1.8090681277339786,
+        "return_pct": 26.839109823103733,
+        "starting_equity": 47756.8,
+        "wilson_lower": 0.47804040345890164
+      },
+      "max_drawdown_pct": 20.301500000000058,
+      "max_contracts": 134,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\rebreak_baseline_high_first\\report.html"
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "baseline",
+      "full_period": {
+        "trades": 212,
+        "wins": 101,
+        "win_rate": 0.47641509433962265,
+        "net_pnl": 6695.599999999997,
+        "net_r_per_trade": 0.06940428309739381,
+        "profit_factor": 1.1374722564988067,
+        "return_pct": 13.391199999999994,
+        "starting_equity": 50000,
+        "wilson_lower": 0.4102039625797544
+      },
+      "training_resimulation": {
+        "trades": 133,
+        "wins": 56,
+        "win_rate": 0.42105263157894735,
+        "net_pnl": -3811.4000000000033,
+        "net_r_per_trade": -0.05422696789497591,
+        "profit_factor": 0.8839611641026738,
+        "return_pct": -7.622800000000006,
+        "starting_equity": 50000,
+        "wilson_lower": 0.34051605220038084
+      },
+      "later_validation": {
+        "trades": 79,
+        "wins": 45,
+        "win_rate": 0.569620253164557,
+        "net_pnl": 10507.0,
+        "net_r_per_trade": 0.2775429714769528,
+        "profit_factor": 1.6625176553672316,
+        "return_pct": 22.748037394508604,
+        "starting_equity": 46188.6,
+        "wilson_lower": 0.45972198968550965
+      },
+      "max_drawdown_pct": 18.867800000000063,
+      "max_contracts": 130,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\rebreak_baseline_low_first\\report.html"
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "ny_only",
+      "full_period": {
+        "trades": 193,
+        "wins": 94,
+        "win_rate": 0.48704663212435234,
+        "net_pnl": 4384.900000000001,
+        "net_r_per_trade": 0.03997474318634579,
+        "profit_factor": 1.0922220446209245,
+        "return_pct": 8.769800000000002,
+        "starting_equity": 50000,
+        "wilson_lower": 0.41747347166620996
+      },
+      "training_resimulation": {
+        "trades": 124,
+        "wins": 62,
+        "win_rate": 0.5,
+        "net_pnl": 3260.6,
+        "net_r_per_trade": 0.051187836289885505,
+        "profit_factor": 1.111309109281335,
+        "return_pct": 6.521199999999999,
+        "starting_equity": 50000,
+        "wilson_lower": 0.41332731782637955
+      },
+      "later_validation": {
+        "trades": 69,
+        "wins": 32,
+        "win_rate": 0.463768115942029,
+        "net_pnl": 1124.3000000000006,
+        "net_r_per_trade": 0.019823677319115007,
+        "profit_factor": 1.0615919798400355,
+        "return_pct": 2.110941296192684,
+        "starting_equity": 53260.6,
+        "wilson_lower": 0.35114184069675103
+      },
+      "max_drawdown_pct": 8.879854578066974,
+      "max_contracts": 167,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\direct_ny_only_high_first\\report.html"
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "ny_only",
+      "full_period": {
+        "trades": 193,
+        "wins": 102,
+        "win_rate": 0.5284974093264249,
+        "net_pnl": 14257.399999999998,
+        "net_r_per_trade": 0.13753030234305919,
+        "profit_factor": 1.2933458429264217,
+        "return_pct": 28.514799999999994,
+        "starting_equity": 50000,
+        "wilson_lower": 0.45820365382637884
+      },
+      "training_resimulation": {
+        "trades": 124,
+        "wins": 67,
+        "win_rate": 0.5403225806451613,
+        "net_pnl": 9379.7,
+        "net_r_per_trade": 0.14752378085624984,
+        "profit_factor": 1.3175941977950536,
+        "return_pct": 18.7594,
+        "starting_equity": 50000,
+        "wilson_lower": 0.45271206827491345
+      },
+      "later_validation": {
+        "trades": 69,
+        "wins": 35,
+        "win_rate": 0.5072463768115942,
+        "net_pnl": 4877.700000000001,
+        "net_r_per_trade": 0.11957100762370192,
+        "profit_factor": 1.2557907819456606,
+        "return_pct": 8.214423447743927,
+        "starting_equity": 59379.7,
+        "wilson_lower": 0.39205267562636525
+      },
+      "max_drawdown_pct": 7.476802889920188,
+      "max_contracts": 183,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 107.6
+        }
+      ],
+      "report": "runs\\filter_study\\direct_ny_only_low_first\\report.html"
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "high_first",
+      "filter": "strong_rejection",
+      "full_period": {
+        "trades": 368,
+        "wins": 157,
+        "win_rate": 0.4266304347826087,
+        "net_pnl": -11765.699999999997,
+        "net_r_per_trade": -0.06874559892557484,
+        "profit_factor": 0.8610989119963736,
+        "return_pct": -23.531399999999994,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3771122854991785
+      },
+      "training_resimulation": {
+        "trades": 244,
+        "wins": 104,
+        "win_rate": 0.4262295081967213,
+        "net_pnl": -8709.199999999997,
+        "net_r_per_trade": -0.07345420780003901,
+        "profit_factor": 0.8467054485289588,
+        "return_pct": -17.418399999999995,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3657947446909903
+      },
+      "later_validation": {
+        "trades": 124,
+        "wins": 53,
+        "win_rate": 0.4274193548387097,
+        "net_pnl": -3056.5000000000014,
+        "net_r_per_trade": -0.0594802717855003,
+        "profit_factor": 0.8904169997956412,
+        "return_pct": -7.402375347535046,
+        "starting_equity": 41290.8,
+        "wilson_lower": 0.34381792828898405
+      },
+      "max_drawdown_pct": 27.949648727838316,
+      "max_contracts": 159,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\direct_strong_rejection_high_first\\report.html"
+    },
+    {
+      "entry_mode": "direct",
+      "bar_path": "low_first",
+      "filter": "strong_rejection",
+      "full_period": {
+        "trades": 369,
+        "wins": 170,
+        "win_rate": 0.46070460704607047,
+        "net_pnl": -53.19999999999908,
+        "net_r_per_trade": 0.005629520340685846,
+        "profit_factor": 0.9993879605395609,
+        "return_pct": -0.10639999999999816,
+        "starting_equity": 50000,
+        "wilson_lower": 0.4105125030127589
+      },
+      "training_resimulation": {
+        "trades": 244,
+        "wins": 110,
+        "win_rate": 0.45081967213114754,
+        "net_pnl": -2945.7000000000003,
+        "net_r_per_trade": -0.01823869661611856,
+        "profit_factor": 0.9482108416683231,
+        "return_pct": -5.891400000000001,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3896302965055799
+      },
+      "later_validation": {
+        "trades": 125,
+        "wins": 60,
+        "win_rate": 0.48,
+        "net_pnl": 2892.499999999999,
+        "net_r_per_trade": 0.052220279840368054,
+        "profit_factor": 1.0962761035554758,
+        "return_pct": 6.147153395120104,
+        "starting_equity": 47054.3,
+        "wilson_lower": 0.39432767016219683
+      },
+      "max_drawdown_pct": 20.86676126368218,
+      "max_contracts": 159,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\direct_strong_rejection_low_first\\report.html"
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "directional_c2_body",
+      "full_period": {
+        "trades": 237,
+        "wins": 105,
+        "win_rate": 0.4430379746835443,
+        "net_pnl": 230.699999999996,
+        "net_r_per_trade": 0.007788894840968037,
+        "profit_factor": 1.0040129206652377,
+        "return_pct": 0.46139999999999204,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3812041066544332
+      },
+      "training_resimulation": {
+        "trades": 150,
+        "wins": 65,
+        "win_rate": 0.43333333333333335,
+        "net_pnl": -1557.0000000000039,
+        "net_r_per_trade": -0.007082646027044042,
+        "profit_factor": 0.9569903760096357,
+        "return_pct": -3.114000000000008,
+        "starting_equity": 50000,
+        "wilson_lower": 0.35667590320996057
+      },
+      "later_validation": {
+        "trades": 87,
+        "wins": 40,
+        "win_rate": 0.45977011494252873,
+        "net_pnl": 1787.7000000000005,
+        "net_r_per_trade": 0.03342948254443716,
+        "profit_factor": 1.0839764939097427,
+        "return_pct": 3.6903164543896962,
+        "starting_equity": 48442.99999999999,
+        "wilson_lower": 0.358970941640143
+      },
+      "max_drawdown_pct": 16.272200000000012,
+      "max_contracts": 124,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\rebreak_directional_c2_body_high_first\\report.html"
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "directional_c2_body",
+      "full_period": {
+        "trades": 241,
+        "wins": 107,
+        "win_rate": 0.44398340248962653,
+        "net_pnl": 1279.8999999999992,
+        "net_r_per_trade": 0.015399910650419686,
+        "profit_factor": 1.0220835756102364,
+        "return_pct": 2.5597999999999987,
+        "starting_equity": 50000,
+        "wilson_lower": 0.38262133695663236
+      },
+      "training_resimulation": {
+        "trades": 153,
+        "wins": 66,
+        "win_rate": 0.43137254901960786,
+        "net_pnl": -1183.700000000001,
+        "net_r_per_trade": -0.002936112857127394,
+        "profit_factor": 0.9678772731096659,
+        "return_pct": -2.3674000000000017,
+        "starting_equity": 50000,
+        "wilson_lower": 0.35552517760154473
+      },
+      "later_validation": {
+        "trades": 88,
+        "wins": 41,
+        "win_rate": 0.4659090909090909,
+        "net_pnl": 2463.6000000000004,
+        "net_r_per_trade": 0.04727958788513222,
+        "profit_factor": 1.116715147954784,
+        "return_pct": 5.04667498356082,
+        "starting_equity": 48816.299999999996,
+        "wilson_lower": 0.36530468030457786
+      },
+      "max_drawdown_pct": 17.056100000000036,
+      "max_contracts": 124,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\rebreak_directional_c2_body_low_first\\report.html"
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "high_first",
+      "filter": "ny_only",
+      "full_period": {
+        "trades": 110,
+        "wins": 53,
+        "win_rate": 0.4818181818181818,
+        "net_pnl": 5223.900000000001,
+        "net_r_per_trade": 0.08069210627780511,
+        "profit_factor": 1.2001923784413515,
+        "return_pct": 10.4478,
+        "starting_equity": 50000,
+        "wilson_lower": 0.39064279126942547
+      },
+      "training_resimulation": {
+        "trades": 67,
+        "wins": 31,
+        "win_rate": 0.4626865671641791,
+        "net_pnl": 1108.5,
+        "net_r_per_trade": 0.03701472029106158,
+        "profit_factor": 1.0666903306540891,
+        "return_pct": 2.217,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3485844371949035
+      },
+      "later_validation": {
+        "trades": 43,
+        "wins": 22,
+        "win_rate": 0.5116279069767442,
+        "net_pnl": 4115.400000000001,
+        "net_r_per_trade": 0.1487475681641264,
+        "profit_factor": 1.4344438814289333,
+        "return_pct": 8.052280931743253,
+        "starting_equity": 51108.5,
+        "wilson_lower": 0.36752308469449313
+      },
+      "max_drawdown_pct": 8.633677332994589,
+      "max_contracts": 99,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\rebreak_ny_only_high_first\\report.html"
+    },
+    {
+      "entry_mode": "rebreak",
+      "bar_path": "low_first",
+      "filter": "ny_only",
+      "full_period": {
+        "trades": 110,
+        "wins": 54,
+        "win_rate": 0.4909090909090909,
+        "net_pnl": 6340.2,
+        "net_r_per_trade": 0.10125096130261466,
+        "profit_factor": 1.2432559977593534,
+        "return_pct": 12.6804,
+        "starting_equity": 50000,
+        "wilson_lower": 0.3993829123016309
+      },
+      "training_resimulation": {
+        "trades": 68,
+        "wins": 32,
+        "win_rate": 0.47058823529411764,
+        "net_pnl": 1718.6999999999991,
+        "net_r_per_trade": 0.05541711691231495,
+        "profit_factor": 1.1017964071856292,
+        "return_pct": 3.437399999999998,
+        "starting_equity": 50000,
+        "wilson_lower": 0.35673106421198947
+      },
+      "later_validation": {
+        "trades": 42,
+        "wins": 22,
+        "win_rate": 0.5238095238095238,
+        "net_pnl": 4621.5,
+        "net_r_per_trade": 0.17545813793452844,
+        "profit_factor": 1.5034204047842095,
+        "return_pct": 8.935839454587994,
+        "starting_equity": 51718.7,
+        "wilson_lower": 0.37722464131344974
+      },
+      "max_drawdown_pct": 9.122955391350953,
+      "max_contracts": 100,
+      "roll_data_liquidations": [
+        {
+          "contract": "MNQU6",
+          "time": "2026-09-11T20:00:00+00:00",
+          "net": 53.8
+        }
+      ],
+      "report": "runs\\filter_study\\rebreak_ny_only_low_first\\report.html"
+    }
+  ],
+  "source_risk_summary_sha256": "05dfea387e9b7748af0d6c4fd8246d638ded63e5c4d6f2935540208b857d82ed",
+  "source_manifest_sha256": "fd66a64531310d0cb226e6570ed5ffb532da5bd7e71202a3ce9d9dab1a592676"
+}

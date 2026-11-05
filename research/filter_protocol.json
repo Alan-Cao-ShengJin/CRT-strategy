@@ -1,0 +1,33 @@
+{
+  "symbol": "MNQ",
+  "start": "2025-11-03",
+  "selection_end_exclusive": "2026-07-01",
+  "validation_end_exclusive": "2026-11-05",
+  "risk_fraction": 0.01,
+  "entry_modes": ["direct", "rebreak"],
+  "paths": ["high_first", "low_first"],
+  "minimum_training_subset_trades_each_path": 40,
+  "shortlist_per_entry_mode": 2,
+  "selection_score": "Minimum training-subset Wilson 95% win-rate lower endpoint across both bar paths; tie by sample size then name.",
+  "screening": "Only earlier-period baseline trades are screened. Shortlisted rules are then fully resimulated, permitting the next qualified setup after a rejection. Screening subsets are not executable-policy backtests.",
+  "candidates": {
+    "ny_only": "Setup completes in New York entry session, 09:30-12:00 Eastern.",
+    "ny_first_hour_setups": "Setup completes between 09:30 inclusive and 10:30 exclusive Eastern; original C3/session entry expiry remains.",
+    "fifteen_minute_only": "Setup timeframe equals 15 minutes.",
+    "directional_c2_body": "C2 closes above its open for longs, below its open for shorts.",
+    "strong_rejection": "C2 closes at least 65% of its own range away from its swept-side extreme.",
+    "meaningful_sweep": "C2 excursion beyond C1 is at least 10% of C1 range.",
+    "efficient_price_action": "Prior 20 completed minute closes have directional efficiency at least 0.30.",
+    "minimum_reward_12_points": "Planned distance from entry trigger to C1 target is at least 12 MNQ points.",
+    "hourly_bias_aligned": "The existing causal hourly-bias proxy agrees with setup direction.",
+    "skip_mondays": "Setup's New York calendar weekday is not Monday."
+  },
+  "caveats": [
+    "All thresholds and selection rules are fixed before this filter study, not optimized individually.",
+    "This year has already been inspected in earlier work. Later-period validation is retrospective, not pristine or prospective out-of-sample evidence.",
+    "Only single filters are considered. No combinations, weekday search or threshold grid.",
+    "No later-period outcome is used to choose the shortlist or substitute another filter.",
+    "Fees, slippage, whole-contract compounding and rollover data-mark assumptions match the 1% sizing study.",
+    "Broker margin, quantity limits and liquidity remain unmodeled. High/low paths are hypotheses, not observed ticks."
+  ]
+}
