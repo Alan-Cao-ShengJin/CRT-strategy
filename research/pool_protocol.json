@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "purpose": "Find a more profitable tradable CHoCH pool without ranking on the later-period result. This is a retrospective extension of an already inspected year.",
+  "added_symbols": ["SPY", "QQQ", "IWM", "GLD", "SLV", "USO", "XLE", "XLF", "META", "AMD", "CVX", "COP"],
+  "timeframe": 5,
+  "entry_mode": "retest_close",
+  "reward_risk": 2,
+  "training_start": "2025-11-03",
+  "selection_cutoff_exclusive": "2026-05-01",
+  "training_blocks": [["2025-11-03", "2026-01-01"], ["2026-01-01", "2026-03-01"], ["2026-03-01", "2026-05-01"]],
+  "test_end_exclusive": "2026-11-05",
+  "minimum_training_trades_each_path": 20,
+  "minimum_training_profit_factor_each_path": 1.2,
+  "minimum_positive_training_blocks_each_path": 2,
+  "require_positive_training_stress_pnl_each_path": true,
+  "maximum_selected_markets": 5,
+  "maximum_per_exposure_bucket": 1,
+  "score": "minimum across paths of mean stressed net R per completed training trade times sqrt(training trade count); descending, symbol alphabetical tie-break",
+  "paths": ["high_first", "low_first"],
+  "primary_equity": 50000,
+  "full_period_equities": [10000, 25000, 50000],
+  "exposure_buckets": {
+    "MNQ": "equity_index", "MES": "equity_index", "MYM": "equity_index", "M2K": "equity_index", "SPY": "equity_index", "QQQ": "equity_index", "IWM": "equity_index",
+    "MGC": "gold", "GLD": "gold", "SIL": "silver", "SLV": "silver", "MCL": "oil", "USO": "oil", "M6E": "fx", "BTCUSD": "crypto",
+    "XOM": "energy_equity", "CVX": "energy_equity", "COP": "energy_equity", "XLE": "energy_equity",
+    "AAPL": "technology", "MSFT": "technology", "NVDA": "technology", "META": "technology", "AMD": "technology",
+    "TSLA": "consumer", "AMZN": "consumer", "JPM": "financials", "XLF": "financials", "UNH": "healthcare"
+  },
+  "notes": [
+    "Freeze the 5m entry logic, costs, risk, sessions and capital constraints. Only market membership changes. Full initial-margin planning proxies and 1% entry / 2% total planned risk are inherited from portfolio_protocol.json.",
+    "Training includes only trades both entered and exited before the cutoff. Exclude unverified roll_data_end_mark and end_of_data liquidations from training selection. No later-period trade, statistic or equity curve enters the selector.",
+    "Reprice training fills with the existing breadth-study cost stress. No new cost threshold or parameter grid is optimized. At most five eligible markets, at most one per declared coarse exposure bucket; fewer are allowed and none means cash.",
+    "New ETFs use the stock engine, whole shares, 1x notional, regular-session candles, assumed stock costs, and hypothetical shorts with unmodeled borrow availability/charges. The sample is predefined surviving instruments, not a point-in-time universe or random sample.",
+    "The earlier full-history screened-five basket is a hindsight-selected comparator. The primary selected basket is tested against all-17 5m, that earlier basket, and MCL 5m alone on the same later half with fresh $50k accounts and complete earlier history for indicator warmup.",
+    "Use observed MNQ futures market dates as a common day-count clock, including zero-trade dates even if the selected basket has only ETFs/stocks. MNQ need not be trade-enabled.",
+    "Publish all candidate eligibility/ranks, later-period cases, full-period selected-pool capital scenarios, source/input hashes and explicit unavailable downloads. Do not try a second selection rule after viewing the first result.",
+    "This year was already inspected in prior studies. A chronological split reduces direct selection leakage but is not pristine out-of-sample validation. No claim of guaranteed profits, statistical significance or universal optimum. No live orders or default strategy changes."
+  ]
+}

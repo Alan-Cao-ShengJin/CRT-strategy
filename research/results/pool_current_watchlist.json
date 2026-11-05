@@ -1,0 +1,1293 @@
+{
+  "as_of": "2026-11-05",
+  "training_start": "2026-05-01",
+  "training_end_exclusive": "2026-11-05",
+  "training_blocks": [
+    [
+      "2026-05-01",
+      "2026-07-01"
+    ],
+    [
+      "2026-07-01",
+      "2026-09-01"
+    ],
+    [
+      "2026-09-01",
+      "2026-11-05"
+    ]
+  ],
+  "selected": {
+    "MCL": 5,
+    "MNQ": 5,
+    "COP": 5,
+    "MGC": 5,
+    "NVDA": 5
+  },
+  "candidates": [
+    {
+      "symbol": "MCL",
+      "bucket": "oil",
+      "paths": {
+        "high_first": {
+          "trades": 59,
+          "profit_factor": 2.043174309406252,
+          "net_pnl": 14429.500000000053,
+          "stressed_pnl": 12946.000000000051,
+          "positive_blocks": 3,
+          "blocks": [
+            2721.7000000000094,
+            5009.9000000000315,
+            6697.900000000009
+          ],
+          "score": 2.8183926616596513,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 59,
+          "profit_factor": 2.043174309406252,
+          "net_pnl": 14429.500000000053,
+          "stressed_pnl": 12946.000000000051,
+          "positive_blocks": 3,
+          "blocks": [
+            2721.7000000000094,
+            5009.9000000000315,
+            6697.900000000009
+          ],
+          "score": 2.8183926616596513,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 2.8183926616596513
+    },
+    {
+      "symbol": "USO",
+      "bucket": "oil",
+      "paths": {
+        "high_first": {
+          "trades": 21,
+          "profit_factor": 1.7888350219944245,
+          "net_pnl": 2985.7799999999947,
+          "stressed_pnl": 2794.649999999995,
+          "positive_blocks": 2,
+          "blocks": [
+            296.41999999999507,
+            -364.12000000000955,
+            3053.480000000009
+          ],
+          "score": 1.8596087498224478,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 21,
+          "profit_factor": 1.7888350219944245,
+          "net_pnl": 2985.7799999999947,
+          "stressed_pnl": 2794.649999999995,
+          "positive_blocks": 2,
+          "blocks": [
+            296.41999999999507,
+            -364.12000000000955,
+            3053.480000000009
+          ],
+          "score": 1.8596087498224478,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 1.8596087498224478
+    },
+    {
+      "symbol": "MNQ",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 76,
+          "profit_factor": 1.3485662435684607,
+          "net_pnl": 6761.0000000000055,
+          "stressed_pnl": 6266.5,
+          "positive_blocks": 2,
+          "blocks": [
+            4656.300000000001,
+            3120.0,
+            -1015.2999999999998
+          ],
+          "score": 1.5436734354399266,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 76,
+          "profit_factor": 1.3485662435684607,
+          "net_pnl": 6761.0000000000055,
+          "stressed_pnl": 6266.5,
+          "positive_blocks": 2,
+          "blocks": [
+            4656.300000000001,
+            3120.0,
+            -1015.2999999999998
+          ],
+          "score": 1.5436734354399266,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 1.5436734354399266
+    },
+    {
+      "symbol": "COP",
+      "bucket": "energy_equity",
+      "paths": {
+        "high_first": {
+          "trades": 26,
+          "profit_factor": 1.7909667410753858,
+          "net_pnl": 2671.6799999999794,
+          "stressed_pnl": 2401.2699999999786,
+          "positive_blocks": 2,
+          "blocks": [
+            1346.8899999999944,
+            1794.839999999992,
+            -470.0500000000074
+          ],
+          "score": 1.3599471404645438,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 26,
+          "profit_factor": 1.7909667410753858,
+          "net_pnl": 2671.6799999999794,
+          "stressed_pnl": 2401.2699999999786,
+          "positive_blocks": 2,
+          "blocks": [
+            1346.8899999999944,
+            1794.839999999992,
+            -470.0500000000074
+          ],
+          "score": 1.3599471404645438,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 1.3599471404645438
+    },
+    {
+      "symbol": "MGC",
+      "bucket": "gold",
+      "paths": {
+        "high_first": {
+          "trades": 66,
+          "profit_factor": 1.2217621531233738,
+          "net_pnl": 2784.9999999999104,
+          "stressed_pnl": 2266.99999999991,
+          "positive_blocks": 2,
+          "blocks": [
+            917.4999999999758,
+            2118.099999999957,
+            -250.60000000002265
+          ],
+          "score": 1.2136356542003484,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 66,
+          "profit_factor": 1.2217621531233738,
+          "net_pnl": 2784.9999999999104,
+          "stressed_pnl": 2266.99999999991,
+          "positive_blocks": 2,
+          "blocks": [
+            917.4999999999758,
+            2118.099999999957,
+            -250.60000000002265
+          ],
+          "score": 1.2136356542003484,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 1.2136356542003484
+    },
+    {
+      "symbol": "GLD",
+      "bucket": "gold",
+      "paths": {
+        "high_first": {
+          "trades": 28,
+          "profit_factor": 1.6130493883099204,
+          "net_pnl": 1420.6499999999946,
+          "stressed_pnl": 1323.9999999999948,
+          "positive_blocks": 2,
+          "blocks": [
+            -444.5299999999975,
+            1082.5199999999943,
+            782.6599999999979
+          ],
+          "score": 0.9590112705511433,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 28,
+          "profit_factor": 1.6130493883099204,
+          "net_pnl": 1420.6499999999946,
+          "stressed_pnl": 1323.9999999999948,
+          "positive_blocks": 2,
+          "blocks": [
+            -444.5299999999975,
+            1082.5199999999943,
+            782.6599999999979
+          ],
+          "score": 0.9590112705511433,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 0.9590112705511433
+    },
+    {
+      "symbol": "AMD",
+      "bucket": "technology",
+      "paths": {
+        "high_first": {
+          "trades": 15,
+          "profit_factor": 1.3827989091652528,
+          "net_pnl": 992.4100000000067,
+          "stressed_pnl": 965.7700000000065,
+          "positive_blocks": 1,
+          "blocks": [
+            1175.7799999999993,
+            -96.61999999999395,
+            -86.74999999999892
+          ],
+          "score": 0.7554597598765849,
+          "eligible": false,
+          "failed_conditions": [
+            "insufficient_training_trades",
+            "training_time_blocks"
+          ]
+        },
+        "low_first": {
+          "trades": 15,
+          "profit_factor": 1.3827989091652528,
+          "net_pnl": 992.4100000000067,
+          "stressed_pnl": 965.7700000000065,
+          "positive_blocks": 1,
+          "blocks": [
+            1175.7799999999993,
+            -96.61999999999395,
+            -86.74999999999892
+          ],
+          "score": 0.7554597598765849,
+          "eligible": false,
+          "failed_conditions": [
+            "insufficient_training_trades",
+            "training_time_blocks"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": 0.7554597598765849
+    },
+    {
+      "symbol": "NVDA",
+      "bucket": "technology",
+      "paths": {
+        "high_first": {
+          "trades": 23,
+          "profit_factor": 1.4015850667527714,
+          "net_pnl": 1691.3999999999899,
+          "stressed_pnl": 1561.8499999999897,
+          "positive_blocks": 2,
+          "blocks": [
+            621.6400000000024,
+            2105.2299999999896,
+            -1035.4700000000028
+          ],
+          "score": 0.6683560586165871,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 23,
+          "profit_factor": 1.4015850667527714,
+          "net_pnl": 1691.3999999999899,
+          "stressed_pnl": 1561.8499999999897,
+          "positive_blocks": 2,
+          "blocks": [
+            621.6400000000024,
+            2105.2299999999896,
+            -1035.4700000000028
+          ],
+          "score": 0.6683560586165871,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 0.6683560586165871
+    },
+    {
+      "symbol": "SIL",
+      "bucket": "silver",
+      "paths": {
+        "high_first": {
+          "trades": 40,
+          "profit_factor": 1.323742933013533,
+          "net_pnl": 3023.499999999985,
+          "stressed_pnl": 2594.9999999999864,
+          "positive_blocks": 2,
+          "blocks": [
+            3328.0000000000127,
+            3626.1999999999907,
+            -3930.7000000000166
+          ],
+          "score": 0.6212537557356855,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 40,
+          "profit_factor": 1.323742933013533,
+          "net_pnl": 3023.499999999985,
+          "stressed_pnl": 2594.9999999999864,
+          "positive_blocks": 2,
+          "blocks": [
+            3328.0000000000127,
+            3626.1999999999907,
+            -3930.7000000000166
+          ],
+          "score": 0.6212537557356855,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 0.6212537557356855
+    },
+    {
+      "symbol": "CVX",
+      "bucket": "energy_equity",
+      "paths": {
+        "high_first": {
+          "trades": 23,
+          "profit_factor": 1.3704254047364623,
+          "net_pnl": 879.9900000000251,
+          "stressed_pnl": 722.700000000025,
+          "positive_blocks": 2,
+          "blocks": [
+            -248.80999999999023,
+            697.5400000000152,
+            431.2600000000003
+          ],
+          "score": 0.5459374050114988,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 23,
+          "profit_factor": 1.3704254047364623,
+          "net_pnl": 879.9900000000251,
+          "stressed_pnl": 722.700000000025,
+          "positive_blocks": 2,
+          "blocks": [
+            -248.80999999999023,
+            697.5400000000152,
+            431.2600000000003
+          ],
+          "score": 0.5459374050114988,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 0.5459374050114988
+    },
+    {
+      "symbol": "QQQ",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 29,
+          "profit_factor": 1.4168980228708894,
+          "net_pnl": 1186.3000000000209,
+          "stressed_pnl": 1132.010000000022,
+          "positive_blocks": 2,
+          "blocks": [
+            971.4000000000094,
+            311.5599999999993,
+            -96.65999999998755
+          ],
+          "score": 0.441368429732884,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 29,
+          "profit_factor": 1.4168980228708894,
+          "net_pnl": 1186.3000000000209,
+          "stressed_pnl": 1132.010000000022,
+          "positive_blocks": 2,
+          "blocks": [
+            971.4000000000094,
+            311.5599999999993,
+            -96.65999999998755
+          ],
+          "score": 0.441368429732884,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 0.441368429732884
+    },
+    {
+      "symbol": "META",
+      "bucket": "technology",
+      "paths": {
+        "high_first": {
+          "trades": 18,
+          "profit_factor": 1.2434671984596353,
+          "net_pnl": 566.480000000003,
+          "stressed_pnl": 536.3000000000029,
+          "positive_blocks": 2,
+          "blocks": [
+            -409.8100000000009,
+            211.21000000000657,
+            765.0799999999972
+          ],
+          "score": 0.4366596429058302,
+          "eligible": false,
+          "failed_conditions": [
+            "insufficient_training_trades"
+          ]
+        },
+        "low_first": {
+          "trades": 18,
+          "profit_factor": 1.2434671984596353,
+          "net_pnl": 566.480000000003,
+          "stressed_pnl": 536.3000000000029,
+          "positive_blocks": 2,
+          "blocks": [
+            -409.8100000000009,
+            211.21000000000657,
+            765.0799999999972
+          ],
+          "score": 0.4366596429058302,
+          "eligible": false,
+          "failed_conditions": [
+            "insufficient_training_trades"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": 0.4366596429058302
+    },
+    {
+      "symbol": "XOM",
+      "bucket": "energy_equity",
+      "paths": {
+        "high_first": {
+          "trades": 23,
+          "profit_factor": 1.0358393065510927,
+          "net_pnl": 94.60000000000116,
+          "stressed_pnl": -96.9599999999985,
+          "positive_blocks": 1,
+          "blocks": [
+            1550.7199999999953,
+            -937.759999999997,
+            -518.3599999999967
+          ],
+          "score": 0.07323956131325812,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 23,
+          "profit_factor": 1.0358393065510927,
+          "net_pnl": 94.60000000000116,
+          "stressed_pnl": -96.9599999999985,
+          "positive_blocks": 1,
+          "blocks": [
+            1550.7199999999953,
+            -937.759999999997,
+            -518.3599999999967
+          ],
+          "score": 0.07323956131325812,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": 0.07323956131325812
+    },
+    {
+      "symbol": "SLV",
+      "bucket": "silver",
+      "paths": {
+        "high_first": {
+          "trades": 21,
+          "profit_factor": 1.452779829509979,
+          "net_pnl": 1268.9200000000062,
+          "stressed_pnl": 742.3000000000069,
+          "positive_blocks": 3,
+          "blocks": [
+            91.58000000000189,
+            528.0000000000057,
+            649.339999999999
+          ],
+          "score": 0.06302451212776497,
+          "eligible": true,
+          "failed_conditions": []
+        },
+        "low_first": {
+          "trades": 21,
+          "profit_factor": 1.452779829509979,
+          "net_pnl": 1268.9200000000062,
+          "stressed_pnl": 742.3000000000069,
+          "positive_blocks": 3,
+          "blocks": [
+            91.58000000000189,
+            528.0000000000057,
+            649.339999999999
+          ],
+          "score": 0.06302451212776497,
+          "eligible": true,
+          "failed_conditions": []
+        }
+      },
+      "eligible": true,
+      "score": 0.06302451212776497
+    },
+    {
+      "symbol": "AAPL",
+      "bucket": "technology",
+      "paths": {
+        "high_first": {
+          "trades": 22,
+          "profit_factor": 1.105664134942143,
+          "net_pnl": 316.22000000000077,
+          "stressed_pnl": 224.70000000000044,
+          "positive_blocks": 2,
+          "blocks": [
+            880.2899999999927,
+            1.3799999999939558,
+            -565.449999999986
+          ],
+          "score": -0.10085195495989223,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor"
+          ]
+        },
+        "low_first": {
+          "trades": 22,
+          "profit_factor": 1.105664134942143,
+          "net_pnl": 316.22000000000077,
+          "stressed_pnl": 224.70000000000044,
+          "positive_blocks": 2,
+          "blocks": [
+            880.2899999999927,
+            1.3799999999939558,
+            -565.449999999986
+          ],
+          "score": -0.10085195495989223,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.10085195495989223
+    },
+    {
+      "symbol": "UNH",
+      "bucket": "healthcare",
+      "paths": {
+        "high_first": {
+          "trades": 22,
+          "profit_factor": 0.892250042238572,
+          "net_pnl": -427.2899999999855,
+          "stressed_pnl": -501.67999999998534,
+          "positive_blocks": 1,
+          "blocks": [
+            -392.58999999999094,
+            751.520000000007,
+            -786.2200000000017
+          ],
+          "score": -0.1661235762267711,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 22,
+          "profit_factor": 0.892250042238572,
+          "net_pnl": -427.2899999999855,
+          "stressed_pnl": -501.67999999998534,
+          "positive_blocks": 1,
+          "blocks": [
+            -392.58999999999094,
+            751.520000000007,
+            -786.2200000000017
+          ],
+          "score": -0.1661235762267711,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.1661235762267711
+    },
+    {
+      "symbol": "TSLA",
+      "bucket": "consumer",
+      "paths": {
+        "high_first": {
+          "trades": 25,
+          "profit_factor": 0.8160832637375205,
+          "net_pnl": -790.5899999999799,
+          "stressed_pnl": -862.4099999999798,
+          "positive_blocks": 1,
+          "blocks": [
+            459.02000000000066,
+            -851.0599999999879,
+            -398.54999999999274
+          ],
+          "score": -0.3824731908676849,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 25,
+          "profit_factor": 0.8160832637375205,
+          "net_pnl": -790.5899999999799,
+          "stressed_pnl": -862.4099999999798,
+          "positive_blocks": 1,
+          "blocks": [
+            459.02000000000066,
+            -851.0599999999879,
+            -398.54999999999274
+          ],
+          "score": -0.3824731908676849,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.3824731908676849
+    },
+    {
+      "symbol": "AMZN",
+      "bucket": "consumer",
+      "paths": {
+        "high_first": {
+          "trades": 20,
+          "profit_factor": 0.7919517040002965,
+          "net_pnl": -802.2799999999758,
+          "stressed_pnl": -909.3299999999756,
+          "positive_blocks": 1,
+          "blocks": [
+            -672.379999999991,
+            -301.4699999999916,
+            171.57000000000681
+          ],
+          "score": -0.54211102041697,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 20,
+          "profit_factor": 0.7919517040002965,
+          "net_pnl": -802.2799999999758,
+          "stressed_pnl": -909.3299999999756,
+          "positive_blocks": 1,
+          "blocks": [
+            -672.379999999991,
+            -301.4699999999916,
+            171.57000000000681
+          ],
+          "score": -0.54211102041697,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.54211102041697
+    },
+    {
+      "symbol": "MES",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 66,
+          "profit_factor": 0.9465370506056454,
+          "net_pnl": -1090.8500000000004,
+          "stressed_pnl": -2969.0,
+          "positive_blocks": 1,
+          "blocks": [
+            2153.7000000000003,
+            -890.3500000000004,
+            -2354.2
+          ],
+          "score": -0.5989106251428241,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 66,
+          "profit_factor": 0.9465370506056454,
+          "net_pnl": -1090.8500000000004,
+          "stressed_pnl": -2969.0,
+          "positive_blocks": 1,
+          "blocks": [
+            2153.7000000000003,
+            -890.3500000000004,
+            -2354.2
+          ],
+          "score": -0.5989106251428241,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.5989106251428241
+    },
+    {
+      "symbol": "M6E",
+      "bucket": "fx",
+      "paths": {
+        "high_first": {
+          "trades": 5,
+          "profit_factor": 0.7187297004691454,
+          "net_pnl": -389.7000000000103,
+          "stressed_pnl": -719.2500000000103,
+          "positive_blocks": 1,
+          "blocks": [
+            -466.7000000000257,
+            205.40000000001103,
+            -128.39999999999554
+          ],
+          "score": -0.6675020634441193,
+          "eligible": false,
+          "failed_conditions": [
+            "insufficient_training_trades",
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 5,
+          "profit_factor": 0.7187297004691454,
+          "net_pnl": -389.7000000000103,
+          "stressed_pnl": -719.2500000000103,
+          "positive_blocks": 1,
+          "blocks": [
+            -466.7000000000257,
+            205.40000000001103,
+            -128.39999999999554
+          ],
+          "score": -0.6675020634441193,
+          "eligible": false,
+          "failed_conditions": [
+            "insufficient_training_trades",
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.6675020634441193
+    },
+    {
+      "symbol": "XLF",
+      "bucket": "financials",
+      "paths": {
+        "high_first": {
+          "trades": 30,
+          "profit_factor": 0.9130154639175206,
+          "net_pnl": -263.2500000000162,
+          "stressed_pnl": -1063.3200000000163,
+          "positive_blocks": 2,
+          "blocks": [
+            156.2499999999883,
+            57.71999999999275,
+            -477.2199999999974
+          ],
+          "score": -0.7690885508980965,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 30,
+          "profit_factor": 0.9130154639175206,
+          "net_pnl": -263.2500000000162,
+          "stressed_pnl": -1063.3200000000163,
+          "positive_blocks": 2,
+          "blocks": [
+            156.2499999999883,
+            57.71999999999275,
+            -477.2199999999974
+          ],
+          "score": -0.7690885508980965,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.7690885508980965
+    },
+    {
+      "symbol": "MSFT",
+      "bucket": "technology",
+      "paths": {
+        "high_first": {
+          "trades": 30,
+          "profit_factor": 0.6865943444309304,
+          "net_pnl": -1684.8499999999856,
+          "stressed_pnl": -1769.1799999999857,
+          "positive_blocks": 0,
+          "blocks": [
+            -820.380000000004,
+            -179.83999999998218,
+            -684.6299999999994
+          ],
+          "score": -0.847154751208886,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 30,
+          "profit_factor": 0.6865943444309304,
+          "net_pnl": -1684.8499999999856,
+          "stressed_pnl": -1769.1799999999857,
+          "positive_blocks": 0,
+          "blocks": [
+            -820.380000000004,
+            -179.83999999998218,
+            -684.6299999999994
+          ],
+          "score": -0.847154751208886,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.847154751208886
+    },
+    {
+      "symbol": "JPM",
+      "bucket": "financials",
+      "paths": {
+        "high_first": {
+          "trades": 30,
+          "profit_factor": 0.6205367643599743,
+          "net_pnl": -1613.2500000000034,
+          "stressed_pnl": -1735.590000000003,
+          "positive_blocks": 1,
+          "blocks": [
+            -1041.2599999999993,
+            -680.9399999999974,
+            108.94999999999354
+          ],
+          "score": -0.9072686280196783,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 30,
+          "profit_factor": 0.6205367643599743,
+          "net_pnl": -1613.2500000000034,
+          "stressed_pnl": -1735.590000000003,
+          "positive_blocks": 1,
+          "blocks": [
+            -1041.2599999999993,
+            -680.9399999999974,
+            108.94999999999354
+          ],
+          "score": -0.9072686280196783,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -0.9072686280196783
+    },
+    {
+      "symbol": "SPY",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 25,
+          "profit_factor": 0.5466846661562831,
+          "net_pnl": -1000.6799999999904,
+          "stressed_pnl": -1048.8199999999897,
+          "positive_blocks": 1,
+          "blocks": [
+            -1064.6999999999894,
+            -100.29999999999862,
+            164.31999999999815
+          ],
+          "score": -1.001055056602802,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 25,
+          "profit_factor": 0.5466846661562831,
+          "net_pnl": -1000.6799999999904,
+          "stressed_pnl": -1048.8199999999897,
+          "positive_blocks": 1,
+          "blocks": [
+            -1064.6999999999894,
+            -100.29999999999862,
+            164.31999999999815
+          ],
+          "score": -1.001055056602802,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -1.001055056602802
+    },
+    {
+      "symbol": "MYM",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 51,
+          "profit_factor": 0.7274079388925012,
+          "net_pnl": -3647.2,
+          "stressed_pnl": -4550.0,
+          "positive_blocks": 0,
+          "blocks": [
+            -1382.3000000000002,
+            -868.9000000000001,
+            -1396.0
+          ],
+          "score": -1.2253446622623516,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 51,
+          "profit_factor": 0.7274079388925012,
+          "net_pnl": -3647.2,
+          "stressed_pnl": -4550.0,
+          "positive_blocks": 0,
+          "blocks": [
+            -1382.3000000000002,
+            -868.9000000000001,
+            -1396.0
+          ],
+          "score": -1.2253446622623516,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -1.2253446622623516
+    },
+    {
+      "symbol": "M2K",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 34,
+          "profit_factor": 0.6401464257314399,
+          "net_pnl": -2624.7000000000394,
+          "stressed_pnl": -3183.0000000000396,
+          "positive_blocks": 0,
+          "blocks": [
+            -986.7000000000162,
+            -1072.9999999999973,
+            -565.0000000000259
+          ],
+          "score": -1.3995733754025508,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 34,
+          "profit_factor": 0.6401464257314399,
+          "net_pnl": -2624.7000000000394,
+          "stressed_pnl": -3183.0000000000396,
+          "positive_blocks": 0,
+          "blocks": [
+            -986.7000000000162,
+            -1072.9999999999973,
+            -565.0000000000259
+          ],
+          "score": -1.3995733754025508,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -1.3995733754025508
+    },
+    {
+      "symbol": "IWM",
+      "bucket": "equity_index",
+      "paths": {
+        "high_first": {
+          "trades": 24,
+          "profit_factor": 0.48006308444714046,
+          "net_pnl": -1958.279999999971,
+          "stressed_pnl": -2075.5299999999716,
+          "positive_blocks": 1,
+          "blocks": [
+            -943.4199999999854,
+            -1120.6600000000012,
+            105.80000000001561
+          ],
+          "score": -1.484492268793066,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 24,
+          "profit_factor": 0.48006308444714046,
+          "net_pnl": -1958.279999999971,
+          "stressed_pnl": -2075.5299999999716,
+          "positive_blocks": 1,
+          "blocks": [
+            -943.4199999999854,
+            -1120.6600000000012,
+            105.80000000001561
+          ],
+          "score": -1.484492268793066,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -1.484492268793066
+    },
+    {
+      "symbol": "XLE",
+      "bucket": "energy_equity",
+      "paths": {
+        "high_first": {
+          "trades": 21,
+          "profit_factor": 0.6130010630979938,
+          "net_pnl": -1237.6999999999948,
+          "stressed_pnl": -1720.0199999999943,
+          "positive_blocks": 0,
+          "blocks": [
+            -671.3100000000036,
+            -106.29999999999262,
+            -460.0899999999985
+          ],
+          "score": -1.6473569286440153,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 21,
+          "profit_factor": 0.6130010630979938,
+          "net_pnl": -1237.6999999999948,
+          "stressed_pnl": -1720.0199999999943,
+          "positive_blocks": 0,
+          "blocks": [
+            -671.3100000000036,
+            -106.29999999999262,
+            -460.0899999999985
+          ],
+          "score": -1.6473569286440153,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -1.6473569286440153
+    },
+    {
+      "symbol": "BTCUSD",
+      "bucket": "crypto",
+      "paths": {
+        "high_first": {
+          "trades": 37,
+          "profit_factor": 0.5901109131575333,
+          "net_pnl": -3218.102879420025,
+          "stressed_pnl": -6694.456949241025,
+          "positive_blocks": 1,
+          "blocks": [
+            -2791.266751410007,
+            823.7628487199888,
+            -1250.598976730006
+          ],
+          "score": -2.860745551473168,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        },
+        "low_first": {
+          "trades": 37,
+          "profit_factor": 0.5901109131575333,
+          "net_pnl": -3218.102879420025,
+          "stressed_pnl": -6694.456949241025,
+          "positive_blocks": 1,
+          "blocks": [
+            -2791.266751410007,
+            823.7628487199888,
+            -1250.598976730006
+          ],
+          "score": -2.860745551473168,
+          "eligible": false,
+          "failed_conditions": [
+            "training_profit_factor",
+            "training_time_blocks",
+            "training_cost_stress"
+          ]
+        }
+      },
+      "eligible": false,
+      "score": -2.860745551473168
+    }
+  ],
+  "unchanged_rule_policy_sha256": "3a6123d8d4fe23e54e6d04f52def6136dee2463a6dc71db715f295f4030ca62c",
+  "source_sha256": {
+    "crt\\__init__.py": "0f56fb1da2ba6a07fbb670d0432c413c7833f5fc81362afac941a4bf1a315e7c",
+    "crt\\__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "crt\\calendar.py": "1e3e460a28a78eabdfc4eaa6acdd2d1448860cae5f5b2db5dc679983b6424ef1",
+    "crt\\cli.py": "65d551020c0181eeb643175e93f9c33578756f0829465de60fa9579ca2bdba91",
+    "crt\\config.py": "45400df0ac7750d67dd4bc87a885eb725c67fed604fe803e572b20fae48ba7bf",
+    "crt\\data.py": "8c6ec862e80889395ff41f3e99f97dd5ca85e8e89f0aff9bc71fa4a185c93b1d",
+    "crt\\engine.py": "475485dc64828c60ecaa91d484e67f4a4be87a14041f6d7f0428f62b830d547d",
+    "crt\\journal.py": "2ebeb0fa3e2d897e84dfdfefc4623f980c9d465c762be0d889b4dbf04f14172e",
+    "crt\\massive.py": "a13b23225975763b9e17e1f881fb27206227d2949c31df9449b7dc6fd5d86ce1",
+    "crt\\models.py": "104bac74fe1bf313074974da9513b57e3c63f369c64f8855eaeed34deb4c7390",
+    "crt\\paper.py": "70569700e62fb2ab0197f7aa02bc713d8b0f342138042e72ba8443ecee3509a5",
+    "crt\\report.py": "62e1d8e7bd89c70ea118c95619cfea709dff2838632b9a5c64df9d287e674ea8",
+    "crt\\strategy.py": "23f57b6897625cef699a606e7759eac03abd1aaf2503ac5b15f8479327eb4507",
+    "crt\\validation.py": "dc3ac0b4ed936806abd4bc8ae9ef44bd4238f51227d6b588d2619574b7bc7981",
+    "research\\choch.py": "9718b26dcff8340c88c5b0f52bf59224f6e619ec44d7bea28939ef62f38addd5",
+    "research\\choch_study.py": "289c249c9b4aa78189c6caf269136d73a034f1ab4f64e743f596054e259f00e1",
+    "research\\risk_sizing_study.py": "63b170c3b5fe76cbbe7676a83b516e9fa2a93e66b06c50b524e6be6a2747a7ed",
+    "research\\expanded_markets.py": "406a585b93e916fb1eb2266acea343d0197671c06df4b8245542b3a8e5ea4274",
+    "research\\breadth_study.py": "466e49fe998c3fcf9413ed5fede4fc270ee3d38c1e24c0fca90f7414293d1f85",
+    "research\\portfolio_study.py": "015fa7a98e920cfdb7cfe3564b89061f43603c827e873ebc3555c58b1717c0cb",
+    "research\\pool_markets.py": "08e95a45a5dc1a7c88c0639f6ee782bbb66d482745f07fa8e90ec3cfe060a340",
+    "research\\pool_select.py": "09fac16b712e26fd957c1af9a30d3c43b3739659f702bf4def6a23e9131db20f",
+    "research\\pool_screen.py": "329424476171c5389233e1bf631464454597051b65eddc89eb3ab5e911965bd2",
+    "research\\pool_portfolio.py": "a5a550107ee5ccb53b9f06d76cd96dcdf0643da4bc12d55cdc6512801baedafa"
+  },
+  "forward_validation_available": false,
+  "note": "Post-study paper-watchlist application of the unchanged selection rule to the latest completed half. This is not the basket selected before May, not a new validation result, and not a live configuration change."
+}

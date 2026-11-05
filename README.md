@@ -66,6 +66,10 @@ The [1% and 2% equity-risk comparison](RISK_SIZING.md) reruns those cases with c
 
 [Shared-account CHoCH research](CHOCH_PORTFOLIO.md) replays all 17 markets on common 5m rules, alongside the five previously screened combinations, at $10k/$25k/$50k. It uses one equity pool, whole-quantity sizing, 1% entry risk, 2% aggregate open risk, capital reservations and causal allocation before intraminute execution. The report gives actual portfolio trade frequency and daily account returns, with the hindsight-selected basket and static margin assumptions explicitly identified. Reproduce with `python -m research.run_portfolio --workers 3` and `python -m research.portfolio_report` after acquiring the breadth data. This remains a research simulator.
 
+[CHoCH pool selection research](CHOCH_POOL_SEARCH.md) expands the candidate list to 29 markets while keeping 5m retest rules fixed. It selects at most five markets using only completed pre-May-2026 trades and compares them on May-November data with fresh shared accounts. The report retains every candidate, rejected screen, comparator and source/input hash, and identifies the already-inspected dataset and full-year hindsight replays. Reproduce with `python -m research.pool_download`, `python -m research.run_pool --workers 3` and `python -m research.pool_report`.
+
+The pool report also exports a separate [current paper watchlist](research/results/pool_current_watchlist.json) by applying the unchanged selection rule to the latest completed half-year. Its membership differs from the historical validation basket and has no subsequent-period validation in these data.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.
