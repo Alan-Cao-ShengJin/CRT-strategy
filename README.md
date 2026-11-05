@@ -70,6 +70,8 @@ The [1% and 2% equity-risk comparison](RISK_SIZING.md) reruns those cases with c
 
 The pool report also exports a separate [current paper watchlist](research/results/pool_current_watchlist.json) by applying the unchanged selection rule to the latest completed half-year. Its membership differs from the historical validation basket and has no subsequent-period validation in these data.
 
+[CHoCH frequency research](CHOCH_FREQUENCY.md) tests wider entry hours and repeated distinct setups on the fixed training-selected basket, with all position-risk, capital and daily-loss controls retained. All four variants and both execution paths are reported, including daily-return-target arithmetic and the limits of scaling trade counts. Reproduce with `python -m research.frequency_study --workers 3` and `python -m research.frequency_report`.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.

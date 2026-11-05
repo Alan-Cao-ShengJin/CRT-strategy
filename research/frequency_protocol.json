@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "purpose": "Test more opportunities without increasing risk; do not optimize to a target daily return.",
+  "selection_file": "research/results/pool_selection.json",
+  "start": "2026-05-01",
+  "end_exclusive": "2026-11-05",
+  "initial_equity": 50000,
+  "paths": ["high_first", "low_first"],
+  "variants": {
+    "baseline": {"wider_hours": false, "repeat_setups": false},
+    "wider_hours": {"wider_hours": true, "repeat_setups": false},
+    "repeat_setups": {"wider_hours": false, "repeat_setups": true},
+    "wider_and_repeat": {"wider_hours": true, "repeat_setups": true}
+  },
+  "expanded_stock_window_ny": ["09:30", "15:30"],
+  "expanded_futures_windows_ny": {"new_york": ["09:30", "15:30"], "asia": ["18:30", "23:30"]},
+  "repeat_max_trades_per_asset_day": 6,
+  "notes": [
+    "Use the basket selected before May (JPM, MCL, MYM, SLV, AMZN), not the November hindsight watchlist. Membership, 5m confirmed pivots, distinct consumed swing breaks, confirmed retest, structural stop and 2R remain fixed.",
+    "Repeat mode removes only the one-signal-per-session reservation and raises the per-asset daily entry cap from 2 to 6. Still require a new unconsumed CHoCH pivot and valid retest; no recycling the same setup or adding while a position is open.",
+    "Keep 1% planned entry risk, 2% combined open risk, two concurrent positions, one equity-index future, 3% daily loss budget, per-asset two-consecutive-loss halt, capital reservations, costs and exchange-close liquidation unchanged. No risk increase or martingale.",
+    "Only four fixed variants, both paths and fresh $50k accounts. Include all results and pre-existing cost stress; no second parameter search after inspection.",
+    "These dates and the strategy were already inspected. This is retrospective execution-frequency research, not untouched validation. Daily targets of 1%-9% are user aspirations, not optimization constraints, expected returns or guarantees."
+  ]
+}

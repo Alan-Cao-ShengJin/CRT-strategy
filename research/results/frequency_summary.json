@@ -1,0 +1,623 @@
+{
+  "policy": {
+    "version": 1,
+    "purpose": "Test more opportunities without increasing risk; do not optimize to a target daily return.",
+    "selection_file": "research/results/pool_selection.json",
+    "start": "2026-05-01",
+    "end_exclusive": "2026-11-05",
+    "initial_equity": 50000,
+    "paths": [
+      "high_first",
+      "low_first"
+    ],
+    "variants": {
+      "baseline": {
+        "wider_hours": false,
+        "repeat_setups": false
+      },
+      "wider_hours": {
+        "wider_hours": true,
+        "repeat_setups": false
+      },
+      "repeat_setups": {
+        "wider_hours": false,
+        "repeat_setups": true
+      },
+      "wider_and_repeat": {
+        "wider_hours": true,
+        "repeat_setups": true
+      }
+    },
+    "expanded_stock_window_ny": [
+      "09:30",
+      "15:30"
+    ],
+    "expanded_futures_windows_ny": {
+      "new_york": [
+        "09:30",
+        "15:30"
+      ],
+      "asia": [
+        "18:30",
+        "23:30"
+      ]
+    },
+    "repeat_max_trades_per_asset_day": 6,
+    "notes": [
+      "Use the basket selected before May (JPM, MCL, MYM, SLV, AMZN), not the November hindsight watchlist. Membership, 5m confirmed pivots, distinct consumed swing breaks, confirmed retest, structural stop and 2R remain fixed.",
+      "Repeat mode removes only the one-signal-per-session reservation and raises the per-asset daily entry cap from 2 to 6. Still require a new unconsumed CHoCH pivot and valid retest; no recycling the same setup or adding while a position is open.",
+      "Keep 1% planned entry risk, 2% combined open risk, two concurrent positions, one equity-index future, 3% daily loss budget, per-asset two-consecutive-loss halt, capital reservations, costs and exchange-close liquidation unchanged. No risk increase or martingale.",
+      "Only four fixed variants, both paths and fresh $50k accounts. Include all results and pre-existing cost stress; no second parameter search after inspection.",
+      "These dates and the strategy were already inspected. This is retrospective execution-frequency research, not untouched validation. Daily targets of 1%-9% are user aspirations, not optimization constraints, expected returns or guarantees."
+    ]
+  },
+  "basket": {
+    "JPM": 5,
+    "MCL": 5,
+    "MYM": 5,
+    "SLV": 5,
+    "AMZN": 5
+  },
+  "paired": [
+    {
+      "variant": "baseline",
+      "ranges": {
+        "trades": [
+          165,
+          165
+        ],
+        "mean_trades_per_market_day": [
+          1.2313432835820894,
+          1.2313432835820894
+        ],
+        "mean_daily_return_pct": [
+          0.15819896009986795,
+          0.15819896009986795
+        ],
+        "return_pct": [
+          22.675999999999963,
+          22.675999999999963
+        ],
+        "max_minute_mark_drawdown_pct": [
+          7.417824686475985,
+          7.417824686475985
+        ],
+        "profit_factor": [
+          1.376723548444763,
+          1.376723548444763
+        ],
+        "fixed_fill_stress_net_pnl": [
+          8833.810000000045,
+          8833.810000000045
+        ]
+      }
+    },
+    {
+      "variant": "wider_hours",
+      "ranges": {
+        "trades": [
+          268,
+          268
+        ],
+        "mean_trades_per_market_day": [
+          2.0,
+          2.0
+        ],
+        "mean_daily_return_pct": [
+          0.0860513198568209,
+          0.0860513198568209
+        ],
+        "return_pct": [
+          10.984460000000173,
+          10.984460000000173
+        ],
+        "max_minute_mark_drawdown_pct": [
+          10.37429262432724,
+          10.37429262432724
+        ],
+        "profit_factor": [
+          1.1148084585122355,
+          1.1148084585122355
+        ],
+        "fixed_fill_stress_net_pnl": [
+          1301.3000000000466,
+          1301.3000000000466
+        ]
+      }
+    },
+    {
+      "variant": "repeat_setups",
+      "ranges": {
+        "trades": [
+          188,
+          188
+        ],
+        "mean_trades_per_market_day": [
+          1.4029850746268657,
+          1.4029850746268657
+        ],
+        "mean_daily_return_pct": [
+          0.11590953324403569,
+          0.11590953324403569
+        ],
+        "return_pct": [
+          15.87898000000012,
+          15.87898000000012
+        ],
+        "max_minute_mark_drawdown_pct": [
+          8.652337938372357,
+          8.652337938372357
+        ],
+        "profit_factor": [
+          1.2385243348003245,
+          1.2385243348003245
+        ],
+        "fixed_fill_stress_net_pnl": [
+          5224.970000000066,
+          5224.970000000066
+        ]
+      }
+    },
+    {
+      "variant": "wider_and_repeat",
+      "ranges": {
+        "trades": [
+          354,
+          354
+        ],
+        "mean_trades_per_market_day": [
+          2.6417910447761193,
+          2.6417910447761193
+        ],
+        "mean_daily_return_pct": [
+          0.06964147732183891,
+          0.06964147732183891
+        ],
+        "return_pct": [
+          8.266160000000177,
+          8.266160000000177
+        ],
+        "max_minute_mark_drawdown_pct": [
+          16.308554251159666,
+          16.308554251159666
+        ],
+        "profit_factor": [
+          1.0767851695464732,
+          1.0767851695464732
+        ],
+        "fixed_fill_stress_net_pnl": [
+          -635.2899999999794,
+          -635.2899999999794
+        ]
+      }
+    }
+  ],
+  "inherited_policy_sha256": {
+    "research\\portfolio_protocol.json": "f5aaf08788607f8284598fedddde8ec61d79791a4d68063796eefcd7f85b30d8",
+    "research\\choch_breadth_protocol.json": "c7037b899879838088d77e1e473b0d0cb47a91dfa2512246fee93911910fe187",
+    "research\\results\\pool_selection.json": "679277488eb98017a0f7a2ce7ffba0940da972338abfe6c319106692f114900e"
+  },
+  "cases": [
+    {
+      "variant": "baseline",
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 61337.999999999985,
+        "net_pnl": 11337.999999999985,
+        "return_pct": 22.675999999999963,
+        "market_days": 134,
+        "trades": 165,
+        "active_days": 107,
+        "zero_entry_days": 27,
+        "mean_trades_per_market_day": 1.2313432835820894,
+        "mean_daily_return_pct": 0.15819896009986795,
+        "geometric_daily_return_pct": 0.15263618224288233,
+        "mean_daily_pnl": 84.61194029850735,
+        "max_minute_mark_drawdown_pct": 7.417824686475985,
+        "profit_factor": 1.376723548444763,
+        "win_rate_pct": 45.45454545454545,
+        "worst_daily_return_pct": -1.801680649087789,
+        "best_daily_return_pct": 3.5744381676404924,
+        "trades_by_symbol": {
+          "MCL": 55,
+          "MYM": 44,
+          "SLV": 19,
+          "JPM": 29,
+          "AMZN": 18
+        },
+        "daily_trade_count_histogram": {
+          "0": 27,
+          "1": 58,
+          "2": 40,
+          "3": 9
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7998424160174255,
+        "fixed_fill_stress_net_pnl": 8833.810000000045
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 11,
+        "max_positions": 5
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "baseline",
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 61337.999999999985,
+        "net_pnl": 11337.999999999985,
+        "return_pct": 22.675999999999963,
+        "market_days": 134,
+        "trades": 165,
+        "active_days": 107,
+        "zero_entry_days": 27,
+        "mean_trades_per_market_day": 1.2313432835820894,
+        "mean_daily_return_pct": 0.15819896009986795,
+        "geometric_daily_return_pct": 0.15263618224288233,
+        "mean_daily_pnl": 84.61194029850735,
+        "max_minute_mark_drawdown_pct": 7.417824686475985,
+        "profit_factor": 1.376723548444763,
+        "win_rate_pct": 45.45454545454545,
+        "worst_daily_return_pct": -1.801680649087789,
+        "best_daily_return_pct": 3.5744381676404924,
+        "trades_by_symbol": {
+          "MCL": 55,
+          "MYM": 44,
+          "SLV": 19,
+          "JPM": 29,
+          "AMZN": 18
+        },
+        "daily_trade_count_histogram": {
+          "0": 27,
+          "1": 58,
+          "2": 40,
+          "3": 9
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7998424160174255,
+        "fixed_fill_stress_net_pnl": 8833.810000000045
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 11,
+        "max_positions": 5
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "wider_hours",
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 55492.23000000009,
+        "net_pnl": 5492.2300000000905,
+        "return_pct": 10.984460000000173,
+        "market_days": 134,
+        "trades": 268,
+        "active_days": 127,
+        "zero_entry_days": 7,
+        "mean_trades_per_market_day": 2.0,
+        "mean_daily_return_pct": 0.0860513198568209,
+        "geometric_daily_return_pct": 0.077806376994638,
+        "mean_daily_pnl": 40.986791044776794,
+        "max_minute_mark_drawdown_pct": 10.37429262432724,
+        "profit_factor": 1.1148084585122355,
+        "win_rate_pct": 42.16417910447761,
+        "worst_daily_return_pct": -2.238032214106267,
+        "best_daily_return_pct": 4.119588003039265,
+        "trades_by_symbol": {
+          "MCL": 86,
+          "MYM": 65,
+          "SLV": 30,
+          "JPM": 50,
+          "AMZN": 37
+        },
+        "daily_trade_count_histogram": {
+          "1": 37,
+          "0": 7,
+          "3": 34,
+          "4": 7,
+          "2": 48,
+          "5": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8001487663011413,
+        "fixed_fill_stress_net_pnl": 1301.3000000000466
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 24,
+        "max_positions": 13
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "wider_hours",
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 55492.23000000009,
+        "net_pnl": 5492.2300000000905,
+        "return_pct": 10.984460000000173,
+        "market_days": 134,
+        "trades": 268,
+        "active_days": 127,
+        "zero_entry_days": 7,
+        "mean_trades_per_market_day": 2.0,
+        "mean_daily_return_pct": 0.0860513198568209,
+        "geometric_daily_return_pct": 0.077806376994638,
+        "mean_daily_pnl": 40.986791044776794,
+        "max_minute_mark_drawdown_pct": 10.37429262432724,
+        "profit_factor": 1.1148084585122355,
+        "win_rate_pct": 42.16417910447761,
+        "worst_daily_return_pct": -2.238032214106267,
+        "best_daily_return_pct": 4.119588003039265,
+        "trades_by_symbol": {
+          "MCL": 86,
+          "MYM": 65,
+          "SLV": 30,
+          "JPM": 50,
+          "AMZN": 37
+        },
+        "daily_trade_count_histogram": {
+          "1": 37,
+          "0": 7,
+          "3": 34,
+          "4": 7,
+          "2": 48,
+          "5": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8001487663011413,
+        "fixed_fill_stress_net_pnl": 1301.3000000000466
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 24,
+        "max_positions": 13
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "repeat_setups",
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 57939.49000000006,
+        "net_pnl": 7939.490000000063,
+        "return_pct": 15.87898000000012,
+        "market_days": 134,
+        "trades": 188,
+        "active_days": 113,
+        "zero_entry_days": 21,
+        "mean_trades_per_market_day": 1.4029850746268657,
+        "mean_daily_return_pct": 0.11590953324403569,
+        "geometric_daily_return_pct": 0.11004272999239895,
+        "mean_daily_pnl": 59.2499253731348,
+        "max_minute_mark_drawdown_pct": 8.652337938372357,
+        "profit_factor": 1.2385243348003245,
+        "win_rate_pct": 44.148936170212764,
+        "worst_daily_return_pct": -1.9161948579362598,
+        "best_daily_return_pct": 3.5902510494595807,
+        "trades_by_symbol": {
+          "MCL": 54,
+          "MYM": 51,
+          "SLV": 27,
+          "JPM": 31,
+          "AMZN": 25
+        },
+        "daily_trade_count_histogram": {
+          "0": 21,
+          "1": 52,
+          "2": 48,
+          "3": 12,
+          "4": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8000473005953701,
+        "fixed_fill_stress_net_pnl": 5224.970000000066
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 17,
+        "max_positions": 6
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "repeat_setups",
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 57939.49000000006,
+        "net_pnl": 7939.490000000063,
+        "return_pct": 15.87898000000012,
+        "market_days": 134,
+        "trades": 188,
+        "active_days": 113,
+        "zero_entry_days": 21,
+        "mean_trades_per_market_day": 1.4029850746268657,
+        "mean_daily_return_pct": 0.11590953324403569,
+        "geometric_daily_return_pct": 0.11004272999239895,
+        "mean_daily_pnl": 59.2499253731348,
+        "max_minute_mark_drawdown_pct": 8.652337938372357,
+        "profit_factor": 1.2385243348003245,
+        "win_rate_pct": 44.148936170212764,
+        "worst_daily_return_pct": -1.9161948579362598,
+        "best_daily_return_pct": 3.5902510494595807,
+        "trades_by_symbol": {
+          "MCL": 54,
+          "MYM": 51,
+          "SLV": 27,
+          "JPM": 31,
+          "AMZN": 25
+        },
+        "daily_trade_count_histogram": {
+          "0": 21,
+          "1": 52,
+          "2": 48,
+          "3": 12,
+          "4": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8000473005953701,
+        "fixed_fill_stress_net_pnl": 5224.970000000066
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 17,
+        "max_positions": 6
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "wider_and_repeat",
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 54133.08000000009,
+        "net_pnl": 4133.080000000089,
+        "return_pct": 8.266160000000177,
+        "market_days": 134,
+        "trades": 354,
+        "active_days": 132,
+        "zero_entry_days": 2,
+        "mean_trades_per_market_day": 2.6417910447761193,
+        "mean_daily_return_pct": 0.06964147732183891,
+        "geometric_daily_return_pct": 0.05928805634793921,
+        "mean_daily_pnl": 30.84388059701559,
+        "max_minute_mark_drawdown_pct": 16.308554251159666,
+        "profit_factor": 1.0767851695464732,
+        "win_rate_pct": 40.3954802259887,
+        "worst_daily_return_pct": -2.9730647462284154,
+        "best_daily_return_pct": 5.6980143687191065,
+        "trades_by_symbol": {
+          "MCL": 96,
+          "AMZN": 61,
+          "MYM": 85,
+          "SLV": 45,
+          "JPM": 67
+        },
+        "daily_trade_count_histogram": {
+          "2": 38,
+          "3": 45,
+          "1": 19,
+          "4": 26,
+          "5": 4,
+          "0": 2
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8000177971927165,
+        "fixed_fill_stress_net_pnl": -635.2899999999794
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 52,
+        "max_positions": 61
+      },
+      "roll_marks": []
+    },
+    {
+      "variant": "wider_and_repeat",
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 54133.08000000009,
+        "net_pnl": 4133.080000000089,
+        "return_pct": 8.266160000000177,
+        "market_days": 134,
+        "trades": 354,
+        "active_days": 132,
+        "zero_entry_days": 2,
+        "mean_trades_per_market_day": 2.6417910447761193,
+        "mean_daily_return_pct": 0.06964147732183891,
+        "geometric_daily_return_pct": 0.05928805634793921,
+        "mean_daily_pnl": 30.84388059701559,
+        "max_minute_mark_drawdown_pct": 16.308554251159666,
+        "profit_factor": 1.0767851695464732,
+        "win_rate_pct": 40.3954802259887,
+        "worst_daily_return_pct": -2.9730647462284154,
+        "best_daily_return_pct": 5.6980143687191065,
+        "trades_by_symbol": {
+          "MCL": 96,
+          "AMZN": 61,
+          "MYM": 85,
+          "SLV": 45,
+          "JPM": 67
+        },
+        "daily_trade_count_histogram": {
+          "2": 38,
+          "3": 45,
+          "1": 19,
+          "4": 26,
+          "5": 4,
+          "0": 2
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8000177971927165,
+        "fixed_fill_stress_net_pnl": -635.2899999999794
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 52,
+        "max_positions": 61
+      },
+      "roll_marks": []
+    }
+  ],
+  "illustrative_mean_trade_account_return_pct": 0.12849284189651478,
+  "illustrative_trades_for_daily_target_if_unchanged": {
+    "1": 8,
+    "2": 16,
+    "5": 39,
+    "9": 71
+  },
+  "reached_1pct_mean_daily_both_paths": [],
+  "input_sha256": {
+    "data\\choch_expanded\\JPM_2025-10-27_2026-11-05.csv": "908953a9ba31f52c17155d5473bffb6243ed6380c9d61b4a6095b4463ff89081",
+    "data\\choch_expanded\\stock_sessions.json": "d04d6630acb91601287a1b5d196bffa72dc92d5238a793811ad9781132c2147d",
+    "data\\choch_expanded\\MYMZ5_2025-10-27_2025-12-12.csv": "06a7fbb2256b160b24391bfb6766fffa9ab706807477582828bb7de9db5988e3",
+    "data\\choch_expanded\\MYMH6_2025-12-12_2026-03-13.csv": "d4da471d975724a6d8d85eba318fc9ebf921c8b5cff1b880a01f9bf950f082d9",
+    "data\\choch_expanded\\MYMM6_2026-03-13_2026-06-12.csv": "34a9ed894064e67bdf8c33ea21338a20af98f8b1bd03426e05b48765baad6f1b",
+    "data\\choch_expanded\\MYMU6_2026-06-12_2026-09-11.csv": "0f304f93462a3fa1939c819bef3f060c29367b10ae1b38cfe5443387bb1ea37b",
+    "data\\choch_expanded\\MYMZ6_2026-09-11_2026-11-05.csv": "6e43bc597586f4d7c51e0cb815c24dec437dfc557bc5e448e08cdf9fc6242af2",
+    "data\\choch_expanded\\schedules_MYM.json": "600837eea5a4e904c9497d144d2d36bd93dc435530771e9ef5369a10afaeb533",
+    "data\\choch_expanded\\MCLZ5_2025-10-27_2025-11-12.csv": "a8183840b3572842dc313b8fda8bafa64f571805483060547263a18dfc6fca89",
+    "data\\choch_expanded\\MCLF6_2025-11-12_2025-12-11.csv": "5e4243f6168f09453a64bb1e68fb771ff9f54a0e9c68ab61f663912da8ed6fbf",
+    "data\\choch_expanded\\MCLG6_2025-12-11_2026-01-09.csv": "c57aacade997d1a723d63614e603d34c0d339f253e73cb406e304ef4fdb9afea",
+    "data\\choch_expanded\\MCLH6_2026-01-09_2026-02-12.csv": "362a409f4cc2f7efd463311b37c8fc479f2ff6458be0331cfd5e8f18f069d943",
+    "data\\choch_expanded\\MCLJ6_2026-02-12_2026-03-12.csv": "560af81dbbb551fee9fa1dc7ee6ba8e22389b8f51412deb8132f2bcf892eec60",
+    "data\\choch_expanded\\MCLK6_2026-03-12_2026-04-13.csv": "b8c6931fa04cd8aab50bbab7e3ea4b59466c52e45e51429b63e95e19c399823d",
+    "data\\choch_expanded\\MCLM6_2026-04-13_2026-05-11.csv": "71b37e1bb4bf1ebf631e259eff4ccd278a872c4a0b49b8775fcfd0c1165d3ce6",
+    "data\\choch_expanded\\MCLN6_2026-05-11_2026-06-11.csv": "d4c97ee91a52c2c4e2be8cc5fd425f6ea6d0f290d4e44901ac8116cd52b6c072",
+    "data\\choch_expanded\\MCLQ6_2026-06-11_2026-07-13.csv": "065181af913c77c3212cbb336ebc0707e42c2ce6fee5241b5afb970f398a0fa5",
+    "data\\choch_expanded\\MCLU6_2026-07-13_2026-08-12.csv": "8a431701cd471aba547ab82f14ae090365b8d6539961ef81468d881f39798203",
+    "data\\choch_expanded\\MCLV6_2026-08-12_2026-09-14.csv": "e0e1664309a1035b096f555674901ef3bdb086e49040920836f98a22dc99587d",
+    "data\\choch_expanded\\MCLX6_2026-09-14_2026-10-12.csv": "6053e9d3bdc50385e40f297b7828cd9d363a242c5aa6bbbdd15758042dcf65ee",
+    "data\\choch_expanded\\MCLZ6_2026-10-12_2026-11-05.csv": "1fa23ea0e35a8880c7be4d50bfd17fff5bdeac67a8b466b3fae34dc8838e51b4",
+    "data\\choch_expanded\\schedules_MCL.json": "0dc81305addb21f3f908e9e1372ccc2b800575a89b2769d739790d2bd029a490",
+    "data\\choch_pool\\SLV_2025-10-27_2026-11-05.csv": "e20bbc9d37a03a07bfec8230439fefab58ae5aa7d9e918a5020d2e89e7f4732a",
+    "data\\choch_pool\\stock_sessions.json": "016895ee0c9ac3b0ad4e24127b057ffb70a377303327bcb0c007f34eb88b0a7a",
+    "data\\choch_expanded\\AMZN_2025-10-27_2026-11-05.csv": "d3ffa580bbabec8e5aed7fc10c6e6625326156694f32c5fbfc743dd9f297a78b",
+    "data\\annual\\MNQZ5_2025-10-27_2025-12-12.csv": "8b0078e8172de14305da514b6fa04dc06e646f8b53b8f2a62ca084f175d981c4",
+    "data\\annual\\MNQH6_2025-12-12_2026-03-13.csv": "753bd65ed33224c731cd1f340c50dd560c1912a2631db06b46b77da9b16405ae",
+    "data\\annual\\MNQM6_2026-03-13_2026-06-12.csv": "6cd87545a75334a2f79cf76a062f3bd7a99dff43330fef0e48ac70f53865007f",
+    "data\\annual\\MNQU6_2026-06-12_2026-09-11.csv": "d6742dafaeae1df14a9aa41205078fd104083f10ea1fdd1faa2f2faf57cb4096",
+    "data\\annual\\MNQZ6_2026-09-11_2026-11-05.csv": "c1558c8b7e1ba4cdac367428bdbf4a98309084cfb1ecff148d22637373e1462b",
+    "data\\annual\\schedules.json": "8c24526a780a83a923189f8055ac5fb88aa19e5d4218397f915ae5e0d9849ec4"
+  },
+  "journal_sha256": {
+    "research\\results\\frequency\\baseline_high_first.json.gz": "fc2a786d60ebe28de886cf050ba59a8f6bc23258bdb4de47f432f278828c0572",
+    "research\\results\\frequency\\baseline_low_first.json.gz": "b4095ff3de96975d4bfdbcbcdf4d33c487eb0c2d4daf2b3ee3bc0e84902ff427",
+    "research\\results\\frequency\\wider_hours_high_first.json.gz": "623758a6ea278f9d6368defbcb8ba5a1f52bc5c73b2f8020561304cadf50ce44",
+    "research\\results\\frequency\\wider_hours_low_first.json.gz": "f972e69acad265d67bab1fbe5be45bcf367409c9acbd84cb7afa077a25d167ce",
+    "research\\results\\frequency\\repeat_setups_high_first.json.gz": "da67e6eb9933ad47fc23805824e7e085417ba9457ce7ba9ccc03f7b48fd49ee5",
+    "research\\results\\frequency\\repeat_setups_low_first.json.gz": "3d76479c68c520f429c614ef4ca1e56b687f6b3d67fc275b00cd46ecca11fa84",
+    "research\\results\\frequency\\wider_and_repeat_high_first.json.gz": "e8c7cb1cab54a30c709a06107993a0a45a06a35e312f6502b18047e6f31c750c",
+    "research\\results\\frequency\\wider_and_repeat_low_first.json.gz": "653c58e30270f7a5831738f816cc00d9b9fb831ecb29da9cc9f1e07ea35baa71"
+  },
+  "audit": {
+    "status": "passed",
+    "cases": 8,
+    "trade_executions": 1950,
+    "baseline_trade_for_trade_controls": 2,
+    "unit_tests": 136
+  },
+  "report_source_sha256": "23d95446561ddb28c7a93f11628f73bd65245305157446ec8ceaac9f855f828e"
+}
