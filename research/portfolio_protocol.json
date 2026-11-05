@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "purpose": "Shared-account capital/frequency analysis, declared before portfolio outcomes; retrospective extension of inspected signals.",
+  "baskets": {
+    "all_17_same_5m": {"MNQ": 5, "MES": 5, "MGC": 5, "MYM": 5, "M2K": 5, "MCL": 5, "M6E": 5, "SIL": 5, "BTCUSD": 5, "AAPL": 5, "MSFT": 5, "NVDA": 5, "TSLA": 5, "AMZN": 5, "JPM": 5, "XOM": 5, "UNH": 5},
+    "screened_five_retrospective": {"MNQ": 5, "MGC": 10, "MCL": 5, "SIL": 5, "XOM": 5}
+  },
+  "starting_equities": [10000, 25000, 50000],
+  "paths": ["high_first", "low_first"],
+  "entry_mode": "retest_close",
+  "risk_fraction": 0.01,
+  "max_open_risk_fraction": 0.02,
+  "max_positions": 2,
+  "max_equity_index_positions": 1,
+  "daily_loss_fraction": 0.03,
+  "capital_utilization_limit": 0.8,
+  "futures_initial_margin_proxy": {"MNQ": 4647.32, "MES": 2863.17, "MGC": 2472.8, "MYM": 1698.87, "M2K": 1225.69, "MCL": 884.53, "M6E": 231, "SIL": 7370},
+  "margin_source": "https://ninjatrader.com/pricing/margins/",
+  "margin_table_date": "2026-08-31",
+  "retrieved_on": "2026-11-05",
+  "notes": [
+    "Same causal signals, 2R targets, fees, slippage, market calendars and one-signal-per-session/two-trades-per-asset-day rules as the breadth study. No performance-based priority or new filter search.",
+    "One idealized USD equity pool. Cash plus marked open P&L drives every new size. No summing independent account returns or scaling their trades.",
+    "At each minute all observed symbols are marked to their opens, existing open-price exits are processed, then new entries are allocated alphabetically before any intraminute path is traversed. Later minute extremes never finance an earlier entry.",
+    "Reserve full published initial margin per futures contract throughout the day, not low intraday margins. This static planning proxy is not reconstructed historical broker margin, a broker quote or proof that execution is permitted.",
+    "Reserve 100% gross marked notional for stocks (including hypothetical shorts) and long-only BTC spot. Keep at least 20% equity unallocated on entry. Stock borrow availability/charges and actual broker buying power are not reconstructed.",
+    "At most two concurrent positions and one equity-index future. Size for at most 1% planned equity risk per entry, 2% combined planned open risk and remaining 3% opening-equity daily loss budget. Fees/slippage and whole quantities included. Gaps can exceed planned risk.",
+    "Daily-loss or capital-deficit halts are checked at common minute marks; liquidation occurs at each position's next observed open with adverse slippage. Drawdown is measured on minute open/close marks, not tick extrema.",
+    "Roll gaps close at the last available old-contract mark, with slippage, booked when the new contract is observed (never backdated in the shared ledger). Such exits are tagged unverified research marks.",
+    "Daily return uses consecutive shared-account day-end marks on dates with any included futures observations. Zero-trade dates count. Monthly returns compound; arithmetic daily return and geometric daily equivalent are reported separately.",
+    "The screened-five basket is selected from the already inspected year and includes MGC 10m. It is a hindsight-selected illustration, not evidence that filtering generalizes or an all-5m portfolio.",
+    "One virtual pool cannot establish actual transferable buying power across futures, stock and crypto brokers. Capital is simulated trading equity, excluding living expenses, taxes, platform/data subscriptions and broker-specific account restrictions. No live changes or orders."
+  ]
+}

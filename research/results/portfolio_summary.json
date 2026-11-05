@@ -1,0 +1,1190 @@
+{
+  "policy": {
+    "version": 1,
+    "purpose": "Shared-account capital/frequency analysis, declared before portfolio outcomes; retrospective extension of inspected signals.",
+    "baskets": {
+      "all_17_same_5m": {
+        "MNQ": 5,
+        "MES": 5,
+        "MGC": 5,
+        "MYM": 5,
+        "M2K": 5,
+        "MCL": 5,
+        "M6E": 5,
+        "SIL": 5,
+        "BTCUSD": 5,
+        "AAPL": 5,
+        "MSFT": 5,
+        "NVDA": 5,
+        "TSLA": 5,
+        "AMZN": 5,
+        "JPM": 5,
+        "XOM": 5,
+        "UNH": 5
+      },
+      "screened_five_retrospective": {
+        "MNQ": 5,
+        "MGC": 10,
+        "MCL": 5,
+        "SIL": 5,
+        "XOM": 5
+      }
+    },
+    "starting_equities": [
+      10000,
+      25000,
+      50000
+    ],
+    "paths": [
+      "high_first",
+      "low_first"
+    ],
+    "entry_mode": "retest_close",
+    "risk_fraction": 0.01,
+    "max_open_risk_fraction": 0.02,
+    "max_positions": 2,
+    "max_equity_index_positions": 1,
+    "daily_loss_fraction": 0.03,
+    "capital_utilization_limit": 0.8,
+    "futures_initial_margin_proxy": {
+      "MNQ": 4647.32,
+      "MES": 2863.17,
+      "MGC": 2472.8,
+      "MYM": 1698.87,
+      "M2K": 1225.69,
+      "MCL": 884.53,
+      "M6E": 231,
+      "SIL": 7370
+    },
+    "margin_source": "https://ninjatrader.com/pricing/margins/",
+    "margin_table_date": "2026-08-31",
+    "retrieved_on": "2026-11-05",
+    "notes": [
+      "Same causal signals, 2R targets, fees, slippage, market calendars and one-signal-per-session/two-trades-per-asset-day rules as the breadth study. No performance-based priority or new filter search.",
+      "One idealized USD equity pool. Cash plus marked open P&L drives every new size. No summing independent account returns or scaling their trades.",
+      "At each minute all observed symbols are marked to their opens, existing open-price exits are processed, then new entries are allocated alphabetically before any intraminute path is traversed. Later minute extremes never finance an earlier entry.",
+      "Reserve full published initial margin per futures contract throughout the day, not low intraday margins. This static planning proxy is not reconstructed historical broker margin, a broker quote or proof that execution is permitted.",
+      "Reserve 100% gross marked notional for stocks (including hypothetical shorts) and long-only BTC spot. Keep at least 20% equity unallocated on entry. Stock borrow availability/charges and actual broker buying power are not reconstructed.",
+      "At most two concurrent positions and one equity-index future. Size for at most 1% planned equity risk per entry, 2% combined planned open risk and remaining 3% opening-equity daily loss budget. Fees/slippage and whole quantities included. Gaps can exceed planned risk.",
+      "Daily-loss or capital-deficit halts are checked at common minute marks; liquidation occurs at each position's next observed open with adverse slippage. Drawdown is measured on minute open/close marks, not tick extrema.",
+      "Roll gaps close at the last available old-contract mark, with slippage, booked when the new contract is observed (never backdated in the shared ledger). Such exits are tagged unverified research marks.",
+      "Daily return uses consecutive shared-account day-end marks on dates with any included futures observations. Zero-trade dates count. Monthly returns compound; arithmetic daily return and geometric daily equivalent are reported separately.",
+      "The screened-five basket is selected from the already inspected year and includes MGC 10m. It is a hindsight-selected illustration, not evidence that filtering generalizes or an all-5m portfolio.",
+      "One virtual pool cannot establish actual transferable buying power across futures, stock and crypto brokers. Capital is simulated trading equity, excluding living expenses, taxes, platform/data subscriptions and broker-specific account restrictions. No live changes or orders."
+    ]
+  },
+  "cases": [
+    {
+      "basket": "all_17_same_5m",
+      "starting_equity": 10000,
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 13464.2118381499,
+        "net_pnl": 3464.2118381499004,
+        "return_pct": 34.642118381498996,
+        "market_days": 261,
+        "trades": 592,
+        "active_days": 247,
+        "zero_entry_days": 14,
+        "mean_trades_per_market_day": 2.268199233716475,
+        "mean_daily_return_pct": 0.12099804036202493,
+        "geometric_daily_return_pct": 0.11403051999065994,
+        "mean_daily_pnl": 13.272842291762071,
+        "max_minute_mark_drawdown_pct": 12.55831791121375,
+        "profit_factor": 1.145588732315157,
+        "win_rate_pct": 45.945945945945944,
+        "worst_daily_return_pct": -2.4520308552907766,
+        "best_daily_return_pct": 3.8294598842150362,
+        "trades_by_symbol": {
+          "JPM": 34,
+          "MNQ": 22,
+          "BTCUSD": 72,
+          "MES": 62,
+          "NVDA": 34,
+          "M2K": 41,
+          "TSLA": 25,
+          "AMZN": 31,
+          "MGC": 25,
+          "MSFT": 33,
+          "UNH": 43,
+          "AAPL": 29,
+          "MYM": 42,
+          "MCL": 63,
+          "M6E": 12,
+          "XOM": 24
+        },
+        "daily_trade_count_histogram": {
+          "1": 45,
+          "4": 29,
+          "3": 72,
+          "2": 97,
+          "0": 14,
+          "5": 3,
+          "6": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7999804464678482,
+        "fixed_fill_stress_net_pnl": 680.4806197460019,
+        "fixed_fill_stress_pnl_on_initial_pct": 6.804806197460019
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 460,
+        "max_positions": 127,
+        "equity_index_concentration": 60
+      },
+      "roll_marks": [
+        {
+          "symbol": "M2K",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "all_17_same_5m",
+      "starting_equity": 10000,
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 13464.2118381499,
+        "net_pnl": 3464.2118381499004,
+        "return_pct": 34.642118381498996,
+        "market_days": 261,
+        "trades": 592,
+        "active_days": 247,
+        "zero_entry_days": 14,
+        "mean_trades_per_market_day": 2.268199233716475,
+        "mean_daily_return_pct": 0.12099804036202493,
+        "geometric_daily_return_pct": 0.11403051999065994,
+        "mean_daily_pnl": 13.272842291762071,
+        "max_minute_mark_drawdown_pct": 12.55831791121375,
+        "profit_factor": 1.145588732315157,
+        "win_rate_pct": 45.945945945945944,
+        "worst_daily_return_pct": -2.4520308552907766,
+        "best_daily_return_pct": 3.8294598842150362,
+        "trades_by_symbol": {
+          "JPM": 34,
+          "MNQ": 22,
+          "BTCUSD": 72,
+          "MES": 62,
+          "NVDA": 34,
+          "M2K": 41,
+          "TSLA": 25,
+          "AMZN": 31,
+          "MGC": 25,
+          "MSFT": 33,
+          "UNH": 43,
+          "AAPL": 29,
+          "MYM": 42,
+          "MCL": 63,
+          "M6E": 12,
+          "XOM": 24
+        },
+        "daily_trade_count_histogram": {
+          "1": 45,
+          "4": 29,
+          "3": 72,
+          "2": 97,
+          "0": 14,
+          "5": 3,
+          "6": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7999804464678482,
+        "fixed_fill_stress_net_pnl": 680.4806197460019,
+        "fixed_fill_stress_pnl_on_initial_pct": 6.804806197460019
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 460,
+        "max_positions": 127,
+        "equity_index_concentration": 60
+      },
+      "roll_marks": [
+        {
+          "symbol": "M2K",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "all_17_same_5m",
+      "starting_equity": 25000,
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 25000.0,
+        "ending_equity": 30309.780363860133,
+        "net_pnl": 5309.780363860133,
+        "return_pct": 21.239121455440536,
+        "market_days": 261,
+        "trades": 691,
+        "active_days": 250,
+        "zero_entry_days": 11,
+        "mean_trades_per_market_day": 2.6475095785440614,
+        "mean_daily_return_pct": 0.08320682254030776,
+        "geometric_daily_return_pct": 0.07381827437522581,
+        "mean_daily_pnl": 20.343986068429626,
+        "max_minute_mark_drawdown_pct": 13.807346083251474,
+        "profit_factor": 1.07735830666996,
+        "win_rate_pct": 43.70477568740955,
+        "worst_daily_return_pct": -2.94860643176611,
+        "best_daily_return_pct": 3.7131211476315373,
+        "trades_by_symbol": {
+          "MGC": 72,
+          "JPM": 34,
+          "MNQ": 58,
+          "BTCUSD": 70,
+          "MYM": 39,
+          "NVDA": 33,
+          "M2K": 44,
+          "MES": 68,
+          "TSLA": 26,
+          "AMZN": 33,
+          "AAPL": 32,
+          "MSFT": 31,
+          "UNH": 42,
+          "MCL": 71,
+          "M6E": 11,
+          "XOM": 22,
+          "SIL": 5
+        },
+        "daily_trade_count_histogram": {
+          "2": 78,
+          "4": 42,
+          "5": 14,
+          "1": 30,
+          "3": 83,
+          "0": 11,
+          "6": 3
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8000358749718864,
+        "fixed_fill_stress_net_pnl": -1283.7693015940458,
+        "fixed_fill_stress_pnl_on_initial_pct": -5.135077206376184
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 315,
+        "max_positions": 161,
+        "equity_index_concentration": 71
+      },
+      "roll_marks": [
+        {
+          "symbol": "M2K",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "all_17_same_5m",
+      "starting_equity": 25000,
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 25000.0,
+        "ending_equity": 30309.780363860133,
+        "net_pnl": 5309.780363860133,
+        "return_pct": 21.239121455440536,
+        "market_days": 261,
+        "trades": 691,
+        "active_days": 250,
+        "zero_entry_days": 11,
+        "mean_trades_per_market_day": 2.6475095785440614,
+        "mean_daily_return_pct": 0.08320682254030776,
+        "geometric_daily_return_pct": 0.07381827437522581,
+        "mean_daily_pnl": 20.343986068429626,
+        "max_minute_mark_drawdown_pct": 13.807346083251474,
+        "profit_factor": 1.07735830666996,
+        "win_rate_pct": 43.70477568740955,
+        "worst_daily_return_pct": -2.94860643176611,
+        "best_daily_return_pct": 3.7131211476315373,
+        "trades_by_symbol": {
+          "MGC": 72,
+          "JPM": 34,
+          "MNQ": 58,
+          "BTCUSD": 70,
+          "MYM": 39,
+          "NVDA": 33,
+          "M2K": 44,
+          "MES": 68,
+          "TSLA": 26,
+          "AMZN": 33,
+          "AAPL": 32,
+          "MSFT": 31,
+          "UNH": 42,
+          "MCL": 71,
+          "M6E": 11,
+          "XOM": 22,
+          "SIL": 5
+        },
+        "daily_trade_count_histogram": {
+          "2": 78,
+          "4": 42,
+          "5": 14,
+          "1": 30,
+          "3": 83,
+          "0": 11,
+          "6": 3
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.8000358749718864,
+        "fixed_fill_stress_net_pnl": -1283.7693015940458,
+        "fixed_fill_stress_pnl_on_initial_pct": -5.135077206376184
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 315,
+        "max_positions": 161,
+        "equity_index_concentration": 71
+      },
+      "roll_marks": [
+        {
+          "symbol": "M2K",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "all_17_same_5m",
+      "starting_equity": 50000,
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 57562.25770952004,
+        "net_pnl": 7562.2577095200395,
+        "return_pct": 15.124515419040074,
+        "market_days": 261,
+        "trades": 728,
+        "active_days": 253,
+        "zero_entry_days": 8,
+        "mean_trades_per_market_day": 2.789272030651341,
+        "mean_daily_return_pct": 0.06487607377022778,
+        "geometric_daily_return_pct": 0.053977819262129856,
+        "mean_daily_pnl": 28.97416746942544,
+        "max_minute_mark_drawdown_pct": 15.755523955047313,
+        "profit_factor": 1.0519670553481941,
+        "win_rate_pct": 43.26923076923077,
+        "worst_daily_return_pct": -3.046046363555821,
+        "best_daily_return_pct": 3.581478541424077,
+        "trades_by_symbol": {
+          "MGC": 88,
+          "JPM": 33,
+          "MNQ": 76,
+          "BTCUSD": 66,
+          "MYM": 37,
+          "NVDA": 33,
+          "M2K": 39,
+          "MES": 66,
+          "TSLA": 26,
+          "AMZN": 31,
+          "UNH": 44,
+          "MSFT": 30,
+          "AAPL": 29,
+          "SIL": 30,
+          "MCL": 71,
+          "M6E": 11,
+          "XOM": 18
+        },
+        "daily_trade_count_histogram": {
+          "2": 79,
+          "4": 50,
+          "5": 14,
+          "3": 90,
+          "0": 8,
+          "1": 18,
+          "6": 2
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7999738241500856,
+        "fixed_fill_stress_net_pnl": -5299.738061546212,
+        "fixed_fill_stress_pnl_on_initial_pct": -10.599476123092424
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 244,
+        "max_positions": 193,
+        "equity_index_concentration": 73,
+        "daily_halt_events": 2
+      },
+      "roll_marks": [
+        {
+          "symbol": "M2K",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "all_17_same_5m",
+      "starting_equity": 50000,
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 57562.25770952004,
+        "net_pnl": 7562.2577095200395,
+        "return_pct": 15.124515419040074,
+        "market_days": 261,
+        "trades": 728,
+        "active_days": 253,
+        "zero_entry_days": 8,
+        "mean_trades_per_market_day": 2.789272030651341,
+        "mean_daily_return_pct": 0.06487607377022778,
+        "geometric_daily_return_pct": 0.053977819262129856,
+        "mean_daily_pnl": 28.97416746942544,
+        "max_minute_mark_drawdown_pct": 15.755523955047313,
+        "profit_factor": 1.0519670553481941,
+        "win_rate_pct": 43.26923076923077,
+        "worst_daily_return_pct": -3.046046363555821,
+        "best_daily_return_pct": 3.581478541424077,
+        "trades_by_symbol": {
+          "MGC": 88,
+          "JPM": 33,
+          "MNQ": 76,
+          "BTCUSD": 66,
+          "MYM": 37,
+          "NVDA": 33,
+          "M2K": 39,
+          "MES": 66,
+          "TSLA": 26,
+          "AMZN": 31,
+          "UNH": 44,
+          "MSFT": 30,
+          "AAPL": 29,
+          "SIL": 30,
+          "MCL": 71,
+          "M6E": 11,
+          "XOM": 18
+        },
+        "daily_trade_count_histogram": {
+          "2": 79,
+          "4": 50,
+          "5": 14,
+          "3": 90,
+          "0": 8,
+          "1": 18,
+          "6": 2
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7999738241500856,
+        "fixed_fill_stress_net_pnl": -5299.738061546212,
+        "fixed_fill_stress_pnl_on_initial_pct": -10.599476123092424
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 244,
+        "max_positions": 193,
+        "equity_index_concentration": 73,
+        "daily_halt_events": 2
+      },
+      "roll_marks": [
+        {
+          "symbol": "M2K",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "starting_equity": 10000,
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 13189.30999999997,
+        "net_pnl": 3189.3099999999704,
+        "return_pct": 31.8930999999997,
+        "market_days": 261,
+        "trades": 149,
+        "active_days": 121,
+        "zero_entry_days": 140,
+        "mean_trades_per_market_day": 0.5708812260536399,
+        "mean_daily_return_pct": 0.10839970146350794,
+        "geometric_daily_return_pct": 0.10611816591048484,
+        "mean_daily_pnl": 12.21957854406119,
+        "max_minute_mark_drawdown_pct": 9.209085285019892,
+        "profit_factor": 1.5631341043524354,
+        "win_rate_pct": 52.348993288590606,
+        "worst_daily_return_pct": -1.819552852671802,
+        "best_daily_return_pct": 2.482266885526152,
+        "trades_by_symbol": {
+          "MNQ": 29,
+          "MCL": 78,
+          "XOM": 38,
+          "MGC": 4
+        },
+        "daily_trade_count_histogram": {
+          "0": 140,
+          "1": 97,
+          "3": 2,
+          "2": 21,
+          "4": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.798639349210953,
+        "fixed_fill_stress_net_pnl": 2675.0900000000106,
+        "fixed_fill_stress_pnl_on_initial_pct": 26.750900000000104
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 284,
+        "max_positions": 2
+      },
+      "roll_marks": []
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "starting_equity": 10000,
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 13189.30999999997,
+        "net_pnl": 3189.3099999999704,
+        "return_pct": 31.8930999999997,
+        "market_days": 261,
+        "trades": 149,
+        "active_days": 121,
+        "zero_entry_days": 140,
+        "mean_trades_per_market_day": 0.5708812260536399,
+        "mean_daily_return_pct": 0.10839970146350794,
+        "geometric_daily_return_pct": 0.10611816591048484,
+        "mean_daily_pnl": 12.21957854406119,
+        "max_minute_mark_drawdown_pct": 9.209085285019892,
+        "profit_factor": 1.5631341043524354,
+        "win_rate_pct": 52.348993288590606,
+        "worst_daily_return_pct": -1.819552852671802,
+        "best_daily_return_pct": 2.482266885526152,
+        "trades_by_symbol": {
+          "MNQ": 29,
+          "MCL": 78,
+          "XOM": 38,
+          "MGC": 4
+        },
+        "daily_trade_count_histogram": {
+          "0": 140,
+          "1": 97,
+          "3": 2,
+          "2": 21,
+          "4": 1
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.798639349210953,
+        "fixed_fill_stress_net_pnl": 2675.0900000000106,
+        "fixed_fill_stress_pnl_on_initial_pct": 26.750900000000104
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 284,
+        "max_positions": 2
+      },
+      "roll_marks": []
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "starting_equity": 25000,
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 25000.0,
+        "ending_equity": 40144.03000000034,
+        "net_pnl": 15144.03000000034,
+        "return_pct": 60.57612000000137,
+        "market_days": 261,
+        "trades": 292,
+        "active_days": 179,
+        "zero_entry_days": 82,
+        "mean_trades_per_market_day": 1.1187739463601531,
+        "mean_daily_return_pct": 0.1866567445863781,
+        "geometric_daily_return_pct": 0.18161986818079345,
+        "mean_daily_pnl": 58.02310344827717,
+        "max_minute_mark_drawdown_pct": 12.85597971930564,
+        "profit_factor": 1.3945200276351053,
+        "win_rate_pct": 47.945205479452056,
+        "worst_daily_return_pct": -2.0973221958717203,
+        "best_daily_return_pct": 3.2719837437485744,
+        "trades_by_symbol": {
+          "MNQ": 113,
+          "MCL": 95,
+          "MGC": 29,
+          "XOM": 37,
+          "SIL": 18
+        },
+        "daily_trade_count_histogram": {
+          "0": 82,
+          "1": 96,
+          "2": 58,
+          "3": 20,
+          "4": 5
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7997497964096292,
+        "fixed_fill_stress_net_pnl": 12863.560000000067,
+        "fixed_fill_stress_pnl_on_initial_pct": 51.45424000000027
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 137,
+        "max_positions": 6
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "starting_equity": 25000,
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 25000.0,
+        "ending_equity": 40144.03000000034,
+        "net_pnl": 15144.03000000034,
+        "return_pct": 60.57612000000137,
+        "market_days": 261,
+        "trades": 292,
+        "active_days": 179,
+        "zero_entry_days": 82,
+        "mean_trades_per_market_day": 1.1187739463601531,
+        "mean_daily_return_pct": 0.1866567445863781,
+        "geometric_daily_return_pct": 0.18161986818079345,
+        "mean_daily_pnl": 58.02310344827717,
+        "max_minute_mark_drawdown_pct": 12.85597971930564,
+        "profit_factor": 1.3945200276351053,
+        "win_rate_pct": 47.945205479452056,
+        "worst_daily_return_pct": -2.0973221958717203,
+        "best_daily_return_pct": 3.2719837437485744,
+        "trades_by_symbol": {
+          "MNQ": 113,
+          "MCL": 95,
+          "MGC": 29,
+          "XOM": 37,
+          "SIL": 18
+        },
+        "daily_trade_count_histogram": {
+          "0": 82,
+          "1": 96,
+          "2": 58,
+          "3": 20,
+          "4": 5
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7997497964096292,
+        "fixed_fill_stress_net_pnl": 12863.560000000067,
+        "fixed_fill_stress_pnl_on_initial_pct": 51.45424000000027
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 137,
+        "max_positions": 6
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "starting_equity": 50000,
+      "path": "high_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 92677.55999999985,
+        "net_pnl": 42677.55999999985,
+        "return_pct": 85.3551199999997,
+        "market_days": 261,
+        "trades": 367,
+        "active_days": 202,
+        "zero_entry_days": 59,
+        "mean_trades_per_market_day": 1.4061302681992338,
+        "mean_daily_return_pct": 0.2435573041334734,
+        "geometric_daily_return_pct": 0.23671780674217047,
+        "mean_daily_pnl": 163.51555555555498,
+        "max_minute_mark_drawdown_pct": 14.522522189090681,
+        "profit_factor": 1.3990487734112118,
+        "win_rate_pct": 47.956403269754766,
+        "worst_daily_return_pct": -2.4684054680287226,
+        "best_daily_return_pct": 3.852103396476747,
+        "trades_by_symbol": {
+          "MNQ": 129,
+          "MGC": 45,
+          "MCL": 95,
+          "SIL": 61,
+          "XOM": 37
+        },
+        "daily_trade_count_histogram": {
+          "1": 89,
+          "2": 69,
+          "0": 59,
+          "3": 36,
+          "4": 8
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7999287595642972,
+        "fixed_fill_stress_net_pnl": 36877.52000000012,
+        "fixed_fill_stress_pnl_on_initial_pct": 73.75504000000024
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 57,
+        "max_positions": 10
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "starting_equity": 50000,
+      "path": "low_first",
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 92677.55999999985,
+        "net_pnl": 42677.55999999985,
+        "return_pct": 85.3551199999997,
+        "market_days": 261,
+        "trades": 367,
+        "active_days": 202,
+        "zero_entry_days": 59,
+        "mean_trades_per_market_day": 1.4061302681992338,
+        "mean_daily_return_pct": 0.2435573041334734,
+        "geometric_daily_return_pct": 0.23671780674217047,
+        "mean_daily_pnl": 163.51555555555498,
+        "max_minute_mark_drawdown_pct": 14.522522189090681,
+        "profit_factor": 1.3990487734112118,
+        "win_rate_pct": 47.956403269754766,
+        "worst_daily_return_pct": -2.4684054680287226,
+        "best_daily_return_pct": 3.852103396476747,
+        "trades_by_symbol": {
+          "MNQ": 129,
+          "MGC": 45,
+          "MCL": 95,
+          "SIL": 61,
+          "XOM": 37
+        },
+        "daily_trade_count_histogram": {
+          "1": 89,
+          "2": 69,
+          "0": 59,
+          "3": 36,
+          "4": 8
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7999287595642972,
+        "fixed_fill_stress_net_pnl": 36877.52000000012,
+        "fixed_fill_stress_pnl_on_initial_pct": 73.75504000000024
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 57,
+        "max_positions": 10
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ]
+    }
+  ],
+  "paired": [
+    {
+      "basket": "all_17_same_5m",
+      "initial_equity": 10000,
+      "ranges": {
+        "trades": [
+          592,
+          592
+        ],
+        "mean_trades_per_market_day": [
+          2.268199233716475,
+          2.268199233716475
+        ],
+        "mean_daily_return_pct": [
+          0.12099804036202493,
+          0.12099804036202493
+        ],
+        "geometric_daily_return_pct": [
+          0.11403051999065994,
+          0.11403051999065994
+        ],
+        "return_pct": [
+          34.642118381498996,
+          34.642118381498996
+        ],
+        "max_minute_mark_drawdown_pct": [
+          12.55831791121375,
+          12.55831791121375
+        ],
+        "mean_daily_pnl": [
+          13.272842291762071,
+          13.272842291762071
+        ],
+        "active_days": [
+          247,
+          247
+        ],
+        "zero_entry_days": [
+          14,
+          14
+        ],
+        "fixed_fill_stress_net_pnl": [
+          680.4806197460019,
+          680.4806197460019
+        ],
+        "fixed_fill_stress_pnl_on_initial_pct": [
+          6.804806197460019,
+          6.804806197460019
+        ]
+      },
+      "market_days": 261
+    },
+    {
+      "basket": "all_17_same_5m",
+      "initial_equity": 25000,
+      "ranges": {
+        "trades": [
+          691,
+          691
+        ],
+        "mean_trades_per_market_day": [
+          2.6475095785440614,
+          2.6475095785440614
+        ],
+        "mean_daily_return_pct": [
+          0.08320682254030776,
+          0.08320682254030776
+        ],
+        "geometric_daily_return_pct": [
+          0.07381827437522581,
+          0.07381827437522581
+        ],
+        "return_pct": [
+          21.239121455440536,
+          21.239121455440536
+        ],
+        "max_minute_mark_drawdown_pct": [
+          13.807346083251474,
+          13.807346083251474
+        ],
+        "mean_daily_pnl": [
+          20.343986068429626,
+          20.343986068429626
+        ],
+        "active_days": [
+          250,
+          250
+        ],
+        "zero_entry_days": [
+          11,
+          11
+        ],
+        "fixed_fill_stress_net_pnl": [
+          -1283.7693015940458,
+          -1283.7693015940458
+        ],
+        "fixed_fill_stress_pnl_on_initial_pct": [
+          -5.135077206376184,
+          -5.135077206376184
+        ]
+      },
+      "market_days": 261
+    },
+    {
+      "basket": "all_17_same_5m",
+      "initial_equity": 50000,
+      "ranges": {
+        "trades": [
+          728,
+          728
+        ],
+        "mean_trades_per_market_day": [
+          2.789272030651341,
+          2.789272030651341
+        ],
+        "mean_daily_return_pct": [
+          0.06487607377022778,
+          0.06487607377022778
+        ],
+        "geometric_daily_return_pct": [
+          0.053977819262129856,
+          0.053977819262129856
+        ],
+        "return_pct": [
+          15.124515419040074,
+          15.124515419040074
+        ],
+        "max_minute_mark_drawdown_pct": [
+          15.755523955047313,
+          15.755523955047313
+        ],
+        "mean_daily_pnl": [
+          28.97416746942544,
+          28.97416746942544
+        ],
+        "active_days": [
+          253,
+          253
+        ],
+        "zero_entry_days": [
+          8,
+          8
+        ],
+        "fixed_fill_stress_net_pnl": [
+          -5299.738061546212,
+          -5299.738061546212
+        ],
+        "fixed_fill_stress_pnl_on_initial_pct": [
+          -10.599476123092424,
+          -10.599476123092424
+        ]
+      },
+      "market_days": 261
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "initial_equity": 10000,
+      "ranges": {
+        "trades": [
+          149,
+          149
+        ],
+        "mean_trades_per_market_day": [
+          0.5708812260536399,
+          0.5708812260536399
+        ],
+        "mean_daily_return_pct": [
+          0.10839970146350794,
+          0.10839970146350794
+        ],
+        "geometric_daily_return_pct": [
+          0.10611816591048484,
+          0.10611816591048484
+        ],
+        "return_pct": [
+          31.8930999999997,
+          31.8930999999997
+        ],
+        "max_minute_mark_drawdown_pct": [
+          9.209085285019892,
+          9.209085285019892
+        ],
+        "mean_daily_pnl": [
+          12.21957854406119,
+          12.21957854406119
+        ],
+        "active_days": [
+          121,
+          121
+        ],
+        "zero_entry_days": [
+          140,
+          140
+        ],
+        "fixed_fill_stress_net_pnl": [
+          2675.0900000000106,
+          2675.0900000000106
+        ],
+        "fixed_fill_stress_pnl_on_initial_pct": [
+          26.750900000000104,
+          26.750900000000104
+        ]
+      },
+      "market_days": 261
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "initial_equity": 25000,
+      "ranges": {
+        "trades": [
+          292,
+          292
+        ],
+        "mean_trades_per_market_day": [
+          1.1187739463601531,
+          1.1187739463601531
+        ],
+        "mean_daily_return_pct": [
+          0.1866567445863781,
+          0.1866567445863781
+        ],
+        "geometric_daily_return_pct": [
+          0.18161986818079345,
+          0.18161986818079345
+        ],
+        "return_pct": [
+          60.57612000000137,
+          60.57612000000137
+        ],
+        "max_minute_mark_drawdown_pct": [
+          12.85597971930564,
+          12.85597971930564
+        ],
+        "mean_daily_pnl": [
+          58.02310344827717,
+          58.02310344827717
+        ],
+        "active_days": [
+          179,
+          179
+        ],
+        "zero_entry_days": [
+          82,
+          82
+        ],
+        "fixed_fill_stress_net_pnl": [
+          12863.560000000067,
+          12863.560000000067
+        ],
+        "fixed_fill_stress_pnl_on_initial_pct": [
+          51.45424000000027,
+          51.45424000000027
+        ]
+      },
+      "market_days": 261
+    },
+    {
+      "basket": "screened_five_retrospective",
+      "initial_equity": 50000,
+      "ranges": {
+        "trades": [
+          367,
+          367
+        ],
+        "mean_trades_per_market_day": [
+          1.4061302681992338,
+          1.4061302681992338
+        ],
+        "mean_daily_return_pct": [
+          0.2435573041334734,
+          0.2435573041334734
+        ],
+        "geometric_daily_return_pct": [
+          0.23671780674217047,
+          0.23671780674217047
+        ],
+        "return_pct": [
+          85.3551199999997,
+          85.3551199999997
+        ],
+        "max_minute_mark_drawdown_pct": [
+          14.522522189090681,
+          14.522522189090681
+        ],
+        "mean_daily_pnl": [
+          163.51555555555498,
+          163.51555555555498
+        ],
+        "active_days": [
+          202,
+          202
+        ],
+        "zero_entry_days": [
+          59,
+          59
+        ],
+        "fixed_fill_stress_net_pnl": [
+          36877.52000000012,
+          36877.52000000012
+        ],
+        "fixed_fill_stress_pnl_on_initial_pct": [
+          73.75504000000024,
+          73.75504000000024
+        ]
+      },
+      "market_days": 261
+    }
+  ],
+  "input_sha256": {
+    "data\\annual\\MNQZ5_2025-10-27_2025-12-12.csv": "8b0078e8172de14305da514b6fa04dc06e646f8b53b8f2a62ca084f175d981c4",
+    "data\\annual\\MNQH6_2025-12-12_2026-03-13.csv": "753bd65ed33224c731cd1f340c50dd560c1912a2631db06b46b77da9b16405ae",
+    "data\\annual\\MNQM6_2026-03-13_2026-06-12.csv": "6cd87545a75334a2f79cf76a062f3bd7a99dff43330fef0e48ac70f53865007f",
+    "data\\annual\\MNQU6_2026-06-12_2026-09-11.csv": "d6742dafaeae1df14a9aa41205078fd104083f10ea1fdd1faa2f2faf57cb4096",
+    "data\\annual\\MNQZ6_2026-09-11_2026-11-05.csv": "c1558c8b7e1ba4cdac367428bdbf4a98309084cfb1ecff148d22637373e1462b",
+    "data\\annual\\schedules.json": "8c24526a780a83a923189f8055ac5fb88aa19e5d4218397f915ae5e0d9849ec4",
+    "data\\annual\\MESZ5_2025-10-27_2025-12-12.csv": "aec8b00019c18a54a0a21f9087b10abba33d18b2d5504186dda3b1d68bbe3af9",
+    "data\\annual\\MESH6_2025-12-12_2026-03-13.csv": "c7166faf404056468cabf3cb8cf046ce9f2a1b6dc2720549cef970cad1fc7b75",
+    "data\\annual\\MESM6_2026-03-13_2026-06-12.csv": "e7847ceb971b4c4139d4b0611c21c05a525d33a44f81d43392f7a996597b153a",
+    "data\\annual\\MESU6_2026-06-12_2026-09-11.csv": "b8b52705ea68509c5fd1d93784a2e1bdcf257492fca174145d5138e60f8d6577",
+    "data\\annual\\MESZ6_2026-09-11_2026-11-05.csv": "0b1ad7608d42548bf6e7430735e8c719c93f69028a432069390ab0a2a0492d0b",
+    "data\\annual\\MGCZ5_2025-10-27_2025-11-24.csv": "6207bc71beece6b95af1d63a5e894db716e3f2c6337c4217ef4f694192f835f4",
+    "data\\annual\\MGCG6_2025-11-24_2026-01-25.csv": "3917615e807b3d687639ac786b1a8cad62f5bb53779ccbff1ab463b1dbbf35ab",
+    "data\\annual\\MGCJ6_2026-01-25_2026-03-25.csv": "9829be94eda0b07cee846141e511f842a4bd87c72d6598d52c8915bdb92e0736",
+    "data\\annual\\MGCM6_2026-03-25_2026-05-25.csv": "1a106de1687f0e21058780c25f5a62d7a79dfc3cd485ecb796430f9f339c5c02",
+    "data\\annual\\MGCQ6_2026-05-25_2026-07-25.csv": "63b3e1f080200ee8446f6994e2e01337889e5229f165508dc371836b1cdd453a",
+    "data\\annual\\MGCV6_2026-07-25_2026-09-24.csv": "6d5da279e56d7007eb7bb77312c718bbe8222e8ee77edc3343245b7fbbee28e9",
+    "data\\annual\\MGCZ6_2026-09-24_2026-11-05.csv": "81e86979bf97053343e70bc867ce04c4d45df8e1b4b6a6b3b0907c18fa7ae924",
+    "data\\choch_expanded\\MYMZ5_2025-10-27_2025-12-12.csv": "06a7fbb2256b160b24391bfb6766fffa9ab706807477582828bb7de9db5988e3",
+    "data\\choch_expanded\\MYMH6_2025-12-12_2026-03-13.csv": "d4da471d975724a6d8d85eba318fc9ebf921c8b5cff1b880a01f9bf950f082d9",
+    "data\\choch_expanded\\MYMM6_2026-03-13_2026-06-12.csv": "34a9ed894064e67bdf8c33ea21338a20af98f8b1bd03426e05b48765baad6f1b",
+    "data\\choch_expanded\\MYMU6_2026-06-12_2026-09-11.csv": "0f304f93462a3fa1939c819bef3f060c29367b10ae1b38cfe5443387bb1ea37b",
+    "data\\choch_expanded\\MYMZ6_2026-09-11_2026-11-05.csv": "6e43bc597586f4d7c51e0cb815c24dec437dfc557bc5e448e08cdf9fc6242af2",
+    "data\\choch_expanded\\schedules_MYM.json": "600837eea5a4e904c9497d144d2d36bd93dc435530771e9ef5369a10afaeb533",
+    "data\\choch_expanded\\M2KZ5_2025-10-27_2025-12-12.csv": "3ecd7ed0b843cd11b08ee0e2d790435b6a0c31510edb35636beb12c16668f833",
+    "data\\choch_expanded\\M2KH6_2025-12-12_2026-03-13.csv": "5b9f10738427d22814fe57a74e5b100ac12f8e7ee749fd45f56b13e414898dd9",
+    "data\\choch_expanded\\M2KM6_2026-03-13_2026-06-12.csv": "cb49d9e49456b2489a9521b3f85f7e7fe8ef7862d4e29ef3be51ef8cf0a9e478",
+    "data\\choch_expanded\\M2KU6_2026-06-12_2026-09-11.csv": "f20846909a825e58c88775eb4813d68b7b64854a3eb56ab1082ee0e057771d67",
+    "data\\choch_expanded\\M2KZ6_2026-09-11_2026-11-05.csv": "58bade0ffdfdeaed673d4c5578c943fe7517cdafe45d8c457fe97b73b87421ee",
+    "data\\choch_expanded\\schedules_M2K.json": "f4bb13f98d2c515c4f51b5655d77713c285a741f48bdb1c0c1f0fe0036e48e94",
+    "data\\choch_expanded\\MCLZ5_2025-10-27_2025-11-12.csv": "a8183840b3572842dc313b8fda8bafa64f571805483060547263a18dfc6fca89",
+    "data\\choch_expanded\\MCLF6_2025-11-12_2025-12-11.csv": "5e4243f6168f09453a64bb1e68fb771ff9f54a0e9c68ab61f663912da8ed6fbf",
+    "data\\choch_expanded\\MCLG6_2025-12-11_2026-01-09.csv": "c57aacade997d1a723d63614e603d34c0d339f253e73cb406e304ef4fdb9afea",
+    "data\\choch_expanded\\MCLH6_2026-01-09_2026-02-12.csv": "362a409f4cc2f7efd463311b37c8fc479f2ff6458be0331cfd5e8f18f069d943",
+    "data\\choch_expanded\\MCLJ6_2026-02-12_2026-03-12.csv": "560af81dbbb551fee9fa1dc7ee6ba8e22389b8f51412deb8132f2bcf892eec60",
+    "data\\choch_expanded\\MCLK6_2026-03-12_2026-04-13.csv": "b8c6931fa04cd8aab50bbab7e3ea4b59466c52e45e51429b63e95e19c399823d",
+    "data\\choch_expanded\\MCLM6_2026-04-13_2026-05-11.csv": "71b37e1bb4bf1ebf631e259eff4ccd278a872c4a0b49b8775fcfd0c1165d3ce6",
+    "data\\choch_expanded\\MCLN6_2026-05-11_2026-06-11.csv": "d4c97ee91a52c2c4e2be8cc5fd425f6ea6d0f290d4e44901ac8116cd52b6c072",
+    "data\\choch_expanded\\MCLQ6_2026-06-11_2026-07-13.csv": "065181af913c77c3212cbb336ebc0707e42c2ce6fee5241b5afb970f398a0fa5",
+    "data\\choch_expanded\\MCLU6_2026-07-13_2026-08-12.csv": "8a431701cd471aba547ab82f14ae090365b8d6539961ef81468d881f39798203",
+    "data\\choch_expanded\\MCLV6_2026-08-12_2026-09-14.csv": "e0e1664309a1035b096f555674901ef3bdb086e49040920836f98a22dc99587d",
+    "data\\choch_expanded\\MCLX6_2026-09-14_2026-10-12.csv": "6053e9d3bdc50385e40f297b7828cd9d363a242c5aa6bbbdd15758042dcf65ee",
+    "data\\choch_expanded\\MCLZ6_2026-10-12_2026-11-05.csv": "1fa23ea0e35a8880c7be4d50bfd17fff5bdeac67a8b466b3fae34dc8838e51b4",
+    "data\\choch_expanded\\schedules_MCL.json": "0dc81305addb21f3f908e9e1372ccc2b800575a89b2769d739790d2bd029a490",
+    "data\\choch_expanded\\M6EZ5_2025-10-27_2025-12-08.csv": "7b6f0de08461f51ab55d229bf1bf685a91b1fbe349988b541ddacade321588a0",
+    "data\\choch_expanded\\M6EH6_2025-12-08_2026-03-09.csv": "ebe9cf8d91295ae4d98f817a4030be3bc0fdc4499af296e5182234d24a90b1bd",
+    "data\\choch_expanded\\M6EM6_2026-03-09_2026-06-08.csv": "b79e06b116cc8e8eb26a2c678080421536dd4c019de84bc19e7ce3fb02363e92",
+    "data\\choch_expanded\\M6EU6_2026-06-08_2026-09-07.csv": "db11358115365326bab678634e993f2a6702b9e97ae468a81f22edfc3a1f8843",
+    "data\\choch_expanded\\M6EZ6_2026-09-07_2026-11-05.csv": "56eeda9360f00133173b0676465534771592d58e6aa11fe5f0c00cfa2b492770",
+    "data\\choch_expanded\\schedules_M6E.json": "e9c85bde02c6b61c5e9214e98b8426671bb7eae028705fd8d816c5bf9ddcf559",
+    "data\\choch_expanded\\SILZ5_2025-10-27_2025-11-24.csv": "80c8c2ef1ba6e15a5cd8694ec35030d06fa730600f0ce2044efdbfa7cc5a93a4",
+    "data\\choch_expanded\\SILH6_2025-11-24_2026-02-22.csv": "8a6e4756084bb688845709df2f90b356a62db42cb171982bf369db36fa981bbf",
+    "data\\choch_expanded\\SILK6_2026-02-22_2026-04-24.csv": "ff8644d6585d9555d86c5acff12d084967467b479e1c8824b0d6ad4676f1b591",
+    "data\\choch_expanded\\SILN6_2026-04-24_2026-06-24.csv": "58cee4fa9003b80f12226b03b42a429ddf9ee152bf2f1e76b6e18726fd18085b",
+    "data\\choch_expanded\\SILU6_2026-06-24_2026-08-25.csv": "c3fad2990de71904dc93604d278e4476862917c2092ea8428c48ff45ad98e6e2",
+    "data\\choch_expanded\\SILZ6_2026-08-25_2026-11-05.csv": "87d369a6983e2b4be630c035bdf90e1a897b586e2478861493dac770739fd8f7",
+    "data\\choch_expanded\\schedules_SIL.json": "a742898f732c7870caf8c2a6f3ef77661454da56403ae878180cbd54ab7896e0",
+    "data\\choch_expanded\\BTCUSD_2025-10-27_2026-11-05.csv": "8cc01172ec4261a21f46bf98beb63506a3fe6736c2d7a0781637d5edbc62fb82",
+    "data\\choch_expanded\\crypto_sessions.json": "8f12d07f0a6d8f048c0d2f6e28802539aeccdac0373e8bcc7cb4e837d77da9bd",
+    "data\\choch_expanded\\AAPL_2025-10-27_2026-11-05.csv": "011051d37a8e7cc73dd2d544fff3a741ced6c93e18468a2f5916f59540e31ee0",
+    "data\\choch_expanded\\stock_sessions.json": "d04d6630acb91601287a1b5d196bffa72dc92d5238a793811ad9781132c2147d",
+    "data\\choch_expanded\\MSFT_2025-10-27_2026-11-05.csv": "8316a806b6ad2d29f37f1076b894aa33ffcee88ad6dd7e3e35bb985b0431d1e8",
+    "data\\choch_expanded\\NVDA_2025-10-27_2026-11-05.csv": "162bd445ee613d10b4d9f3ae5c75a5a98501145f23c893d968981267e0c083a3",
+    "data\\choch_expanded\\TSLA_2025-10-27_2026-11-05.csv": "06cbd5e4fd4077f4eb12849d48ba4c798aaf3272a5d33629b8d5fcb66103f5b9",
+    "data\\choch_expanded\\AMZN_2025-10-27_2026-11-05.csv": "d3ffa580bbabec8e5aed7fc10c6e6625326156694f32c5fbfc743dd9f297a78b",
+    "data\\choch_expanded\\JPM_2025-10-27_2026-11-05.csv": "908953a9ba31f52c17155d5473bffb6243ed6380c9d61b4a6095b4463ff89081",
+    "data\\choch_expanded\\XOM_2025-10-27_2026-11-05.csv": "59cd4541fb34ff339c58f375502a85e47c212a20a12fcd3a36986624f524438a",
+    "data\\choch_expanded\\UNH_2025-10-27_2026-11-05.csv": "fc8b382b02cf9243be95d433191441eadca91ee11688f5ca8c81dabb18c80981"
+  },
+  "file_sha256": {
+    "research\\results\\portfolio\\all_17_same_5m_10000_high_first.json.gz": "47e9c376978160bfd3813b365873f87064c389b894b3f7e8d6f36232a8c7e15b",
+    "research\\results\\portfolio\\all_17_same_5m_10000_low_first.json.gz": "a20581fdfcaa72aafa3587e019dd24fe77549814b476a4d7ffe0c3a8d6781151",
+    "research\\results\\portfolio\\all_17_same_5m_25000_high_first.json.gz": "56096e7d2cbf9611d7fa1da6b1753388feccd0af177d7a361793a25f7d516d29",
+    "research\\results\\portfolio\\all_17_same_5m_25000_low_first.json.gz": "4189fa99a7f09afbc388b8f6ab96b2c24cba216a5ea9b4eda06a9ab504fca80c",
+    "research\\results\\portfolio\\all_17_same_5m_50000_high_first.json.gz": "6227bf56198b967c67b7a809bd631c3d455d0717d76c2a8017d6e0247c62ecda",
+    "research\\results\\portfolio\\all_17_same_5m_50000_low_first.json.gz": "5ade9bfaf86ab740a279d27f8c8bb25eccdaa8339d271ef0ff5a4d4f392c9f67",
+    "research\\results\\portfolio\\screened_five_retrospective_10000_high_first.json.gz": "a3ec5938ef241476b5df716eec404f2d8bb40f4c0963273be661d4b31753e6a7",
+    "research\\results\\portfolio\\screened_five_retrospective_10000_low_first.json.gz": "6744e5fdb09525882b4531de86bad5200d175bd1f389e869319b23e674faf3b5",
+    "research\\results\\portfolio\\screened_five_retrospective_25000_high_first.json.gz": "d8cff8e3ddee5e7ec54b65e1304636f56a98f345becde280aafa52d08b2df500",
+    "research\\results\\portfolio\\screened_five_retrospective_25000_low_first.json.gz": "1104dd97eabb77a4d26d092189597471ff4d3066a340100c8bd6fcdc7e2a2372",
+    "research\\results\\portfolio\\screened_five_retrospective_50000_high_first.json.gz": "95c49bb0a537aaa1a964bac6c6f97e74a961edf301b01c981913c2ef9e8afa58",
+    "research\\results\\portfolio\\screened_five_retrospective_50000_low_first.json.gz": "e04bd57673894be90ef5d1e372c07bfc28b5db36bc3a815edcf3b47b8c7b4733"
+  },
+  "audit": {
+    "status": "passed",
+    "cases": 12,
+    "trade_executions": 5638,
+    "single_asset_control": "MCL 5m high_first: all 98 trades match the original breadth journal",
+    "unit_tests": 118
+  },
+  "report_source_sha256": "c66aa5e36dc33684f3cbe5b7e12c39690f4791340efa5025e8366216131705ad"
+}
