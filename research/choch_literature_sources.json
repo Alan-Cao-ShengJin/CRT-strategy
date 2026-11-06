@@ -1,0 +1,181 @@
+{
+  "reviewed_on": "2026-11-06",
+  "scope": "Targeted primary-source review of practitioner CHoCH usage, direct SMC/CHoCH research and related technical-analysis/microstructure literature. Not exhaustive; no external result independently replicated.",
+  "sources": [
+    {
+      "id": "practitioner_fxopen_mss",
+      "title": "Market Structure Shift (MSS) in Trading",
+      "author": "FXOpen",
+      "year": 2026,
+      "url": "https://fxopen.com/blog/en/market-structure-shift-meaning-and-use-in-ict-trading/",
+      "category": "broker educational publication",
+      "access": "Primary HTML inspected",
+      "supports": "Author's use of displacement, context and follow-through; distinction between CHoCH, MSS and BOS",
+      "limits": "Commercial educational material; not audited profitability evidence or universal terminology"
+    },
+    {
+      "id": "practitioner_atas_choch",
+      "title": "ChoCh in Trading: What It Is, How to Spot It & Trade It",
+      "author": "ATAS",
+      "url": "https://atas.net/blog/understanding-change-of-character-choch-in-trading/",
+      "category": "platform educational publication",
+      "access": "Primary HTML inspected",
+      "supports": "Context, retest zones, volume/footprint and delta examples",
+      "limits": "Illustrative charts and platform promotion do not demonstrate a net edge"
+    },
+    {
+      "id": "practitioner_wyckoff",
+      "title": "Wyckoff Method",
+      "author": "Wyckoff Analytics",
+      "url": "https://www.wyckoffanalytics.com/wyckoff-method/",
+      "category": "educator's method description",
+      "access": "Primary HTML inspected",
+      "supports": "Broader price/volume and range-phase interpretation of change of character",
+      "limits": "Not the same algorithm as a strict pivot break; not an empirical CHoCH profitability test"
+    },
+    {
+      "id": "mahadzva_2026_smc",
+      "title": "Smart Money or Costly Folklore? A Systematic Evaluation of ICT/Smart-Money-Concepts Trading Rules in G10 FX",
+      "authors": [
+        "Shepherd Mahadzva"
+      ],
+      "year": 2026,
+      "written_on": "2026-07-01",
+      "posted_on": "2026-09-14",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7430998",
+      "doi": "10.2139/ssrn.7430998",
+      "category": "SSRN working-paper posting; peer review not verified",
+      "access": "Indexed primary abstract only; direct HTML/PDF requests returned HTTP 403",
+      "supports": "Direct CHoCH/SMC research lead; abstract reports mixed/inverted directional findings in FX",
+      "limits": "Full methods, code, costs, search design and results not audited; no demonstrated MNQ/MCL applicability"
+    },
+    {
+      "id": "lo_mamaysky_wang_2000",
+      "title": "Foundations of Technical Analysis: Computational Algorithms, Statistical Inference, and Empirical Implementation",
+      "authors": [
+        "Andrew W. Lo",
+        "Harry Mamaysky",
+        "Jiang Wang"
+      ],
+      "year": 2000,
+      "publication": "Journal of Finance 55(4), 1705-1765",
+      "url": "https://alo.mit.edu/publications/page/19/",
+      "doi": "10.1111/0022-1082.00265",
+      "category": "published research article",
+      "access": "Author's publication record and abstract; linked full-paper retrieval unsuccessful",
+      "supports": "Formal pattern recognition and incremental information in some daily stock patterns",
+      "limits": "Not CHoCH, not micro futures, not proof of executable net profits"
+    },
+    {
+      "id": "osler_2000_support",
+      "title": "Support for Resistance: Technical Analysis and Intraday Exchange Rates",
+      "authors": [
+        "Carol Osler"
+      ],
+      "year": 2000,
+      "publication": "New York Fed Economic Policy Review 6(2)",
+      "url": "https://www.newyorkfed.org/research/epr/00v06n2/0007osle.html",
+      "full_text_url": "https://www.newyorkfed.org/medialibrary/media/research/epr/00v06n2/0007osle.pdf",
+      "category": "institutional research article",
+      "access": "Institutional record and full text accessed; selected findings and conclusions inspected",
+      "supports": "Predictive content of some published intraday FX support/resistance levels",
+      "limits": "Varies by firm and currency; not a CHoCH futures strategy test"
+    },
+    {
+      "id": "osler_2005_cascades",
+      "title": "Stop-Loss Orders and Price Cascades in Currency Markets",
+      "authors": [
+        "Carol L. Osler"
+      ],
+      "year": 2005,
+      "working_paper_year": 2002,
+      "publication": "Journal of International Money and Finance 24(2), 219-241",
+      "url": "https://www.newyorkfed.org/research/staff_reports/sr150.html",
+      "category": "published research article with institutional working-paper record",
+      "access": "Institutional summary and published citation inspected",
+      "supports": "Stop clusters can propagate rapid continuation rather than automatic reversal",
+      "limits": "Historical FX evidence; no proof of candle-inferred institutional intent or CHoCH net alpha"
+    },
+    {
+      "id": "chung_bellotti_2021",
+      "title": "Evidence and Behaviour of Support and Resistance Levels in Financial Time Series",
+      "authors": [
+        "Ken Chung",
+        "Anthony Bellotti"
+      ],
+      "year": 2021,
+      "url": "https://arxiv.org/abs/2101.07410",
+      "full_text_url": "https://arxiv.org/pdf/2101.07410",
+      "category": "arXiv preprint; journal publication not verified",
+      "access": "Primary abstract and full text accessed; selected methods/findings inspected",
+      "supports": "Bounce behavior can depend on level interactions and age",
+      "limits": "Detected barriers and conditional probabilities do not establish a costed CHoCH system"
+    },
+    {
+      "id": "cont_kukanov_stoikov_2014",
+      "title": "The Price Impact of Order Book Events",
+      "authors": [
+        "Rama Cont",
+        "Arseniy Kukanov",
+        "Sasha Stoikov"
+      ],
+      "year": 2014,
+      "publication": "Journal of Financial Econometrics 12(1), 47-88",
+      "url": "https://arxiv.org/abs/1011.6402",
+      "doi": "10.1093/jjfinec/nbt003",
+      "category": "published research article with author-submitted preprint",
+      "access": "Primary abstract and publication reference inspected",
+      "supports": "Order-flow imbalance differs from aggregate volume and relates to short-horizon price impact",
+      "limits": "US-stock microstructure, not an out-of-sample futures entry-rule test"
+    },
+    {
+      "id": "sullivan_timmermann_white_1999",
+      "title": "Data-Snooping, Technical Trading Rule Performance, and the Bootstrap",
+      "authors": [
+        "Ryan Sullivan",
+        "Allan Timmermann",
+        "Halbert White"
+      ],
+      "year": 1999,
+      "publication": "Journal of Finance 54(5), 1647-1691",
+      "url": "https://doi.org/10.1111/0022-1082.00163",
+      "working_paper_url": "https://eprints.lse.ac.uk/119144/1/dp303.pdf",
+      "category": "published research article",
+      "access": "Published record/indexed abstract plus accessible LSE 1998 predecessor; selected conclusions inspected",
+      "supports": "Adjustment for the searched rule universe and later-period testing",
+      "limits": "Some earlier performance survived adjustment; not a blanket claim that technical signals never work"
+    },
+    {
+      "id": "bajgrowicz_scaillet_2012",
+      "title": "Technical Trading Revisited: False Discoveries, Persistence Tests, and Transaction Costs",
+      "authors": [
+        "Pierre Bajgrowicz",
+        "Olivier Scaillet"
+      ],
+      "year": 2012,
+      "publication": "Journal of Financial Economics 106(3), 473-491",
+      "url": "https://doi.org/10.1016/j.jfineco.2012.06.001",
+      "draft_url": "https://archive-ouverte.unige.ch/unige:5724",
+      "category": "published research article",
+      "access": "Published record/indexed abstract and an accessible author-deposited July 2009 draft; full final article not accessed",
+      "supports": "Persistence, false-discovery and transaction-cost concerns in technical-rule selection",
+      "limits": "Draft and final data windows must not be conflated; not a universal verdict on other markets/frequencies"
+    },
+    {
+      "id": "park_irwin_2007",
+      "title": "What Do We Know About the Profitability of Technical Analysis?",
+      "authors": [
+        "Cheol-Ho Park",
+        "Scott H. Irwin"
+      ],
+      "year": 2007,
+      "publication": "Journal of Economic Surveys 21(4), 786-826",
+      "url": "https://experts.illinois.edu/en/publications/what-do-we-know-about-the-profitability-of-technical-analysis/",
+      "doi": "10.1111/j.1467-6419.2007.00519.x",
+      "category": "peer-reviewed review article, as classified by the institutional record",
+      "access": "Institutional publication record and abstract inspected; full final text not accessed",
+      "supports": "Mixed empirical literature and important methodological limitations",
+      "limits": "Historical study counts are not an estimated success probability for CHoCH"
+    }
+  ]
+}

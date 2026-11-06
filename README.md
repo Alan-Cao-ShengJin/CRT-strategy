@@ -78,6 +78,8 @@ The pool report also exports a separate [current paper watchlist](research/resul
 
 [Additional five-minute CHoCH validation](CHOCH_FIVE_MINUTE_VALIDATION.md) adds April-October 2025 using actual MCL/MNQ minute data and unchanged retest/2R rules. Both markets lost money on the added period, weakening the prior consistency assessment. The report retains all 34 earlier-history, capital, reproduction-control, extended-history and higher-cost cases, including the combined account's larger drawdown. Reproduce with `python -m research.five_minute_download`, `python -m research.five_minute_validation --workers 3` and `python -m research.five_minute_validation_report`. This is retrospective validation; no new filter or paper-configuration change is enabled.
 
+[CHoCH practitioner and literature review](CHOCH_LITERATURE_REVIEW.md) compares contextual, sweep/displacement, follow-through, volume and Wyckoff interpretations with the current mechanical rules. It distinguishes a directly relevant SSRN working-paper lead from established research on technical patterns, support/resistance, stop-driven cascades, order flow and selection bias. The source register records access limitations and draft versions. Proposed experiments are research hypotheses, not new backtest results or enabled trading filters.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.
