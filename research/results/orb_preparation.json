@@ -1,0 +1,63 @@
+{
+  "as_of": "2026-11-06",
+  "status": "research_and_data_preparation_only",
+  "strategy_returns_computed": false,
+  "s3_authenticated_download_attempted": false,
+  "credential_file_path": "pending_user_response",
+  "membership_snapshots": [
+    {
+      "month": "2026-08-01",
+      "snapshot": "2026-07-31",
+      "common_stocks": 5076,
+      "sha256": "b34c0d470e16ad98b1ea6b0b2071196d8bc172487c55ce406653f3c814b351d5"
+    },
+    {
+      "month": "2026-09-01",
+      "snapshot": "2026-08-31",
+      "common_stocks": 5085,
+      "sha256": "0bf8011f24c2338ca947f9291899acebd239a3ed8863cf61d13007766b12fb85"
+    },
+    {
+      "month": "2026-10-01",
+      "snapshot": "2026-09-30",
+      "common_stocks": 5088,
+      "sha256": "1612177e6fbe0455cab0b1acded55fbe50dd9c67f8391f42580eae842dd0bf24"
+    },
+    {
+      "month": "2026-11-01",
+      "snapshot": "2026-10-31",
+      "common_stocks": 5075,
+      "sha256": "09fa5cfb7299f807ca43b48fe349dd0a23a7cc782ce4f4eecf5d464e527343d7"
+    }
+  ],
+  "historical_delisting_probe": [
+    {
+      "active_filter": "true",
+      "rows": 1,
+      "tickers": [
+        {
+          "ticker": "TWTR",
+          "active": true,
+          "primary_exchange": "XNYS",
+          "last_updated_utc": "2024-12-03T22:23:41.232354Z"
+        }
+      ]
+    },
+    {
+      "active_filter": "false",
+      "rows": 0,
+      "tickers": []
+    }
+  ],
+  "code_and_protocol_sha256": {
+    "research/orb_research_protocol.json": "37bf6d8bfb356eaddb0ee61021958fe4a30359414ed9f2a38fa5639dc961b6df",
+    "research/orb_data.py": "2d271f794f055071344495a30ac6636165d8e4b903a50733601ee2a57bdfaa2a",
+    "research/orb_features.py": "dfdcd981d29ed0e7812a1f88f648bb51350a268f8b8206befcab691f3f307f54",
+    "tests/test_orb_research.py": "aa42d5bb8f8589fe63af4f42639c14ab42dcff430511fcc45d933232f0bc7772"
+  },
+  "notes": [
+    "Metadata counts are provider snapshots, not proof of complete point-in-time coverage.",
+    "No full-market rolling store or portfolio execution/backtest has been completed.",
+    "Synthetic reducer and feature tests cover causality, corporate-action units, incomplete data and session boundaries."
+  ]
+}

@@ -80,6 +80,8 @@ The pool report also exports a separate [current paper watchlist](research/resul
 
 [CHoCH practitioner and literature review](CHOCH_LITERATURE_REVIEW.md) compares contextual, sweep/displacement, follow-through, volume and Wyckoff interpretations with the current mechanical rules. It distinguishes a directly relevant SSRN working-paper lead from established research on technical patterns, support/resistance, stop-driven cascades, order flow and selection bias. The source register records access limitations and draft versions. Proposed experiments are research hypotheses, not new backtest results or enabled trading filters.
 
+[Opening-range breakout research](ORB_RESEARCH.md) extracts the original stocks-in-play methodology, identifies allocation/execution ambiguities, and prepares historical NYSE/Nasdaq common-stock snapshots. Tested causal feature helpers and a storage-bounded S3 reducer are included as data-preparation components. No ORB account returns or full-market replication have been produced; S3 credential-file identification and the remaining execution implementation are documented explicitly.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.
