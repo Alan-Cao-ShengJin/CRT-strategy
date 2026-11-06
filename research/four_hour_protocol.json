@@ -1,0 +1,20 @@
+{
+  "source": "https://www.youtube.com/watch?v=z97PnFIPoFg",
+  "status": "Frozen before computing four-hour strategy returns",
+  "description": "Independent mechanical reconstruction; source does not specify pivot width, candle anchor, roll policy or full executable rules.",
+  "data_start": "2024-11-11T00:00:00+00:00",
+  "evaluation_start": "2025-04-07T00:00:00+00:00",
+  "coverage_amendment_before_results": "Although minute prices reach November 2024, the returned NQ exchange schedule begins March 17, 2025. Evaluation starts April 7 after three weeks of calendar-backed warmup; no holiday calendar is invented. Original intended evaluation start was December 2, 2024.",
+  "split": "2025-11-03T00:00:00+00:00",
+  "end_exclusive": "2026-11-05T00:00:00+00:00",
+  "markets": ["NQ", "ES"],
+  "primary": "Strict confirmed two-left/two-right swings. Uptrend requires latest two highs and lows rising, downtrend falling. First opposite closing break by at least one tick; one signal per broken pivot. Stop one tick beyond latest confirmed opposite swing. No sweep. Target 1R. One position per instrument, overnight allowed.",
+  "candles": "Four hours from actual exchange session open (normally 18:00 New York); retain final shorter candle. Exclude scheduled halts. Bridge scheduled closures. Reset structure after rejected incomplete buckets. Require 95% observed minutes, no missing run longer than five scheduled minutes, first/last observations within five minutes of bucket edges. No fabricated OHLC.",
+  "calendar_interpretation_before_results": "Parse deduplicated events chronologically, not by settlement-date labels, which combine holiday sessions. A new pre_open bounds the preceding interval if its close was omitted; earlier unreported halts still cause coverage rejection. Group by New York 18:00 trading date. Exclude Saturday testing events (CME trading-hours page distinguishes weekend tests). Do not infer a halt from absent price bars.",
+  "execution": "Enter next observed minute open after confirmed candle close; cancel if more than five scheduled minutes late. Stops gap at observed open, otherwise stop price, then adverse market slippage; limit targets at their level. Both touched in a minute: stop first. Mark to market for drawdowns. Exit remaining position at final observed close. Entries only within evaluation window.",
+  "roll": "Quarterly contract switch Thursday eight calendar days before third Friday at 16:00 New York. Require simultaneous old/new minute opens. Causal cumulative spread adjustment of signals only. Open positions incur two additional commissions and two ticks of slippage per roll, with unchanged continuous risk levels. No artificial roll-gap PnL.",
+  "costs": "Assumed, not broker quotes: standard $2.50 per side and one tick adverse market slippage; micro proxy $0.85 per side. Stress twice commission and two ticks. No fees on hypothetical signals. Futures exchange/broker financing and account margin availability are not simulated in fixed-contract studies.",
+  "variants": ["primary", "pivot3", "pivot5", "bos_state", "midnight_anchor", "strict_coverage", "ny_entry_8_16"],
+  "variant_policy": "Change exactly one primary rule per variant. BOS state uses latest breached swing to establish trend and only its opposite break signals. Midnight anchor splits exchange intervals at 00/04/08/12/16/20 New York. Strict coverage requires every scheduled minute. NY entry filter uses signal close time, 08:00 inclusive to 16:00 exclusive New York. All variants disclosed, no best-variant deployment claim.",
+  "reporting": "Fixed one-contract standard results; early/recent halves and cost stress. Micro economics may be illustrated from standard price paths, clearly labelled proxies. Locally unexamined earlier data is retrospective validation, not pristine out-of-sample data from the video's search. Existing MCL five-minute result is a separate candidate. No account return percentage without explicit capital and sizing."
+}

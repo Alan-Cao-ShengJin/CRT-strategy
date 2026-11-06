@@ -74,6 +74,8 @@ The pool report also exports a separate [current paper watchlist](research/resul
 
 [65-market CHoCH research](CHOCH_UNIVERSE65.md) tests whether a larger possible market list helps under the original 5m entry rules and unchanged shared risk. It compares all 17/29/65 markets, all 16 training-eligible markets and the old/new ranked five-market baskets on the same dates. Reproduce with `python -m research.universe65_download`, `python -m research.universe65_fast --workers 3` and `python -m research.universe65_report`. The faster active-position accounting is separately checked against both original baseline trade lists and daily equity histories.
 
+[The video's four-hour CHoCH check](CHOCH_FOUR_HOUR.md) independently reconstructs immediate entries and 1R swing stops on dated NQ/ES futures, with overnight positions, calendar-aware candles and charged contract rolls. Seven predeclared interpretations, both chronological segments and cost stress are retained. The primary lost money in both markets; profitable alternatives were sensitive to interpretation and risk normalization. Reproduce with `python -m research.four_hour_download`, `python -m research.four_hour` and `python -m research.four_hour_report`. Micro figures are explicitly standard-price proxies, and the fixed-contract study does not simulate account margin or 1% sizing.
+
 ## Your current Massive access
 
 On 5 November 2026, authenticated futures REST requests succeeded for all three instruments. WebSocket authentication explicitly reported that the plan did not include WebSocket access. REST's newest available bar was approximately eight hours behind the wall clock during an open market. The system checks freshness and refuses to label that as current market data.
