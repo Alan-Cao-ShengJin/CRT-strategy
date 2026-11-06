@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "cases": 34,
+  "simulated_trade_records": 2698,
+  "unique_entry_opens": 335,
+  "controls": [
+    {
+      "tag": "control_MCL_50000_high_first_base",
+      "status": "passed",
+      "reference": "research\\results\\pool_portfolios\\later_mcl_only_50000_high_first.json.gz",
+      "sha256": "ba6608caa89667857454a656200871d012043d2820216effeebabf3141735ffb"
+    },
+    {
+      "tag": "control_MCL_50000_low_first_base",
+      "status": "passed",
+      "reference": "research\\results\\pool_portfolios\\later_mcl_only_50000_low_first.json.gz",
+      "sha256": "bce6ef6900e027476ee18b8e08bfd987e7eceb46134d7189edd13e57397ed0ad"
+    },
+    {
+      "tag": "control_MNQ_50000_high_first_base",
+      "status": "passed",
+      "reference": "fresh original ClockPortfolio replay"
+    },
+    {
+      "tag": "control_MNQ_50000_low_first_base",
+      "status": "passed",
+      "reference": "fresh original ClockPortfolio replay"
+    }
+  ],
+  "report_source_sha256": "db3c5292ddb624ea0dc27d8aa444a9fb710f181e03cff7fe1504b7713b317c8a",
+  "test_source_sha256": "05b5c86d629015aaa86c1145c2219d75a360675ab1f653b2023c9d35e11d0611",
+  "journal_sha256": {
+    "research\\results\\five_minute_validation\\earlier_MCL_1000_high_first_base.json.gz": "c8fab10792b8c645a9e03e2737386ef314dfa2927dd5494646cc4130101cecde",
+    "research\\results\\five_minute_validation\\earlier_MCL_1000_low_first_base.json.gz": "34a87a3e66b50c44876fafefe47c69224b163fc510425c56ca5f939517370baa",
+    "research\\results\\five_minute_validation\\earlier_MCL_10000_high_first_base.json.gz": "b1cd97307ec1108443f30dd098587ebf000d338eac158f741989fed23c17e5d9",
+    "research\\results\\five_minute_validation\\earlier_MCL_10000_low_first_base.json.gz": "f223e2711e4f1fdf2523dddf74f16b8ea2d2d25652f46f1b1d7b86800c4035db",
+    "research\\results\\five_minute_validation\\earlier_MCL_50000_high_first_base.json.gz": "7197a4009d5d82fdb26caea17285d5716890cbd10ab8cb1c4d11072fad574ddc",
+    "research\\results\\five_minute_validation\\earlier_MCL_50000_low_first_base.json.gz": "293e6506c8abc403b64e590e21e2b83136f3b5d77db679247d83c7e7213899ec",
+    "research\\results\\five_minute_validation\\earlier_MNQ_1000_high_first_base.json.gz": "3fbfbb932ad50912ee9d2302c2d828fa01931919b53c5942501fc45a2e54df15",
+    "research\\results\\five_minute_validation\\earlier_MNQ_1000_low_first_base.json.gz": "3af35e58fa54a485e395dfc739ef46403ccca2954bc40a14724e5d5f49fbce4b",
+    "research\\results\\five_minute_validation\\earlier_MNQ_10000_high_first_base.json.gz": "28b67aee684e35754ea86bcfb6b817c45e1e8c5adbe9b4462dfaec91efa8c40c",
+    "research\\results\\five_minute_validation\\earlier_MNQ_10000_low_first_base.json.gz": "7a090cf481ce2ddadbb644ee5408d69e74e2a5dec0bc0fed7313ac4ef925b5ad",
+    "research\\results\\five_minute_validation\\earlier_MNQ_50000_high_first_base.json.gz": "401251a56b57005ca5655c93fde25dddc4939bfbaea92de1796d64a4f685de38",
+    "research\\results\\five_minute_validation\\earlier_MNQ_50000_low_first_base.json.gz": "a65cdf76af06181cfbcadaa685ab35288efd001b1219b3d58548f4d8998c8f10",
+    "research\\results\\five_minute_validation\\earlier_combined_1000_high_first_base.json.gz": "4c32f90ba25b216935e211fc0ec9bef3a0c65506cd267f7479b16b47efaab452",
+    "research\\results\\five_minute_validation\\earlier_combined_1000_low_first_base.json.gz": "d33d568372c89897b554a9a866707dbb0cd0462235e83a1a893845722fb5fb17",
+    "research\\results\\five_minute_validation\\earlier_combined_10000_high_first_base.json.gz": "96208df7cc2a85bb75a1dd6cfaa491353dd588d23865bf70555e0161cd47da3e",
+    "research\\results\\five_minute_validation\\earlier_combined_10000_low_first_base.json.gz": "fb08da949f11dd06c29b8cf5badccb330be36e1f853006dc1f5edf4da10d97c7",
+    "research\\results\\five_minute_validation\\earlier_combined_50000_high_first_base.json.gz": "276debf83d903ee4ca3b2edd818fdcd5960b787effae8b636e562317287ba380",
+    "research\\results\\five_minute_validation\\earlier_combined_50000_low_first_base.json.gz": "c799e6e5466285f2399cc294c3d42e91fe6aa194cb4e24c967ac009ce10164b3",
+    "research\\results\\five_minute_validation\\extended_MCL_50000_high_first_base.json.gz": "2f79b67c1a1b3277be3794f16b4915e85d56534334fac82c1fccd8ef78f4b6d4",
+    "research\\results\\five_minute_validation\\extended_MCL_50000_low_first_base.json.gz": "8a1e24fb625707537f9866b92888ad348bfddbd3361348b980df85376eea73e6",
+    "research\\results\\five_minute_validation\\extended_MNQ_50000_high_first_base.json.gz": "0be167834a3515d9d141f1a81b748ca9e32a901cbe17e02e9e25d4fcb3a58adb",
+    "research\\results\\five_minute_validation\\extended_MNQ_50000_low_first_base.json.gz": "8bb30775a86bb5ee38cd27bd6df11110c90df5df77eca37cace503b36d0b3d66",
+    "research\\results\\five_minute_validation\\extended_combined_50000_high_first_base.json.gz": "ea849a1334489499112834da1e9fd3edb782b8a255db924597a54b01fb534270",
+    "research\\results\\five_minute_validation\\extended_combined_50000_low_first_base.json.gz": "8f4d48d513ee89fe1c9f0c3cead69c38d033604b856ecc80d29e9a15001ebe8f",
+    "research\\results\\five_minute_validation\\control_MCL_50000_high_first_base.json.gz": "0835cee875a742ce986af9d4e8300c29175784756ef60396f0941003fc742903",
+    "research\\results\\five_minute_validation\\control_MCL_50000_low_first_base.json.gz": "c058a48124d932443d1ab5148d174f6191f10c056192bdf5d7c0de853b0e3938",
+    "research\\results\\five_minute_validation\\control_MNQ_50000_high_first_base.json.gz": "b277f567a6866e36a970667d84bc9afc5d2dc6c2ba9dc61d73d58613ddb43893",
+    "research\\results\\five_minute_validation\\control_MNQ_50000_low_first_base.json.gz": "c10cce129e6b6fd88f26910927d0786c7ff954c3143255e8d95cde9d62e4f8ce",
+    "research\\results\\five_minute_validation\\earlier_MCL_50000_high_first_stress.json.gz": "6612257b865601333f457274987c786a3770a1a258102df5342406faf6bb7382",
+    "research\\results\\five_minute_validation\\earlier_MCL_50000_low_first_stress.json.gz": "eb37377341e8da4ed8d0eb99cfc9d0948683d73f8e17c44deaea627ac9097b6b",
+    "research\\results\\five_minute_validation\\earlier_MNQ_50000_high_first_stress.json.gz": "18d678bd10d68066026cf65d7f488448651472a7549d0b20171572bfb01080ef",
+    "research\\results\\five_minute_validation\\earlier_MNQ_50000_low_first_stress.json.gz": "8f00a0655f3d35e56022560496c1e18685386a31609a1c03f4f2c0d128e80f3c",
+    "research\\results\\five_minute_validation\\earlier_combined_50000_high_first_stress.json.gz": "b4d8aef881be0c03b4bd55cfbad20625bcb9a660107dcae9b8d2de8dcaed0f5a",
+    "research\\results\\five_minute_validation\\earlier_combined_50000_low_first_stress.json.gz": "c3f01b81225acde54c9fc4be0ede451787a97898a1f690c0fddf97722729ef90"
+  }
+}

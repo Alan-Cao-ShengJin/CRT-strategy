@@ -1,0 +1,2317 @@
+{
+  "protocol": {
+    "purpose": "Validate the existing five-minute CHoCH candidate on locally unexamined earlier history before attempting improvements.",
+    "frozen_before_new_returns": true,
+    "symbols": [
+      "MCL",
+      "MNQ"
+    ],
+    "data_start": "2025-03-16T22:00:00+00:00",
+    "earlier_start": "2025-04-07",
+    "previous_start": "2025-11-03",
+    "end_exclusive": "2026-11-05",
+    "timeframe": 5,
+    "entry": "retest_close",
+    "target_r": 2,
+    "baskets": {
+      "MCL": {
+        "MCL": 5
+      },
+      "MNQ": {
+        "MNQ": 5
+      },
+      "combined": {
+        "MCL": 5,
+        "MNQ": 5
+      }
+    },
+    "earlier_capitals": [
+      1000,
+      10000,
+      50000
+    ],
+    "extended_capital": 50000,
+    "paths": [
+      "high_first",
+      "low_first"
+    ],
+    "cases": "18 earlier cases (three baskets, three capitals, two paths), six uninterrupted extended $50k cases, four May-November 2026 $50k single-asset controls, six earlier $50k higher-cost resimulations; 34 total.",
+    "controls": "Using original calendars, data and warmup, the May-November 2026 MCL controls must match the saved later_mcl_only shared-account trades and daily equities. MNQ controls compare the accelerated runner to a fresh original ClockPortfolio replay. No new performance claim is made from these reproduction controls.",
+    "rules": "Unchanged two-left/two-right confirmed pivots, established HH/HL or LH/LL structure, structural stop, confirmed retest within three candles, immediate next-minute entry, 2R target, first eligible signal per NY/Asia session, at most two trades per asset/day, original missing-bucket reset and daily flatten. No additional filters, no target/stop search, no timeframe or universe ranking.",
+    "risk_and_capital": "Inherit portfolio_protocol.json: 1% planned entry risk, 2% aggregate planned risk, two positions, 3% daily-loss budget, 80% capital utilization limit, full static initial-margin proxy. Use whole contracts. Gaps can exceed planned risk. These are historical planning proxies, not current broker quotes or reconstructed historical margin.",
+    "rolls": "Match existing conventions: MNQ quarterly roll third Friday minus seven days at 18:00 New York; MCL roll seven calendar days before contract last_trade_date at 18:00 New York. Historical contract reference determines expiry; never volume or realized profits. Report explicitly tagged stale old-contract exits.",
+    "costs": "Base $0.85 per side and one adverse market tick, unchanged. Higher-cost earlier $50k cases fully resimulate $1.50 per side and two ticks, including sizing and risk halts. Also retain the existing fixed-fill repricing for comparison.",
+    "history_status": "Earlier history is unused locally by the five-minute strategy, but this hypothesis was selected from later history and the four-hour study examined overlapping dates. It is retrospective reverse-time validation, not a genuine untouched forward holdout or proof of future edge.",
+    "reporting": "Publish all 34 cases, input/source hashes, monthly returns, net R, trade concentration, planned risk, capital rejections, path disagreement, cost stress and data gaps. Describe zero-trade small accounts explicitly. No live orders, purchases, or paper-configuration changes."
+  },
+  "protocol_sha256": "16bf37657018bfd7e907876831fd1e9da16a579ff9b8b30ef717e8175911b0a9",
+  "source_sha256": {
+    "crt\\__init__.py": "0f56fb1da2ba6a07fbb670d0432c413c7833f5fc81362afac941a4bf1a315e7c",
+    "crt\\__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "crt\\calendar.py": "1e3e460a28a78eabdfc4eaa6acdd2d1448860cae5f5b2db5dc679983b6424ef1",
+    "crt\\cli.py": "65d551020c0181eeb643175e93f9c33578756f0829465de60fa9579ca2bdba91",
+    "crt\\config.py": "45400df0ac7750d67dd4bc87a885eb725c67fed604fe803e572b20fae48ba7bf",
+    "crt\\data.py": "8c6ec862e80889395ff41f3e99f97dd5ca85e8e89f0aff9bc71fa4a185c93b1d",
+    "crt\\engine.py": "475485dc64828c60ecaa91d484e67f4a4be87a14041f6d7f0428f62b830d547d",
+    "crt\\journal.py": "2ebeb0fa3e2d897e84dfdfefc4623f980c9d465c762be0d889b4dbf04f14172e",
+    "crt\\massive.py": "a13b23225975763b9e17e1f881fb27206227d2949c31df9449b7dc6fd5d86ce1",
+    "crt\\models.py": "104bac74fe1bf313074974da9513b57e3c63f369c64f8855eaeed34deb4c7390",
+    "crt\\paper.py": "70569700e62fb2ab0197f7aa02bc713d8b0f342138042e72ba8443ecee3509a5",
+    "crt\\report.py": "62e1d8e7bd89c70ea118c95619cfea709dff2838632b9a5c64df9d287e674ea8",
+    "crt\\strategy.py": "23f57b6897625cef699a606e7759eac03abd1aaf2503ac5b15f8479327eb4507",
+    "crt\\validation.py": "dc3ac0b4ed936806abd4bc8ae9ef44bd4238f51227d6b588d2619574b7bc7981",
+    "research\\choch.py": "9718b26dcff8340c88c5b0f52bf59224f6e619ec44d7bea28939ef62f38addd5",
+    "research\\choch_study.py": "289c249c9b4aa78189c6caf269136d73a034f1ab4f64e743f596054e259f00e1",
+    "research\\risk_sizing_study.py": "63b170c3b5fe76cbbe7676a83b516e9fa2a93e66b06c50b524e6be6a2747a7ed",
+    "research\\expanded_markets.py": "406a585b93e916fb1eb2266acea343d0197671c06df4b8245542b3a8e5ea4274",
+    "research\\breadth_study.py": "466e49fe998c3fcf9413ed5fede4fc270ee3d38c1e24c0fca90f7414293d1f85",
+    "C:\\Users\\Alan Cao\\Desktop\\CRT\\research\\five_minute_validation.py": "eac8291a359d3835086dba438500587e9ef58aa1051c3957000cbeff1b9ba4b7",
+    "research\\five_minute_download.py": "77862190d38263bfe03ef657835d9f7a245112a0600a7078d92d5e466f00c65f",
+    "research\\portfolio_study.py": "015fa7a98e920cfdb7cfe3564b89061f43603c827e873ebc3555c58b1717c0cb",
+    "research\\pool_portfolio.py": "a5a550107ee5ccb53b9f06d76cd96dcdf0643da4bc12d55cdc6512801baedafa",
+    "research\\universe65_fast.py": "2b2f2d931cf72dd11539b996f1f55d95448a6d0069757c1bb9b491857f00ce6d"
+  },
+  "input_sha256": {
+    "data\\choch_five_minute_validation\\MNQM5_2025-03-16_2025-06-13.csv": "4172145099d3895e7cba280f4ffde8f0dfd8120b3d05b462622f1b49f4855e4b",
+    "data\\choch_five_minute_validation\\MNQU5_2025-06-13_2025-09-12.csv": "48744d7cce3bf6824c529ecc4b60d3509866f1502376a1c834415f3f9aee5ce4",
+    "data\\choch_five_minute_validation\\MNQZ5_2025-09-12_2025-10-27.csv": "1dbef7d5f9b9d1fd090663113041d6cbbc91675a705809ebeacb4d58fc79e8f1",
+    "data\\annual\\MNQZ5_2025-10-27_2025-12-12.csv": "8b0078e8172de14305da514b6fa04dc06e646f8b53b8f2a62ca084f175d981c4",
+    "data\\annual\\MNQH6_2025-12-12_2026-03-13.csv": "753bd65ed33224c731cd1f340c50dd560c1912a2631db06b46b77da9b16405ae",
+    "data\\annual\\MNQM6_2026-03-13_2026-06-12.csv": "6cd87545a75334a2f79cf76a062f3bd7a99dff43330fef0e48ac70f53865007f",
+    "data\\annual\\MNQU6_2026-06-12_2026-09-11.csv": "d6742dafaeae1df14a9aa41205078fd104083f10ea1fdd1faa2f2faf57cb4096",
+    "data\\annual\\MNQZ6_2026-09-11_2026-11-05.csv": "c1558c8b7e1ba4cdac367428bdbf4a98309084cfb1ecff148d22637373e1462b",
+    "data\\choch_five_minute_validation\\schedules_MNQ.json": "0fe5f573b5fbee965b58684450bb39756aab53ace96a497ec63dd96da644484f",
+    "data\\choch_five_minute_validation\\MCLK5_2025-03-16_2025-04-14.csv": "30db3ebde52a229e10cb4428d7dc6eb5c099240f287ac9d7f2bf25e2f440536d",
+    "data\\choch_five_minute_validation\\MCLM5_2025-04-14_2025-05-12.csv": "697e64ac1e3ba18038705f7e049258316dce1b72f0a5518360d93af55bad21f0",
+    "data\\choch_five_minute_validation\\MCLN5_2025-05-12_2025-06-11.csv": "e23baafc0cc904c426b0e0ae00d8fbf2d5dfa42b535c546aea75d1a2ebfc8d73",
+    "data\\choch_five_minute_validation\\MCLQ5_2025-06-11_2025-07-14.csv": "5f488e36ab8778135112a9ecfa6c579d2f864c10af23c5b9e8802de1fb8ae5da",
+    "data\\choch_five_minute_validation\\MCLU5_2025-07-14_2025-08-12.csv": "a3b74079332dee0dd1461dab876bb18532359b7e4796cac1d261fbb75c1ac953",
+    "data\\choch_five_minute_validation\\MCLV5_2025-08-12_2025-09-12.csv": "9c5a258cc78cd2ad6986c9cd10601a9fcad61abbde65c4b3160e5ef4e4986153",
+    "data\\choch_five_minute_validation\\MCLX5_2025-09-12_2025-10-13.csv": "51022054dead891ca3a58938c2099054c824f7296e28b5a2a9dcc1d499d034fa",
+    "data\\choch_five_minute_validation\\MCLZ5_2025-10-13_2025-10-27.csv": "3ce949fff67eb2965648f291c2869186c0b94f2cc345a84eaaa5fda46ae66bb5",
+    "data\\choch_expanded\\MCLZ5_2025-10-27_2025-11-12.csv": "a8183840b3572842dc313b8fda8bafa64f571805483060547263a18dfc6fca89",
+    "data\\choch_expanded\\MCLF6_2025-11-12_2025-12-11.csv": "5e4243f6168f09453a64bb1e68fb771ff9f54a0e9c68ab61f663912da8ed6fbf",
+    "data\\choch_expanded\\MCLG6_2025-12-11_2026-01-09.csv": "c57aacade997d1a723d63614e603d34c0d339f253e73cb406e304ef4fdb9afea",
+    "data\\choch_expanded\\MCLH6_2026-01-09_2026-02-12.csv": "362a409f4cc2f7efd463311b37c8fc479f2ff6458be0331cfd5e8f18f069d943",
+    "data\\choch_expanded\\MCLJ6_2026-02-12_2026-03-12.csv": "560af81dbbb551fee9fa1dc7ee6ba8e22389b8f51412deb8132f2bcf892eec60",
+    "data\\choch_expanded\\MCLK6_2026-03-12_2026-04-13.csv": "b8c6931fa04cd8aab50bbab7e3ea4b59466c52e45e51429b63e95e19c399823d",
+    "data\\choch_expanded\\MCLM6_2026-04-13_2026-05-11.csv": "71b37e1bb4bf1ebf631e259eff4ccd278a872c4a0b49b8775fcfd0c1165d3ce6",
+    "data\\choch_expanded\\MCLN6_2026-05-11_2026-06-11.csv": "d4c97ee91a52c2c4e2be8cc5fd425f6ea6d0f290d4e44901ac8116cd52b6c072",
+    "data\\choch_expanded\\MCLQ6_2026-06-11_2026-07-13.csv": "065181af913c77c3212cbb336ebc0707e42c2ce6fee5241b5afb970f398a0fa5",
+    "data\\choch_expanded\\MCLU6_2026-07-13_2026-08-12.csv": "8a431701cd471aba547ab82f14ae090365b8d6539961ef81468d881f39798203",
+    "data\\choch_expanded\\MCLV6_2026-08-12_2026-09-14.csv": "e0e1664309a1035b096f555674901ef3bdb086e49040920836f98a22dc99587d",
+    "data\\choch_expanded\\MCLX6_2026-09-14_2026-10-12.csv": "6053e9d3bdc50385e40f297b7828cd9d363a242c5aa6bbbdd15758042dcf65ee",
+    "data\\choch_expanded\\MCLZ6_2026-10-12_2026-11-05.csv": "1fa23ea0e35a8880c7be4d50bfd17fff5bdeac67a8b466b3fae34dc8838e51b4",
+    "data\\choch_five_minute_validation\\schedules_MCL.json": "473a4e43763d8756d3faa1e8ed71f158567feee0cecd9cb1215067ea9935b522",
+    "data\\choch_expanded\\schedules_MCL.json": "0dc81305addb21f3f908e9e1372ccc2b800575a89b2769d739790d2bd029a490",
+    "data\\annual\\schedules.json": "8c24526a780a83a923189f8055ac5fb88aa19e5d4218397f915ae5e0d9849ec4"
+  },
+  "cases": [
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 1000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_MCL_1000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 1000.0,
+        "ending_equity": 1000.0,
+        "net_pnl": 0.0,
+        "return_pct": 0.0,
+        "market_days": 149,
+        "trades": 0,
+        "active_days": 0,
+        "zero_entry_days": 149,
+        "mean_trades_per_market_day": 0.0,
+        "mean_daily_return_pct": 0.0,
+        "geometric_daily_return_pct": 0.0,
+        "mean_daily_pnl": 0.0,
+        "max_minute_mark_drawdown_pct": 0.0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "worst_daily_return_pct": 0.0,
+        "best_daily_return_pct": 0.0,
+        "trades_by_symbol": {},
+        "daily_trade_count_histogram": {
+          "0": 149
+        },
+        "max_positions": 0,
+        "max_reserved_fraction": 0,
+        "net_r": 0,
+        "without_best_five": 0,
+        "fixed_fill_stress_net_pnl": 0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 35
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0,
+        "2025-08": 0.0,
+        "2025-09": 0.0,
+        "2025-10": 0.0
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 1000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_MCL_1000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 1000.0,
+        "ending_equity": 1000.0,
+        "net_pnl": 0.0,
+        "return_pct": 0.0,
+        "market_days": 149,
+        "trades": 0,
+        "active_days": 0,
+        "zero_entry_days": 149,
+        "mean_trades_per_market_day": 0.0,
+        "mean_daily_return_pct": 0.0,
+        "geometric_daily_return_pct": 0.0,
+        "mean_daily_pnl": 0.0,
+        "max_minute_mark_drawdown_pct": 0.0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "worst_daily_return_pct": 0.0,
+        "best_daily_return_pct": 0.0,
+        "trades_by_symbol": {},
+        "daily_trade_count_histogram": {
+          "0": 149
+        },
+        "max_positions": 0,
+        "max_reserved_fraction": 0,
+        "net_r": 0,
+        "without_best_five": 0,
+        "fixed_fill_stress_net_pnl": 0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 35
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0,
+        "2025-08": 0.0,
+        "2025-09": 0.0,
+        "2025-10": 0.0
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 10000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_MCL_10000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 9493.099999999982,
+        "net_pnl": -506.9000000000178,
+        "return_pct": -5.0690000000001785,
+        "market_days": 149,
+        "trades": 33,
+        "active_days": 33,
+        "zero_entry_days": 116,
+        "mean_trades_per_market_day": 0.2214765100671141,
+        "mean_daily_return_pct": -0.03415655346575088,
+        "geometric_daily_return_pct": -0.03490657340005088,
+        "mean_daily_pnl": -3.4020134228189116,
+        "max_minute_mark_drawdown_pct": 8.05507948702811,
+        "profit_factor": 0.6492769667197122,
+        "win_rate_pct": 33.333333333333336,
+        "worst_daily_return_pct": -0.9847435521539993,
+        "best_daily_return_pct": 1.6699642223748645,
+        "trades_by_symbol": {
+          "MCL": 33
+        },
+        "daily_trade_count_histogram": {
+          "0": 116,
+          "1": 33
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.27796324326589233,
+        "net_r": -6.681734369369012,
+        "without_best_five": -1147.3000000000002,
+        "fixed_fill_stress_net_pnl": -687.9999999999995
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 2
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.3149999999999773,
+        "2025-05": -3.2650644030992937,
+        "2025-06": -1.7172242798984327,
+        "2025-07": 2.1573024376064343,
+        "2025-08": -2.67880734131426,
+        "2025-09": -1.5276820583505657,
+        "2025-10": 0.6659385173324317
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 10000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_MCL_10000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 9493.099999999982,
+        "net_pnl": -506.9000000000178,
+        "return_pct": -5.0690000000001785,
+        "market_days": 149,
+        "trades": 33,
+        "active_days": 33,
+        "zero_entry_days": 116,
+        "mean_trades_per_market_day": 0.2214765100671141,
+        "mean_daily_return_pct": -0.03415655346575088,
+        "geometric_daily_return_pct": -0.03490657340005088,
+        "mean_daily_pnl": -3.4020134228189116,
+        "max_minute_mark_drawdown_pct": 8.05507948702811,
+        "profit_factor": 0.6492769667197122,
+        "win_rate_pct": 33.333333333333336,
+        "worst_daily_return_pct": -0.9847435521539993,
+        "best_daily_return_pct": 1.6699642223748645,
+        "trades_by_symbol": {
+          "MCL": 33
+        },
+        "daily_trade_count_histogram": {
+          "0": 116,
+          "1": 33
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.27796324326589233,
+        "net_r": -6.681734369369012,
+        "without_best_five": -1147.3000000000002,
+        "fixed_fill_stress_net_pnl": -687.9999999999995
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 2
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.3149999999999773,
+        "2025-05": -3.2650644030992937,
+        "2025-06": -1.7172242798984327,
+        "2025-07": 2.1573024376064343,
+        "2025-08": -2.67880734131426,
+        "2025-09": -1.5276820583505657,
+        "2025-10": 0.6659385173324317
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_MCL_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 46020.00000000001,
+        "net_pnl": -3979.9999999999927,
+        "return_pct": -7.959999999999989,
+        "market_days": 149,
+        "trades": 35,
+        "active_days": 34,
+        "zero_entry_days": 115,
+        "mean_trades_per_market_day": 0.2348993288590604,
+        "mean_daily_return_pct": -0.054430821997813086,
+        "geometric_daily_return_pct": -0.05565358202219706,
+        "mean_daily_pnl": -26.711409395973106,
+        "max_minute_mark_drawdown_pct": 11.610501975407097,
+        "profit_factor": 0.5878978649381847,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.7200484333792398,
+        "best_daily_return_pct": 1.8232777255989596,
+        "trades_by_symbol": {
+          "MCL": 35
+        },
+        "daily_trade_count_histogram": {
+          "0": 115,
+          "1": 33,
+          "2": 1
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.342336132104884,
+        "net_r": -8.681734369369023,
+        "without_best_five": -7960.399999999999,
+        "fixed_fill_stress_net_pnl": -5092.999999999996
+      },
+      "rejections": {},
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.4542000000000277,
+        "2025-05": -4.263007347157599,
+        "2025-06": -3.3166133356395844,
+        "2025-07": 2.568902689659458,
+        "2025-08": -3.0394455161015355,
+        "2025-09": -2.2023158151716515,
+        "2025-10": 0.7710010751534213
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_MCL_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 46020.00000000001,
+        "net_pnl": -3979.9999999999927,
+        "return_pct": -7.959999999999989,
+        "market_days": 149,
+        "trades": 35,
+        "active_days": 34,
+        "zero_entry_days": 115,
+        "mean_trades_per_market_day": 0.2348993288590604,
+        "mean_daily_return_pct": -0.054430821997813086,
+        "geometric_daily_return_pct": -0.05565358202219706,
+        "mean_daily_pnl": -26.711409395973106,
+        "max_minute_mark_drawdown_pct": 11.610501975407097,
+        "profit_factor": 0.5878978649381847,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.7200484333792398,
+        "best_daily_return_pct": 1.8232777255989596,
+        "trades_by_symbol": {
+          "MCL": 35
+        },
+        "daily_trade_count_histogram": {
+          "0": 115,
+          "1": 33,
+          "2": 1
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.342336132104884,
+        "net_r": -8.681734369369023,
+        "without_best_five": -7960.399999999999,
+        "fixed_fill_stress_net_pnl": -5092.999999999996
+      },
+      "rejections": {},
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.4542000000000277,
+        "2025-05": -4.263007347157599,
+        "2025-06": -3.3166133356395844,
+        "2025-07": 2.568902689659458,
+        "2025-08": -3.0394455161015355,
+        "2025-09": -2.2023158151716515,
+        "2025-10": 0.7710010751534213
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 1000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_MNQ_1000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 1000.0,
+        "ending_equity": 1000.0,
+        "net_pnl": 0.0,
+        "return_pct": 0.0,
+        "market_days": 149,
+        "trades": 0,
+        "active_days": 0,
+        "zero_entry_days": 149,
+        "mean_trades_per_market_day": 0.0,
+        "mean_daily_return_pct": 0.0,
+        "geometric_daily_return_pct": 0.0,
+        "mean_daily_pnl": 0.0,
+        "max_minute_mark_drawdown_pct": 0.0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "worst_daily_return_pct": 0.0,
+        "best_daily_return_pct": 0.0,
+        "trades_by_symbol": {},
+        "daily_trade_count_histogram": {
+          "0": 149
+        },
+        "max_positions": 0,
+        "max_reserved_fraction": 0,
+        "net_r": 0,
+        "without_best_five": 0,
+        "fixed_fill_stress_net_pnl": 0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 73
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0,
+        "2025-08": 0.0,
+        "2025-09": 0.0,
+        "2025-10": 0.0
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 1000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_MNQ_1000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 1000.0,
+        "ending_equity": 1000.0,
+        "net_pnl": 0.0,
+        "return_pct": 0.0,
+        "market_days": 149,
+        "trades": 0,
+        "active_days": 0,
+        "zero_entry_days": 149,
+        "mean_trades_per_market_day": 0.0,
+        "mean_daily_return_pct": 0.0,
+        "geometric_daily_return_pct": 0.0,
+        "mean_daily_pnl": 0.0,
+        "max_minute_mark_drawdown_pct": 0.0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "worst_daily_return_pct": 0.0,
+        "best_daily_return_pct": 0.0,
+        "trades_by_symbol": {},
+        "daily_trade_count_histogram": {
+          "0": 149
+        },
+        "max_positions": 0,
+        "max_reserved_fraction": 0,
+        "net_r": 0,
+        "without_best_five": 0,
+        "fixed_fill_stress_net_pnl": 0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 73
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0,
+        "2025-08": 0.0,
+        "2025-09": 0.0,
+        "2025-10": 0.0
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 10000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_MNQ_10000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 10104.499999999978,
+        "net_pnl": 104.49999999997817,
+        "return_pct": 1.044999999999785,
+        "market_days": 149,
+        "trades": 30,
+        "active_days": 30,
+        "zero_entry_days": 119,
+        "mean_trades_per_market_day": 0.20134228187919462,
+        "mean_daily_return_pct": 0.007861084639876002,
+        "geometric_daily_return_pct": 0.006977274395181254,
+        "mean_daily_pnl": 0.7013422818790481,
+        "max_minute_mark_drawdown_pct": 5.021409677466553,
+        "profit_factor": 1.0879481568759461,
+        "win_rate_pct": 30.0,
+        "worst_daily_return_pct": -0.9576331926415604,
+        "best_daily_return_pct": 1.7529999999999824,
+        "trades_by_symbol": {
+          "MNQ": 30
+        },
+        "daily_trade_count_histogram": {
+          "0": 119,
+          "1": 30
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.4761037377767997,
+        "net_r": -3.7446818017162493,
+        "without_best_five": -680.0,
+        "fixed_fill_stress_net_pnl": 40.0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 43
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": -0.0880000000000436,
+        "2025-06": 0.9558411402033729,
+        "2025-07": -0.4857882161658611,
+        "2025-08": 1.9197624953923187,
+        "2025-09": -2.35865655301849,
+        "2025-10": 1.1552592325634103
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 10000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_MNQ_10000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 10104.499999999978,
+        "net_pnl": 104.49999999997817,
+        "return_pct": 1.044999999999785,
+        "market_days": 149,
+        "trades": 30,
+        "active_days": 30,
+        "zero_entry_days": 119,
+        "mean_trades_per_market_day": 0.20134228187919462,
+        "mean_daily_return_pct": 0.007861084639876002,
+        "geometric_daily_return_pct": 0.006977274395181254,
+        "mean_daily_pnl": 0.7013422818790481,
+        "max_minute_mark_drawdown_pct": 5.021409677466553,
+        "profit_factor": 1.0879481568759461,
+        "win_rate_pct": 30.0,
+        "worst_daily_return_pct": -0.9576331926415604,
+        "best_daily_return_pct": 1.7529999999999824,
+        "trades_by_symbol": {
+          "MNQ": 30
+        },
+        "daily_trade_count_histogram": {
+          "0": 119,
+          "1": 30
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.4761037377767997,
+        "net_r": -3.7446818017162493,
+        "without_best_five": -680.0,
+        "fixed_fill_stress_net_pnl": 40.0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 43
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": -0.0880000000000436,
+        "2025-06": 0.9558411402033729,
+        "2025-07": -0.4857882161658611,
+        "2025-08": 1.9197624953923187,
+        "2025-09": -2.35865655301849,
+        "2025-10": 1.1552592325634103
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_MNQ_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 46112.99999999994,
+        "net_pnl": -3887.000000000058,
+        "return_pct": -7.774000000000115,
+        "market_days": 149,
+        "trades": 70,
+        "active_days": 60,
+        "zero_entry_days": 89,
+        "mean_trades_per_market_day": 0.4697986577181208,
+        "mean_daily_return_pct": -0.0518554632405082,
+        "geometric_daily_return_pct": -0.054299413279645936,
+        "mean_daily_pnl": -26.087248322148042,
+        "max_minute_mark_drawdown_pct": 17.42948148258799,
+        "profit_factor": 0.7833115920214955,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.8048238686733997,
+        "best_daily_return_pct": 1.8700363403399978,
+        "trades_by_symbol": {
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 89,
+          "1": 50,
+          "2": 10
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.795476009628244,
+        "net_r": -11.48228159825075,
+        "without_best_five": -8601.599999999999,
+        "fixed_fill_stress_net_pnl": -4576.0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 4.238600000000026,
+        "2025-05": -0.5965160698628624,
+        "2025-06": -2.022258938704935,
+        "2025-07": -3.89691237512495,
+        "2025-08": -0.7455527175673105,
+        "2025-09": -4.296256213999139,
+        "2025-10": -0.4870658866130917
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_MNQ_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 46112.99999999994,
+        "net_pnl": -3887.000000000058,
+        "return_pct": -7.774000000000115,
+        "market_days": 149,
+        "trades": 70,
+        "active_days": 60,
+        "zero_entry_days": 89,
+        "mean_trades_per_market_day": 0.4697986577181208,
+        "mean_daily_return_pct": -0.0518554632405082,
+        "geometric_daily_return_pct": -0.054299413279645936,
+        "mean_daily_pnl": -26.087248322148042,
+        "max_minute_mark_drawdown_pct": 17.42948148258799,
+        "profit_factor": 0.7833115920214955,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.8048238686733997,
+        "best_daily_return_pct": 1.8700363403399978,
+        "trades_by_symbol": {
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 89,
+          "1": 50,
+          "2": 10
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.795476009628244,
+        "net_r": -11.48228159825075,
+        "without_best_five": -8601.599999999999,
+        "fixed_fill_stress_net_pnl": -4576.0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 4.238600000000026,
+        "2025-05": -0.5965160698628624,
+        "2025-06": -2.022258938704935,
+        "2025-07": -3.89691237512495,
+        "2025-08": -0.7455527175673105,
+        "2025-09": -4.296256213999139,
+        "2025-10": -0.4870658866130917
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 1000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_combined_1000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 1000.0,
+        "ending_equity": 1000.0,
+        "net_pnl": 0.0,
+        "return_pct": 0.0,
+        "market_days": 149,
+        "trades": 0,
+        "active_days": 0,
+        "zero_entry_days": 149,
+        "mean_trades_per_market_day": 0.0,
+        "mean_daily_return_pct": 0.0,
+        "geometric_daily_return_pct": 0.0,
+        "mean_daily_pnl": 0.0,
+        "max_minute_mark_drawdown_pct": 0.0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "worst_daily_return_pct": 0.0,
+        "best_daily_return_pct": 0.0,
+        "trades_by_symbol": {},
+        "daily_trade_count_histogram": {
+          "0": 149
+        },
+        "max_positions": 0,
+        "max_reserved_fraction": 0,
+        "net_r": 0,
+        "without_best_five": 0,
+        "fixed_fill_stress_net_pnl": 0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 108
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0,
+        "2025-08": 0.0,
+        "2025-09": 0.0,
+        "2025-10": 0.0
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 1000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_combined_1000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 1000.0,
+        "ending_equity": 1000.0,
+        "net_pnl": 0.0,
+        "return_pct": 0.0,
+        "market_days": 149,
+        "trades": 0,
+        "active_days": 0,
+        "zero_entry_days": 149,
+        "mean_trades_per_market_day": 0.0,
+        "mean_daily_return_pct": 0.0,
+        "geometric_daily_return_pct": 0.0,
+        "mean_daily_pnl": 0.0,
+        "max_minute_mark_drawdown_pct": 0.0,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "worst_daily_return_pct": 0.0,
+        "best_daily_return_pct": 0.0,
+        "trades_by_symbol": {},
+        "daily_trade_count_histogram": {
+          "0": 149
+        },
+        "max_positions": 0,
+        "max_reserved_fraction": 0,
+        "net_r": 0,
+        "without_best_five": 0,
+        "fixed_fill_stress_net_pnl": 0
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 108
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 0.0,
+        "2025-05": 0.0,
+        "2025-06": 0.0,
+        "2025-07": 0.0,
+        "2025-08": 0.0,
+        "2025-09": 0.0,
+        "2025-10": 0.0
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 10000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_combined_10000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 9563.899999999963,
+        "net_pnl": -436.10000000003674,
+        "return_pct": -4.36100000000037,
+        "market_days": 149,
+        "trades": 63,
+        "active_days": 58,
+        "zero_entry_days": 91,
+        "mean_trades_per_market_day": 0.4228187919463087,
+        "mean_daily_return_pct": -0.02822200912650176,
+        "geometric_daily_return_pct": -0.029921361143325775,
+        "mean_daily_pnl": -2.9268456375841394,
+        "max_minute_mark_drawdown_pct": 11.682691137453698,
+        "profit_factor": 0.8364952009598086,
+        "win_rate_pct": 31.746031746031747,
+        "worst_daily_return_pct": -1.4688852319132306,
+        "best_daily_return_pct": 1.802099078193864,
+        "trades_by_symbol": {
+          "MCL": 33,
+          "MNQ": 30
+        },
+        "daily_trade_count_histogram": {
+          "0": 91,
+          "1": 53,
+          "2": 5
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.5666369614651849,
+        "net_r": -10.426416171085265,
+        "without_best_five": -1245.1999999999996,
+        "fixed_fill_stress_net_pnl": -684.9999999999991
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 45
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.3149999999999773,
+        "2025-05": -3.6845481912846756,
+        "2025-06": -0.7460392285463247,
+        "2025-07": 1.6395812253494846,
+        "2025-08": -0.7202210438634782,
+        "2025-09": -3.9659071142807756,
+        "2025-10": 1.8986330268386142
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 10000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_combined_10000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 10000.0,
+        "ending_equity": 9563.899999999963,
+        "net_pnl": -436.10000000003674,
+        "return_pct": -4.36100000000037,
+        "market_days": 149,
+        "trades": 63,
+        "active_days": 58,
+        "zero_entry_days": 91,
+        "mean_trades_per_market_day": 0.4228187919463087,
+        "mean_daily_return_pct": -0.02822200912650176,
+        "geometric_daily_return_pct": -0.029921361143325775,
+        "mean_daily_pnl": -2.9268456375841394,
+        "max_minute_mark_drawdown_pct": 11.682691137453698,
+        "profit_factor": 0.8364952009598086,
+        "win_rate_pct": 31.746031746031747,
+        "worst_daily_return_pct": -1.4688852319132306,
+        "best_daily_return_pct": 1.802099078193864,
+        "trades_by_symbol": {
+          "MCL": 33,
+          "MNQ": 30
+        },
+        "daily_trade_count_histogram": {
+          "0": 91,
+          "1": 53,
+          "2": 5
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.5666369614651849,
+        "net_r": -10.426416171085265,
+        "without_best_five": -1245.1999999999996,
+        "fixed_fill_stress_net_pnl": -684.9999999999991
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 45
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.3149999999999773,
+        "2025-05": -3.6845481912846756,
+        "2025-06": -0.7460392285463247,
+        "2025-07": 1.6395812253494846,
+        "2025-08": -0.7202210438634782,
+        "2025-09": -3.9659071142807756,
+        "2025-10": 1.8986330268386142
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": false,
+        "tag": "earlier_combined_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 42840.999999999956,
+        "net_pnl": -7159.000000000044,
+        "return_pct": -14.318000000000087,
+        "market_days": 149,
+        "trades": 105,
+        "active_days": 82,
+        "zero_entry_days": 67,
+        "mean_trades_per_market_day": 0.7046979865771812,
+        "mean_daily_return_pct": -0.0999075766860771,
+        "geometric_daily_return_pct": -0.1036559162430839,
+        "mean_daily_pnl": -48.04697986577211,
+        "max_minute_mark_drawdown_pct": 25.19472182331628,
+        "profit_factor": 0.7309647912994784,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -2.671234401274014,
+        "best_daily_return_pct": 1.8756868607863186,
+        "trades_by_symbol": {
+          "MCL": 35,
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 67,
+          "1": 63,
+          "3": 4,
+          "2": 15
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7979670155135271,
+        "net_r": -20.164015967619772,
+        "without_best_five": -11751.299999999994,
+        "fixed_fill_stress_net_pnl": -8910.49999999999
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 5.799400000000032,
+        "2025-05": -4.669213625030055,
+        "2025-06": -5.4574982599540744,
+        "2025-07": -1.2825756384039155,
+        "2025-08": -3.3093953172141144,
+        "2025-09": -6.40079633650047,
+        "2025-10": 0.5763519620617608
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": false,
+        "tag": "earlier_combined_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 42840.999999999956,
+        "net_pnl": -7159.000000000044,
+        "return_pct": -14.318000000000087,
+        "market_days": 149,
+        "trades": 105,
+        "active_days": 82,
+        "zero_entry_days": 67,
+        "mean_trades_per_market_day": 0.7046979865771812,
+        "mean_daily_return_pct": -0.0999075766860771,
+        "geometric_daily_return_pct": -0.1036559162430839,
+        "mean_daily_pnl": -48.04697986577211,
+        "max_minute_mark_drawdown_pct": 25.19472182331628,
+        "profit_factor": 0.7309647912994784,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -2.671234401274014,
+        "best_daily_return_pct": 1.8756868607863186,
+        "trades_by_symbol": {
+          "MCL": 35,
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 67,
+          "1": 63,
+          "3": 4,
+          "2": 15
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7979670155135271,
+        "net_r": -20.164015967619772,
+        "without_best_five": -11751.299999999994,
+        "fixed_fill_stress_net_pnl": -8910.49999999999
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 5.799400000000032,
+        "2025-05": -4.669213625030055,
+        "2025-06": -5.4574982599540744,
+        "2025-07": -1.2825756384039155,
+        "2025-08": -3.3093953172141144,
+        "2025-09": -6.40079633650047,
+        "2025-10": 0.5763519620617608
+      }
+    },
+    {
+      "case": {
+        "period": "extended",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2026-11-05",
+        "path": "high_first",
+        "stress": false,
+        "tag": "extended_MCL_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 63965.60000000004,
+        "net_pnl": 13965.600000000042,
+        "return_pct": 27.93120000000009,
+        "market_days": 410,
+        "trades": 133,
+        "active_days": 127,
+        "zero_entry_days": 283,
+        "mean_trades_per_market_day": 0.32439024390243903,
+        "mean_daily_return_pct": 0.06226785350728688,
+        "geometric_daily_return_pct": 0.06009669313018495,
+        "mean_daily_pnl": 34.06243902439034,
+        "max_minute_mark_drawdown_pct": 11.610501975407097,
+        "profit_factor": 1.469312041293656,
+        "win_rate_pct": 47.36842105263158,
+        "worst_daily_return_pct": -1.7200484333792398,
+        "best_daily_return_pct": 1.9076553839120658,
+        "trades_by_symbol": {
+          "MCL": 133
+        },
+        "daily_trade_count_histogram": {
+          "0": 283,
+          "1": 121,
+          "2": 6
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.4460152448504503,
+        "net_r": 27.59635662067614,
+        "without_best_five": 8390.500000000055,
+        "fixed_fill_stress_net_pnl": 10694.000000000047
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 1
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.4542000000000277,
+        "2025-05": -4.263007347157599,
+        "2025-06": -3.3166133356395844,
+        "2025-07": 2.568902689659458,
+        "2025-08": -3.0394455161015355,
+        "2025-09": -2.2023158151716515,
+        "2025-10": 0.7710010751534213,
+        "2025-11": 1.564971751412414,
+        "2025-12": 1.1786427957090506,
+        "2026-01": -1.3304829027025789,
+        "2026-02": 0.7961527498879573,
+        "2026-03": 4.388796047064436,
+        "2026-04": 4.361720328488605,
+        "2026-05": 2.4588644218965783,
+        "2026-06": 2.0893731309167496,
+        "2026-07": 1.341707108192991,
+        "2026-08": 6.638129430175832,
+        "2026-09": 5.707823654837241,
+        "2026-10": 2.595281454925513,
+        "2026-11": 1.8309175283170553
+      }
+    },
+    {
+      "case": {
+        "period": "extended",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2026-11-05",
+        "path": "low_first",
+        "stress": false,
+        "tag": "extended_MCL_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 63965.60000000004,
+        "net_pnl": 13965.600000000042,
+        "return_pct": 27.93120000000009,
+        "market_days": 410,
+        "trades": 133,
+        "active_days": 127,
+        "zero_entry_days": 283,
+        "mean_trades_per_market_day": 0.32439024390243903,
+        "mean_daily_return_pct": 0.06226785350728688,
+        "geometric_daily_return_pct": 0.06009669313018495,
+        "mean_daily_pnl": 34.06243902439034,
+        "max_minute_mark_drawdown_pct": 11.610501975407097,
+        "profit_factor": 1.469312041293656,
+        "win_rate_pct": 47.36842105263158,
+        "worst_daily_return_pct": -1.7200484333792398,
+        "best_daily_return_pct": 1.9076553839120658,
+        "trades_by_symbol": {
+          "MCL": 133
+        },
+        "daily_trade_count_histogram": {
+          "0": 283,
+          "1": 121,
+          "2": 6
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.4460152448504503,
+        "net_r": 27.59635662067614,
+        "without_best_five": 8390.500000000055,
+        "fixed_fill_stress_net_pnl": 10694.000000000047
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 1
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.4542000000000277,
+        "2025-05": -4.263007347157599,
+        "2025-06": -3.3166133356395844,
+        "2025-07": 2.568902689659458,
+        "2025-08": -3.0394455161015355,
+        "2025-09": -2.2023158151716515,
+        "2025-10": 0.7710010751534213,
+        "2025-11": 1.564971751412414,
+        "2025-12": 1.1786427957090506,
+        "2026-01": -1.3304829027025789,
+        "2026-02": 0.7961527498879573,
+        "2026-03": 4.388796047064436,
+        "2026-04": 4.361720328488605,
+        "2026-05": 2.4588644218965783,
+        "2026-06": 2.0893731309167496,
+        "2026-07": 1.341707108192991,
+        "2026-08": 6.638129430175832,
+        "2026-09": 5.707823654837241,
+        "2026-10": 2.595281454925513,
+        "2026-11": 1.8309175283170553
+      }
+    },
+    {
+      "case": {
+        "period": "extended",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2026-11-05",
+        "path": "high_first",
+        "stress": false,
+        "tag": "extended_MNQ_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 53386.10000000011,
+        "net_pnl": 3386.1000000001077,
+        "return_pct": 6.772200000000206,
+        "market_days": 410,
+        "trades": 201,
+        "active_days": 173,
+        "zero_entry_days": 237,
+        "mean_trades_per_market_day": 0.4902439024390244,
+        "mean_daily_return_pct": 0.01867057854004959,
+        "geometric_daily_return_pct": 0.015983571633970683,
+        "mean_daily_pnl": 8.25878048780514,
+        "max_minute_mark_drawdown_pct": 17.42948148258799,
+        "profit_factor": 1.0738196507949653,
+        "win_rate_pct": 39.30348258706468,
+        "worst_daily_return_pct": -1.8481069420469343,
+        "best_daily_return_pct": 3.124845488257133,
+        "trades_by_symbol": {
+          "MNQ": 201
+        },
+        "daily_trade_count_histogram": {
+          "0": 237,
+          "1": 145,
+          "2": 28
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.7973081764782839,
+        "net_r": 9.793288836159011,
+        "without_best_five": -1518.4999999999936,
+        "fixed_fill_stress_net_pnl": 1908.5
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 6
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ],
+      "monthly_returns": {
+        "2025-04": 4.238600000000026,
+        "2025-05": -0.5965160698628624,
+        "2025-06": -2.022258938704935,
+        "2025-07": -3.89691237512495,
+        "2025-08": -0.7455527175673105,
+        "2025-09": -4.296256213999139,
+        "2025-10": -0.4870658866130917,
+        "2025-11": -0.37755079912390466,
+        "2025-12": -1.8102305453547851,
+        "2026-01": 6.5574751758584515,
+        "2026-02": -0.5265764003894557,
+        "2026-03": 2.2429468690980725,
+        "2026-04": 1.4771553355358291,
+        "2026-05": 4.706228606677354,
+        "2026-06": 2.0041893525756693,
+        "2026-07": 4.206695833695195,
+        "2026-08": -1.0827552480483837,
+        "2026-09": -0.8876974797300874,
+        "2026-10": -3.350182159457904,
+        "2026-11": 2.0474051419287154
+      }
+    },
+    {
+      "case": {
+        "period": "extended",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2026-11-05",
+        "path": "low_first",
+        "stress": false,
+        "tag": "extended_MNQ_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 53386.10000000011,
+        "net_pnl": 3386.1000000001077,
+        "return_pct": 6.772200000000206,
+        "market_days": 410,
+        "trades": 201,
+        "active_days": 173,
+        "zero_entry_days": 237,
+        "mean_trades_per_market_day": 0.4902439024390244,
+        "mean_daily_return_pct": 0.01867057854004959,
+        "geometric_daily_return_pct": 0.015983571633970683,
+        "mean_daily_pnl": 8.25878048780514,
+        "max_minute_mark_drawdown_pct": 17.42948148258799,
+        "profit_factor": 1.0738196507949653,
+        "win_rate_pct": 39.30348258706468,
+        "worst_daily_return_pct": -1.8481069420469343,
+        "best_daily_return_pct": 3.124845488257133,
+        "trades_by_symbol": {
+          "MNQ": 201
+        },
+        "daily_trade_count_histogram": {
+          "0": 237,
+          "1": 145,
+          "2": 28
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.7973081764782839,
+        "net_r": 9.793288836159011,
+        "without_best_five": -1518.4999999999936,
+        "fixed_fill_stress_net_pnl": 1908.5
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 6
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ],
+      "monthly_returns": {
+        "2025-04": 4.238600000000026,
+        "2025-05": -0.5965160698628624,
+        "2025-06": -2.022258938704935,
+        "2025-07": -3.89691237512495,
+        "2025-08": -0.7455527175673105,
+        "2025-09": -4.296256213999139,
+        "2025-10": -0.4870658866130917,
+        "2025-11": -0.37755079912390466,
+        "2025-12": -1.8102305453547851,
+        "2026-01": 6.5574751758584515,
+        "2026-02": -0.5265764003894557,
+        "2026-03": 2.2429468690980725,
+        "2026-04": 1.4771553355358291,
+        "2026-05": 4.706228606677354,
+        "2026-06": 2.0041893525756693,
+        "2026-07": 4.206695833695195,
+        "2026-08": -1.0827552480483837,
+        "2026-09": -0.8876974797300874,
+        "2026-10": -3.350182159457904,
+        "2026-11": 2.0474051419287154
+      }
+    },
+    {
+      "case": {
+        "period": "extended",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2026-11-05",
+        "path": "high_first",
+        "stress": false,
+        "tag": "extended_combined_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 70873.90000000014,
+        "net_pnl": 20873.90000000014,
+        "return_pct": 41.74780000000029,
+        "market_days": 410,
+        "trades": 334,
+        "active_days": 246,
+        "zero_entry_days": 164,
+        "mean_trades_per_market_day": 0.8146341463414634,
+        "mean_daily_return_pct": 0.08993620339144104,
+        "geometric_daily_return_pct": 0.08512871057431148,
+        "mean_daily_pnl": 50.91195121951254,
+        "max_minute_mark_drawdown_pct": 25.19472182331628,
+        "profit_factor": 1.2660868323736725,
+        "win_rate_pct": 42.51497005988024,
+        "worst_daily_return_pct": -2.671234401274014,
+        "best_daily_return_pct": 3.788476257271789,
+        "trades_by_symbol": {
+          "MCL": 132,
+          "MNQ": 202
+        },
+        "daily_trade_count_histogram": {
+          "0": 164,
+          "1": 171,
+          "3": 13,
+          "2": 62
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7979670155135271,
+        "net_r": 38.854246608293224,
+        "without_best_five": 14365.900000000069,
+        "fixed_fill_stress_net_pnl": 15991.000000000065
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 7
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ],
+      "monthly_returns": {
+        "2025-04": 5.799400000000032,
+        "2025-05": -4.669213625030055,
+        "2025-06": -5.4574982599540744,
+        "2025-07": -1.2825756384039155,
+        "2025-08": -3.3093953172141144,
+        "2025-09": -6.40079633650047,
+        "2025-10": 0.5763519620617608,
+        "2025-11": 1.4002941107817968,
+        "2025-12": -0.3600293732403781,
+        "2026-01": 5.201631068858514,
+        "2026-02": -1.0793657765284959,
+        "2026-03": 6.602359888554732,
+        "2026-04": 6.100357154013603,
+        "2026-05": 8.929924353946639,
+        "2026-06": 4.2025392180534915,
+        "2026-07": 7.669934307112225,
+        "2026-08": 5.2684324470169575,
+        "2026-09": 4.849448322999472,
+        "2026-10": -0.5319814563138237,
+        "2026-11": 3.679566287197189
+      }
+    },
+    {
+      "case": {
+        "period": "extended",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2026-11-05",
+        "path": "low_first",
+        "stress": false,
+        "tag": "extended_combined_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 70873.90000000014,
+        "net_pnl": 20873.90000000014,
+        "return_pct": 41.74780000000029,
+        "market_days": 410,
+        "trades": 334,
+        "active_days": 246,
+        "zero_entry_days": 164,
+        "mean_trades_per_market_day": 0.8146341463414634,
+        "mean_daily_return_pct": 0.08993620339144104,
+        "geometric_daily_return_pct": 0.08512871057431148,
+        "mean_daily_pnl": 50.91195121951254,
+        "max_minute_mark_drawdown_pct": 25.19472182331628,
+        "profit_factor": 1.2660868323736725,
+        "win_rate_pct": 42.51497005988024,
+        "worst_daily_return_pct": -2.671234401274014,
+        "best_daily_return_pct": 3.788476257271789,
+        "trades_by_symbol": {
+          "MCL": 132,
+          "MNQ": 202
+        },
+        "daily_trade_count_histogram": {
+          "0": 164,
+          "1": 171,
+          "3": 13,
+          "2": 62
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7979670155135271,
+        "net_r": 38.854246608293224,
+        "without_best_five": 14365.900000000069,
+        "fixed_fill_stress_net_pnl": 15991.000000000065
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 7
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ],
+      "monthly_returns": {
+        "2025-04": 5.799400000000032,
+        "2025-05": -4.669213625030055,
+        "2025-06": -5.4574982599540744,
+        "2025-07": -1.2825756384039155,
+        "2025-08": -3.3093953172141144,
+        "2025-09": -6.40079633650047,
+        "2025-10": 0.5763519620617608,
+        "2025-11": 1.4002941107817968,
+        "2025-12": -0.3600293732403781,
+        "2026-01": 5.201631068858514,
+        "2026-02": -1.0793657765284959,
+        "2026-03": 6.602359888554732,
+        "2026-04": 6.100357154013603,
+        "2026-05": 8.929924353946639,
+        "2026-06": 4.2025392180534915,
+        "2026-07": 7.669934307112225,
+        "2026-08": 5.2684324470169575,
+        "2026-09": 4.849448322999472,
+        "2026-10": -0.5319814563138237,
+        "2026-11": 3.679566287197189
+      }
+    },
+    {
+      "case": {
+        "period": "control",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2026-05-01",
+        "end": "2026-11-05",
+        "path": "high_first",
+        "stress": false,
+        "tag": "control_MCL_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 62591.200000000004,
+        "net_pnl": 12591.200000000004,
+        "return_pct": 25.182400000000005,
+        "market_days": 134,
+        "trades": 59,
+        "active_days": 55,
+        "zero_entry_days": 79,
+        "mean_trades_per_market_day": 0.44029850746268656,
+        "mean_daily_return_pct": 0.17103534162054138,
+        "geometric_daily_return_pct": 0.1677537492275949,
+        "mean_daily_pnl": 93.96417910447765,
+        "max_minute_mark_drawdown_pct": 4.900501615990489,
+        "profit_factor": 2.017240543553789,
+        "win_rate_pct": 52.54237288135593,
+        "worst_daily_return_pct": -0.9938002658909206,
+        "best_daily_return_pct": 1.8867860141005721,
+        "trades_by_symbol": {
+          "MCL": 59
+        },
+        "daily_trade_count_histogram": {
+          "0": 79,
+          "1": 51,
+          "2": 4
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.43981893010411305,
+        "net_r": 24.22805263820569,
+        "without_best_five": 7127.500000000051,
+        "fixed_fill_stress_net_pnl": 11277.000000000045
+      },
+      "rejections": {},
+      "roll_marks": [],
+      "monthly_returns": {
+        "2026-05": 2.9285999999999923,
+        "2026-06": 1.6963215277386645,
+        "2026-07": 1.4396997934551958,
+        "2026-08": 6.636178019543859,
+        "2026-09": 5.974493941427905,
+        "2026-10": 2.407977812002038,
+        "2026-11": 1.8718740387134947
+      }
+    },
+    {
+      "case": {
+        "period": "control",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2026-05-01",
+        "end": "2026-11-05",
+        "path": "low_first",
+        "stress": false,
+        "tag": "control_MCL_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 62591.200000000004,
+        "net_pnl": 12591.200000000004,
+        "return_pct": 25.182400000000005,
+        "market_days": 134,
+        "trades": 59,
+        "active_days": 55,
+        "zero_entry_days": 79,
+        "mean_trades_per_market_day": 0.44029850746268656,
+        "mean_daily_return_pct": 0.17103534162054138,
+        "geometric_daily_return_pct": 0.1677537492275949,
+        "mean_daily_pnl": 93.96417910447765,
+        "max_minute_mark_drawdown_pct": 4.900501615990489,
+        "profit_factor": 2.017240543553789,
+        "win_rate_pct": 52.54237288135593,
+        "worst_daily_return_pct": -0.9938002658909206,
+        "best_daily_return_pct": 1.8867860141005721,
+        "trades_by_symbol": {
+          "MCL": 59
+        },
+        "daily_trade_count_histogram": {
+          "0": 79,
+          "1": 51,
+          "2": 4
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.43981893010411305,
+        "net_r": 24.22805263820569,
+        "without_best_five": 7127.500000000051,
+        "fixed_fill_stress_net_pnl": 11277.000000000045
+      },
+      "rejections": {},
+      "roll_marks": [],
+      "monthly_returns": {
+        "2026-05": 2.9285999999999923,
+        "2026-06": 1.6963215277386645,
+        "2026-07": 1.4396997934551958,
+        "2026-08": 6.636178019543859,
+        "2026-09": 5.974493941427905,
+        "2026-10": 2.407977812002038,
+        "2026-11": 1.8718740387134947
+      }
+    },
+    {
+      "case": {
+        "period": "control",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2026-05-01",
+        "end": "2026-11-05",
+        "path": "high_first",
+        "stress": false,
+        "tag": "control_MNQ_50000_high_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 53789.10000000012,
+        "net_pnl": 3789.1000000001222,
+        "return_pct": 7.578200000000246,
+        "market_days": 134,
+        "trades": 76,
+        "active_days": 66,
+        "zero_entry_days": 68,
+        "mean_trades_per_market_day": 0.5671641791044776,
+        "mean_daily_return_pct": 0.05766804902055721,
+        "geometric_daily_return_pct": 0.054528173880119546,
+        "mean_daily_pnl": 28.276865671642703,
+        "max_minute_mark_drawdown_pct": 6.598072941522878,
+        "profit_factor": 1.2210315701052339,
+        "win_rate_pct": 43.421052631578945,
+        "worst_daily_return_pct": -1.9309078868641305,
+        "best_daily_return_pct": 3.1010794896958016,
+        "trades_by_symbol": {
+          "MNQ": 76
+        },
+        "daily_trade_count_histogram": {
+          "0": 68,
+          "1": 56,
+          "2": 10
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.7677621923853164,
+        "net_r": 11.778694531808807,
+        "without_best_five": -1086.4999999999955,
+        "fixed_fill_stress_net_pnl": 3364.5
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ],
+      "monthly_returns": {
+        "2026-05": 4.941800000000018,
+        "2026-06": 1.7424896466422757,
+        "2026-07": 4.174939870975569,
+        "2026-08": -1.0749091955263523,
+        "2026-09": -0.8811949934746321,
+        "2026-10": -3.325423517459647,
+        "2026-11": 2.0317538601616114
+      }
+    },
+    {
+      "case": {
+        "period": "control",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2026-05-01",
+        "end": "2026-11-05",
+        "path": "low_first",
+        "stress": false,
+        "tag": "control_MNQ_50000_low_first_base"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 53789.10000000012,
+        "net_pnl": 3789.1000000001222,
+        "return_pct": 7.578200000000246,
+        "market_days": 134,
+        "trades": 76,
+        "active_days": 66,
+        "zero_entry_days": 68,
+        "mean_trades_per_market_day": 0.5671641791044776,
+        "mean_daily_return_pct": 0.05766804902055721,
+        "geometric_daily_return_pct": 0.054528173880119546,
+        "mean_daily_pnl": 28.276865671642703,
+        "max_minute_mark_drawdown_pct": 6.598072941522878,
+        "profit_factor": 1.2210315701052339,
+        "win_rate_pct": 43.421052631578945,
+        "worst_daily_return_pct": -1.9309078868641305,
+        "best_daily_return_pct": 3.1010794896958016,
+        "trades_by_symbol": {
+          "MNQ": 76
+        },
+        "daily_trade_count_histogram": {
+          "0": 68,
+          "1": 56,
+          "2": 10
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.7677621923853164,
+        "net_r": 11.778694531808807,
+        "without_best_five": -1086.4999999999955,
+        "fixed_fill_stress_net_pnl": 3364.5
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [
+        {
+          "symbol": "MNQ",
+          "last_mark": "2026-09-11T20:00:00+00:00",
+          "booked_at": "2026-09-13T22:00:00+00:00"
+        }
+      ],
+      "monthly_returns": {
+        "2026-05": 4.941800000000018,
+        "2026-06": 1.7424896466422757,
+        "2026-07": 4.174939870975569,
+        "2026-08": -1.0749091955263523,
+        "2026-09": -0.8811949934746321,
+        "2026-10": -3.325423517459647,
+        "2026-11": 2.0317538601616114
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": true,
+        "tag": "earlier_MCL_50000_high_first_stress"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 44992.99999999999,
+        "net_pnl": -5007.000000000007,
+        "return_pct": -10.014000000000012,
+        "market_days": 149,
+        "trades": 35,
+        "active_days": 34,
+        "zero_entry_days": 115,
+        "mean_trades_per_market_day": 0.2348993288590604,
+        "mean_daily_return_pct": -0.0697692696666266,
+        "geometric_daily_return_pct": -0.07079109457058808,
+        "mean_daily_pnl": -33.604026845637634,
+        "max_minute_mark_drawdown_pct": 13.097502093905502,
+        "profit_factor": 0.4741650913673607,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.7982437712701138,
+        "best_daily_return_pct": 1.5937459508487128,
+        "trades_by_symbol": {
+          "MCL": 35
+        },
+        "daily_trade_count_histogram": {
+          "0": 115,
+          "1": 33,
+          "2": 1
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.31064070765381147,
+        "net_r": -10.959007633291142,
+        "without_best_five": -8207.999999999985,
+        "fixed_fill_stress_net_pnl": null
+      },
+      "rejections": {},
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.1500000000000066,
+        "2025-05": -4.3697478991596705,
+        "2025-06": -4.257210792928778,
+        "2025-07": 2.140111432643721,
+        "2025-08": -3.0953337420977722,
+        "2025-09": -2.3432897693801413,
+        "2025-10": 0.5227998838222225
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MCL",
+        "basket": {
+          "MCL": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": true,
+        "tag": "earlier_MCL_50000_low_first_stress"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 44992.99999999999,
+        "net_pnl": -5007.000000000007,
+        "return_pct": -10.014000000000012,
+        "market_days": 149,
+        "trades": 35,
+        "active_days": 34,
+        "zero_entry_days": 115,
+        "mean_trades_per_market_day": 0.2348993288590604,
+        "mean_daily_return_pct": -0.0697692696666266,
+        "geometric_daily_return_pct": -0.07079109457058808,
+        "mean_daily_pnl": -33.604026845637634,
+        "max_minute_mark_drawdown_pct": 13.097502093905502,
+        "profit_factor": 0.4741650913673607,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.7982437712701138,
+        "best_daily_return_pct": 1.5937459508487128,
+        "trades_by_symbol": {
+          "MCL": 35
+        },
+        "daily_trade_count_histogram": {
+          "0": 115,
+          "1": 33,
+          "2": 1
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.31064070765381147,
+        "net_r": -10.959007633291142,
+        "without_best_five": -8207.999999999985,
+        "fixed_fill_stress_net_pnl": null
+      },
+      "rejections": {},
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 1.1500000000000066,
+        "2025-05": -4.3697478991596705,
+        "2025-06": -4.257210792928778,
+        "2025-07": 2.140111432643721,
+        "2025-08": -3.0953337420977722,
+        "2025-09": -2.3432897693801413,
+        "2025-10": 0.5227998838222225
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": true,
+        "tag": "earlier_MNQ_50000_high_first_stress"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 45343.0,
+        "net_pnl": -4657.0,
+        "return_pct": -9.314,
+        "market_days": 149,
+        "trades": 70,
+        "active_days": 60,
+        "zero_entry_days": 89,
+        "mean_trades_per_market_day": 0.4697986577181208,
+        "mean_daily_return_pct": -0.06320368436585344,
+        "geometric_daily_return_pct": -0.06559404534332014,
+        "mean_daily_pnl": -31.25503355704698,
+        "max_minute_mark_drawdown_pct": 18.402041140571406,
+        "profit_factor": 0.744303519464119,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.856236028711289,
+        "best_daily_return_pct": 1.838826653468728,
+        "trades_by_symbol": {
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 89,
+          "1": 50,
+          "2": 10
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.7978317363920213,
+        "net_r": -12.373345388855709,
+        "without_best_five": -9161.0,
+        "fixed_fill_stress_net_pnl": null
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 4.231000000000029,
+        "2025-05": -0.7943893851157457,
+        "2025-06": -2.7533050298347406,
+        "2025-07": -3.9530212021162248,
+        "2025-08": -0.8790548865719061,
+        "2025-09": -4.248318221702274,
+        "2025-10": -1.0680194185348824
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "MNQ",
+        "basket": {
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": true,
+        "tag": "earlier_MNQ_50000_low_first_stress"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 45343.0,
+        "net_pnl": -4657.0,
+        "return_pct": -9.314,
+        "market_days": 149,
+        "trades": 70,
+        "active_days": 60,
+        "zero_entry_days": 89,
+        "mean_trades_per_market_day": 0.4697986577181208,
+        "mean_daily_return_pct": -0.06320368436585344,
+        "geometric_daily_return_pct": -0.06559404534332014,
+        "mean_daily_pnl": -31.25503355704698,
+        "max_minute_mark_drawdown_pct": 18.402041140571406,
+        "profit_factor": 0.744303519464119,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -1.856236028711289,
+        "best_daily_return_pct": 1.838826653468728,
+        "trades_by_symbol": {
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 89,
+          "1": 50,
+          "2": 10
+        },
+        "max_positions": 1,
+        "max_reserved_fraction": 0.7978317363920213,
+        "net_r": -12.373345388855709,
+        "without_best_five": -9161.0,
+        "fixed_fill_stress_net_pnl": null
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 4.231000000000029,
+        "2025-05": -0.7943893851157457,
+        "2025-06": -2.7533050298347406,
+        "2025-07": -3.9530212021162248,
+        "2025-08": -0.8790548865719061,
+        "2025-09": -4.248318221702274,
+        "2025-10": -1.0680194185348824
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "high_first",
+        "stress": true,
+        "tag": "earlier_combined_50000_high_first_stress"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 41173.49999999999,
+        "net_pnl": -8826.500000000007,
+        "return_pct": -17.65300000000002,
+        "market_days": 149,
+        "trades": 105,
+        "active_days": 82,
+        "zero_entry_days": 67,
+        "mean_trades_per_market_day": 0.7046979865771812,
+        "mean_daily_return_pct": -0.12681659635084758,
+        "geometric_daily_return_pct": -0.13026954519798073,
+        "mean_daily_pnl": -59.238255033557095,
+        "max_minute_mark_drawdown_pct": 27.1215216559856,
+        "profit_factor": 0.664512818563637,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -2.6448610722465737,
+        "best_daily_return_pct": 1.8558901313042275,
+        "trades_by_symbol": {
+          "MCL": 35,
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 67,
+          "1": 63,
+          "3": 4,
+          "2": 15
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7970781720471092,
+        "net_r": -23.332353022146858,
+        "without_best_five": -13312.500000000002,
+        "fixed_fill_stress_net_pnl": null
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 5.380999999999991,
+        "2025-05": -5.209667776923721,
+        "2025-06": -6.829444094062476,
+        "2025-07": -1.6901438717510597,
+        "2025-08": -3.396869808516201,
+        "2025-09": -6.39905869575057,
+        "2025-10": -0.46535802349756406
+      }
+    },
+    {
+      "case": {
+        "period": "earlier",
+        "name": "combined",
+        "basket": {
+          "MCL": 5,
+          "MNQ": 5
+        },
+        "capital": 50000,
+        "start": "2025-04-07",
+        "end": "2025-11-03",
+        "path": "low_first",
+        "stress": true,
+        "tag": "earlier_combined_50000_low_first_stress"
+      },
+      "stats": {
+        "initial_equity": 50000.0,
+        "ending_equity": 41173.49999999999,
+        "net_pnl": -8826.500000000007,
+        "return_pct": -17.65300000000002,
+        "market_days": 149,
+        "trades": 105,
+        "active_days": 82,
+        "zero_entry_days": 67,
+        "mean_trades_per_market_day": 0.7046979865771812,
+        "mean_daily_return_pct": -0.12681659635084758,
+        "geometric_daily_return_pct": -0.13026954519798073,
+        "mean_daily_pnl": -59.238255033557095,
+        "max_minute_mark_drawdown_pct": 27.1215216559856,
+        "profit_factor": 0.664512818563637,
+        "win_rate_pct": 31.428571428571427,
+        "worst_daily_return_pct": -2.6448610722465737,
+        "best_daily_return_pct": 1.8558901313042275,
+        "trades_by_symbol": {
+          "MCL": 35,
+          "MNQ": 70
+        },
+        "daily_trade_count_histogram": {
+          "0": 67,
+          "1": 63,
+          "3": 4,
+          "2": 15
+        },
+        "max_positions": 2,
+        "max_reserved_fraction": 0.7970781720471092,
+        "net_r": -23.332353022146858,
+        "without_best_five": -13312.500000000002,
+        "fixed_fill_stress_net_pnl": null
+      },
+      "rejections": {
+        "capital_or_risk_below_one_unit": 3
+      },
+      "roll_marks": [],
+      "monthly_returns": {
+        "2025-04": 5.380999999999991,
+        "2025-05": -5.209667776923721,
+        "2025-06": -6.829444094062476,
+        "2025-07": -1.6901438717510597,
+        "2025-08": -3.396869808516201,
+        "2025-09": -6.39905869575057,
+        "2025-10": -0.46535802349756406
+      }
+    }
+  ],
+  "audit": {
+    "status": "passed",
+    "cases": 34,
+    "simulated_trade_records": 2698,
+    "unique_entry_opens": 335,
+    "controls": [
+      {
+        "tag": "control_MCL_50000_high_first_base",
+        "status": "passed",
+        "reference": "research\\results\\pool_portfolios\\later_mcl_only_50000_high_first.json.gz",
+        "sha256": "ba6608caa89667857454a656200871d012043d2820216effeebabf3141735ffb"
+      },
+      {
+        "tag": "control_MCL_50000_low_first_base",
+        "status": "passed",
+        "reference": "research\\results\\pool_portfolios\\later_mcl_only_50000_low_first.json.gz",
+        "sha256": "bce6ef6900e027476ee18b8e08bfd987e7eceb46134d7189edd13e57397ed0ad"
+      },
+      {
+        "tag": "control_MNQ_50000_high_first_base",
+        "status": "passed",
+        "reference": "fresh original ClockPortfolio replay"
+      },
+      {
+        "tag": "control_MNQ_50000_low_first_base",
+        "status": "passed",
+        "reference": "fresh original ClockPortfolio replay"
+      }
+    ],
+    "report_source_sha256": "db3c5292ddb624ea0dc27d8aa444a9fb710f181e03cff7fe1504b7713b317c8a",
+    "test_source_sha256": "05b5c86d629015aaa86c1145c2219d75a360675ab1f653b2023c9d35e11d0611",
+    "journal_sha256": {
+      "research\\results\\five_minute_validation\\earlier_MCL_1000_high_first_base.json.gz": "c8fab10792b8c645a9e03e2737386ef314dfa2927dd5494646cc4130101cecde",
+      "research\\results\\five_minute_validation\\earlier_MCL_1000_low_first_base.json.gz": "34a87a3e66b50c44876fafefe47c69224b163fc510425c56ca5f939517370baa",
+      "research\\results\\five_minute_validation\\earlier_MCL_10000_high_first_base.json.gz": "b1cd97307ec1108443f30dd098587ebf000d338eac158f741989fed23c17e5d9",
+      "research\\results\\five_minute_validation\\earlier_MCL_10000_low_first_base.json.gz": "f223e2711e4f1fdf2523dddf74f16b8ea2d2d25652f46f1b1d7b86800c4035db",
+      "research\\results\\five_minute_validation\\earlier_MCL_50000_high_first_base.json.gz": "7197a4009d5d82fdb26caea17285d5716890cbd10ab8cb1c4d11072fad574ddc",
+      "research\\results\\five_minute_validation\\earlier_MCL_50000_low_first_base.json.gz": "293e6506c8abc403b64e590e21e2b83136f3b5d77db679247d83c7e7213899ec",
+      "research\\results\\five_minute_validation\\earlier_MNQ_1000_high_first_base.json.gz": "3fbfbb932ad50912ee9d2302c2d828fa01931919b53c5942501fc45a2e54df15",
+      "research\\results\\five_minute_validation\\earlier_MNQ_1000_low_first_base.json.gz": "3af35e58fa54a485e395dfc739ef46403ccca2954bc40a14724e5d5f49fbce4b",
+      "research\\results\\five_minute_validation\\earlier_MNQ_10000_high_first_base.json.gz": "28b67aee684e35754ea86bcfb6b817c45e1e8c5adbe9b4462dfaec91efa8c40c",
+      "research\\results\\five_minute_validation\\earlier_MNQ_10000_low_first_base.json.gz": "7a090cf481ce2ddadbb644ee5408d69e74e2a5dec0bc0fed7313ac4ef925b5ad",
+      "research\\results\\five_minute_validation\\earlier_MNQ_50000_high_first_base.json.gz": "401251a56b57005ca5655c93fde25dddc4939bfbaea92de1796d64a4f685de38",
+      "research\\results\\five_minute_validation\\earlier_MNQ_50000_low_first_base.json.gz": "a65cdf76af06181cfbcadaa685ab35288efd001b1219b3d58548f4d8998c8f10",
+      "research\\results\\five_minute_validation\\earlier_combined_1000_high_first_base.json.gz": "4c32f90ba25b216935e211fc0ec9bef3a0c65506cd267f7479b16b47efaab452",
+      "research\\results\\five_minute_validation\\earlier_combined_1000_low_first_base.json.gz": "d33d568372c89897b554a9a866707dbb0cd0462235e83a1a893845722fb5fb17",
+      "research\\results\\five_minute_validation\\earlier_combined_10000_high_first_base.json.gz": "96208df7cc2a85bb75a1dd6cfaa491353dd588d23865bf70555e0161cd47da3e",
+      "research\\results\\five_minute_validation\\earlier_combined_10000_low_first_base.json.gz": "fb08da949f11dd06c29b8cf5badccb330be36e1f853006dc1f5edf4da10d97c7",
+      "research\\results\\five_minute_validation\\earlier_combined_50000_high_first_base.json.gz": "276debf83d903ee4ca3b2edd818fdcd5960b787effae8b636e562317287ba380",
+      "research\\results\\five_minute_validation\\earlier_combined_50000_low_first_base.json.gz": "c799e6e5466285f2399cc294c3d42e91fe6aa194cb4e24c967ac009ce10164b3",
+      "research\\results\\five_minute_validation\\extended_MCL_50000_high_first_base.json.gz": "2f79b67c1a1b3277be3794f16b4915e85d56534334fac82c1fccd8ef78f4b6d4",
+      "research\\results\\five_minute_validation\\extended_MCL_50000_low_first_base.json.gz": "8a1e24fb625707537f9866b92888ad348bfddbd3361348b980df85376eea73e6",
+      "research\\results\\five_minute_validation\\extended_MNQ_50000_high_first_base.json.gz": "0be167834a3515d9d141f1a81b748ca9e32a901cbe17e02e9e25d4fcb3a58adb",
+      "research\\results\\five_minute_validation\\extended_MNQ_50000_low_first_base.json.gz": "8bb30775a86bb5ee38cd27bd6df11110c90df5df77eca37cace503b36d0b3d66",
+      "research\\results\\five_minute_validation\\extended_combined_50000_high_first_base.json.gz": "ea849a1334489499112834da1e9fd3edb782b8a255db924597a54b01fb534270",
+      "research\\results\\five_minute_validation\\extended_combined_50000_low_first_base.json.gz": "8f4d48d513ee89fe1c9f0c3cead69c38d033604b856ecc80d29e9a15001ebe8f",
+      "research\\results\\five_minute_validation\\control_MCL_50000_high_first_base.json.gz": "0835cee875a742ce986af9d4e8300c29175784756ef60396f0941003fc742903",
+      "research\\results\\five_minute_validation\\control_MCL_50000_low_first_base.json.gz": "c058a48124d932443d1ab5148d174f6191f10c056192bdf5d7c0de853b0e3938",
+      "research\\results\\five_minute_validation\\control_MNQ_50000_high_first_base.json.gz": "b277f567a6866e36a970667d84bc9afc5d2dc6c2ba9dc61d73d58613ddb43893",
+      "research\\results\\five_minute_validation\\control_MNQ_50000_low_first_base.json.gz": "c10cce129e6b6fd88f26910927d0786c7ff954c3143255e8d95cde9d62e4f8ce",
+      "research\\results\\five_minute_validation\\earlier_MCL_50000_high_first_stress.json.gz": "6612257b865601333f457274987c786a3770a1a258102df5342406faf6bb7382",
+      "research\\results\\five_minute_validation\\earlier_MCL_50000_low_first_stress.json.gz": "eb37377341e8da4ed8d0eb99cfc9d0948683d73f8e17c44deaea627ac9097b6b",
+      "research\\results\\five_minute_validation\\earlier_MNQ_50000_high_first_stress.json.gz": "18d678bd10d68066026cf65d7f488448651472a7549d0b20171572bfb01080ef",
+      "research\\results\\five_minute_validation\\earlier_MNQ_50000_low_first_stress.json.gz": "8f00a0655f3d35e56022560496c1e18685386a31609a1c03f4f2c0d128e80f3c",
+      "research\\results\\five_minute_validation\\earlier_combined_50000_high_first_stress.json.gz": "b4d8aef881be0c03b4bd55cfbad20625bcb9a660107dcae9b8d2de8dcaed0f5a",
+      "research\\results\\five_minute_validation\\earlier_combined_50000_low_first_stress.json.gz": "c3f01b81225acde54c9fc4be0ede451787a97898a1f690c0fddf97722729ef90"
+    }
+  }
+}
